@@ -7,3 +7,6 @@ open the index.html file in web browser.
 
 Controls:
 Press SPACE to jump!
+
+Rules:
+Land on the Green block to Win!
