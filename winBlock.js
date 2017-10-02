@@ -1,4 +1,4 @@
-
+/*
 function winBlock(x,y,w,h) {
 	ball = new Ball();
 	
@@ -74,3 +74,4 @@ function rollBlock(x,y,w,h) {
 	}
 	
 }
+*/
