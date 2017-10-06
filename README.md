@@ -7,6 +7,9 @@ open the index.html file in web browser.
 
 Controls:
 Press SPACE to jump!
+Press ENTER to go to the Menu!
 
 Rules:
 Land on the Green block to Win!
+You can only jump once and can only jump again once you hit a block.
+
