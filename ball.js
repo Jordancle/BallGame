@@ -4,7 +4,7 @@ function Ball() {
 	
 	this.gravity = 1;
 	this.yVelocity = 0;
-	this.jumps = 1;
+	this.jumps = 0;
 	
 	this.drag = 0.5;
 	this.xVelocity = 0;
@@ -33,9 +33,11 @@ function Ball() {
 		if (this.y > height) {
 			this.y = height;
 			
-			this.yVelocity = -this.yVelocity*0.7;		//
-			//this.bounce /= 1.4;
-			
+			this.x = 64;
+			this.y = height/2;
+			this.yVelocity = 0;
+			this.xVelocity = 0;
+			this.jumps = 0;
 		}
 		if (this.y < 0) {
 			this.y = 0;
