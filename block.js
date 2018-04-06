@@ -5,7 +5,7 @@ class Block {
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		this.win = false;
+		//this.win = false;
 	}
 
 	hitLeft(ball) {
@@ -30,7 +30,7 @@ class Block {
 	}
 }
 
-class regBlock extends Block {
+class RegBlock extends Block {
 	constructor(x,y,w,h) {
 		super(x,y,w,h);
 	}
@@ -63,7 +63,7 @@ class regBlock extends Block {
 	}
 }
 
-class winBlock extends Block {
+class WinBlock extends Block {
 	constructor(x,y,w,h) {
 		super(x,y,w,h);
 	}	
@@ -91,8 +91,8 @@ class winBlock extends Block {
 			
 			textSize(50);
 			fill(255);
-			text("YOU WIN!",350,300);
-			win = true;
+			text("YOU WIN!",10,50);
+			ball.win = true;
 		}		
 	}
 
@@ -102,7 +102,7 @@ class winBlock extends Block {
 	}
 }
 
-class rollBlock extends Block {
+class RollBlock extends Block {
 	constructor(x,y,w,h) {
 		super(x,y,w,h);
 	}	
@@ -118,13 +118,14 @@ class rollBlock extends Block {
 			ball.jumps = 1;
 		}
 		if (this.hitBottom(ball) == true) {
-			ball.yVelocity = 0
+			ball.yVelocity = 0;
 			ball.y = this.y+this.h+16;
 			ball.jumps = 1;
 		}
-		if (ball.x > this.x-15 && ball.x < this.x+this.w+15 && ball.y < this.y+(this.h)+20 && ball.y > this.y-16) {
+		//if (ball.x > this.x-15 && ball.x < this.x+this.w+15 && ball.y < this.y+(this.h)+20 && ball.y > this.y-16) {
+		if (this.hitTop(ball) == true) {
 			ball.yVelocity = 0;	
-			ball.xVelocity = -3
+			ball.xVelocity = -3;
 			ball.y = this.y-16;
 			ball.jumps = 1;
 		}
@@ -134,6 +135,80 @@ class rollBlock extends Block {
 		rect(this.x,this.y,this.w,this.h);
 	}
 }
+
+class FallBlock extends Block {
+	constructor(x,y,w,h) {
+		super(x,y,w,h);
+	}
+	hit() {
+		if (this.hitLeft(ball) == true) {
+			ball.xVelocity = 0;
+			ball.yVelocity = 0;
+			ball.x=this.x-15;
+			ball.jumps = 1;
+		}
+		if (this.hitRight(ball) == true) {
+			ball.xVelocity = 0;
+			ball.yVelocity = 0;
+			ball.x = this.x+this.w+16;
+			ball.jumps = 1;
+		}
+		if (this.hitBottom(ball) == true) {
+			ball.yVelocity = 0;
+			ball.xVelocity = 0;
+			ball.y = this.y+this.h+16;
+			ball.jumps = 1;
+		}
+		if (this.hitTop(ball) == true) {
+			ball.yVelocity = -ball.yVelocity*0.7;	
+			ball.y = this.y-16;
+			ball.jumps = 1;
+		}
+	}
+		show() {
+			fill(255,0,255);
+			rect(this.x,this.y,this.w,this.h);
+		}
+}
+
+class ReverseBlock extends Block {
+	constructor(x,y,w,h) {
+		super(x,y,w,h);
+	}
+	show() {
+		fill(255, 255, 0);
+		rect(this.x,this.y,this.w,this.h);
+
+	}
+	hit() {
+		
+		if (this.hitLeft(ball) == true) {
+			ball.xVelocity = -ball.xVelocity
+			ball.x = this.x-16;
+			ball.jumps = 1;
+			ball.reverse = true;
+		}
+		if (this.hitRight(ball) == true) {
+			ball.xVelocity = -ball.xVelocity
+			ball.x = this.x+this.w+16;
+			ball.jumps = 1;
+			ball.reverse = true;
+		}		
+		if (this.hitBottom(ball) == true) {
+			ball.yVelocity = 0
+			ball.y = this.y+this.h+16;
+			ball.jumps = 1;
+			ball.reverse = true;
+		}
+		if (this.hitTop(ball) == true) {
+			ball.yVelocity = -ball.yVelocity*0.7;	
+			ball.y = this.y-16;
+			ball.jumps = 1;
+			ball.reverse = true;
+		}
+	}
+}
+	
 /*
 function Block(x,y,w,h) {
 	ball = new Ball();

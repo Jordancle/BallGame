@@ -1,6 +1,6 @@
 function Ball() {
-	this.y = height/2;
-	this.x = 64;
+	this.y;
+	this.x;
 	
 	this.gravity = 1;
 	this.yVelocity = 0;
@@ -8,10 +8,28 @@ function Ball() {
 	
 	this.drag = 0.5;
 	this.xVelocity = 0;
+	this.win = false;
+	
+	this.reverse = false;
+	
+	this.needUpdate = true;
+	this.trails = 0;
+	
+	this.start = function(levels) {
+		this.x = levels.startX;
+		this.y = levels.startY;
+		this.jumps = 0;
+		this.win = false;
+		this.reverse = false;
+	}
 	
 	this.show = function() {
 		if (this.jumps == 1) {
-			fill(255);
+			if (this.reverse == false) {
+				fill(255)
+			} else {
+				fill(255, 255, 0);
+			}
 		} else if (this.jumps == 0) {
 			fill (100);
 		} else {
@@ -20,7 +38,7 @@ function Ball() {
 		ellipse(this.x, this.y, 32, 32);
 	}
 
-	this.update = function() {
+	this.update = function(levels) {
 		this.yVelocity += this.gravity;
 		this.y += this.yVelocity;
 		this.x += this.xVelocity
@@ -33,11 +51,11 @@ function Ball() {
 		if (this.y > height) {
 			this.y = height;
 			
-			this.x = 64;
-			this.y = height/2;
+			this.start(levels);
 			this.yVelocity = 0;
 			this.xVelocity = 0;
 			this.jumps = 0;
+			this.trails++;
 		}
 		if (this.y < 0) {
 			this.y = 0;
