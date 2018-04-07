@@ -11,7 +11,7 @@ function Levels() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
-		blocks.push(new WinBlock(150,50,230,20));
+		blocks.push(new WinBlock(150,50,100,20));
 		blocks.push(new RegBlock(25, 175, 50, 50));
 		blocks.push(new RegBlock(250, 275, 20, 225));
 		//blocks.push(new RegBlock(330, 0, 20, 520));
