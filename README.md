@@ -7,10 +7,10 @@ open the index.html file in web browser.
 
 Controls:
 Press **SPACE** to jump!<br />
-Press **ENTER** to go to the Menu! You can click on a level in the Menu to play it!
-Press **SHIFT** to reset the level!
+Press **ENTER** to go to the Menu! You can click on a level in the Menu to play it!<br />
+Press **SHIFT** to reset the level!<br />
 
 Rules:
-Land on the Green block to Win!
+Land on the Green block to Win!<br />
 You can only jump once and can only jump again once you hit a block.
 
