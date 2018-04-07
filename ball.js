@@ -18,6 +18,8 @@ function Ball() {
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
+		this.xVelocity = 0;
+		this.yVelocity = 0;
 		this.jumps = 0;
 		this.win = false;
 		this.reverse = false;

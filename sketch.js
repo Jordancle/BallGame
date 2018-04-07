@@ -28,6 +28,8 @@ function draw() {
 			text("Level 1", 80,80);
 			text("Level 2", 80,160);
 			text("Level 3", 80,240);
+			text("Level 4", 80,320);
+			ball.win = true;
 			break;
 		case 1:
 
@@ -40,6 +42,10 @@ function draw() {
 			break;
 		case 3:
 			levels.level3();
+			addTrail();
+			break;
+		case 4:
+			levels.level4();
 			addTrail();
 			break;
 		default:
@@ -131,6 +137,8 @@ function mousePressed() {
 			level = 2;
 		} else if (mouseX > 80 && mouseX < 210 && mouseY > 210 && mouseY < 245) {
 			level = 3;
+		} else if (mouseX > 80 && mouseX < 210 && mouseY > 290 && mouseY < 320) {
+			level = 4;
 		}
 	}
 	
