@@ -1,13 +1,25 @@
+// import p5 from 'p5';
+// import 'addons/p5.sound';
 var ball;
 
 var level = 0;
 
 var blocks = [];
 var trail = [];
+var jump_sfx;
+var bump_sfx;
+var win_sfx;
+
+function preload() {
+	soundFormats('mp3');
+	jump_sfx = loadSound("mb_jump.mp3");
+	bump_sfx = loadSound("sounds/smb_bump.mp3");
+	win_sfx = loadSound("sounds/smas_1up.mp3");
+}
 
 function setup() {
-	width = 400;
-	height = 600;
+	// width = 400;
+	// height = 600;
 	//createCanvas(1000 ,600);		// 400,600
 	frameRate(120);
 	/*
@@ -20,6 +32,9 @@ function setup() {
 
 function draw() {
 	switch(level) {
+		case -1:
+			levels.levelTest();
+			break;
 		case 0:
 			createCanvas(400 ,600);
 			background(223,255,247);
@@ -51,10 +66,28 @@ function draw() {
 		default:
 			level = 0;
 	}
+	
+	// Ball.drag used to be a constant 0.5
+	// Ball. gravity used to be a constant 1
+	if (keyIsDown(32)) {
+		ball.drag = 0.3;
+		ball.gravity = 0.9;
+	} else {
+		if (ball.yVelocity > 0) {
+			ball.gravity = 1;
+			ball.drag = 0.7; // 0.6
+		} else {
+			ball.gravity = 1.5;
+			ball.drag = 0.5; // 0.6
+		}
+		
+	}
 }
 
 function keyPressed() {
+
 	if (key == ' ' && ball.jumps > 0) {
+		jump_sfx.play();
 		if (ball.reverse == false) {
 			ball.yVelocity = -20;
 			ball.bounce = 1
@@ -120,6 +153,9 @@ function keyPressed() {
 		ball.yVelocity = 30;
 		ball.bounce = 1
 	}	
+	if (keyCode == 84) {
+		level = -1;
+	}
 	
 }
 
@@ -143,6 +179,7 @@ function mousePressed() {
 	}
 	
 }
+
 
 /*
  * Adds a trail to the end of the ball

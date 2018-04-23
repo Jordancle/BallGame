@@ -9,21 +9,27 @@ class Block {
 	}
 
 	hitLeft(ball) {
+		//bump_sfx.play();
 		if (ball.x >this.x-16 && ball.x <this.x && ball.y <this.y+this.h+15 && ball.y >this.y-15) {		//left
 			return true;
 		}
 	}
 	hitRight(ball) {
+		//bump_sfx.play();
 		if (ball.x >this.x+this.w && ball.x <this.x+this.w+16 && ball.y <this.y+this.h+15 && ball.y >this.y-15) {		//right
 			return true;
 		}
 	}
 	hitBottom(ball) {
+		//bump_sfx.play();
 		if (ball.x >this.x-15 && ball.x <this.x+this.w+15 && ball.y <this.y+this.h+16 && ball.y >this.y+(0.5*this.h)) {		//bottom
 			return true;
 		}
 	}
 	hitTop(ball) {
+		if (ball.yVelocity != 0) {
+		//	bump_sfx.play();
+		}
 		if (ball.x >this.x-15 && ball.x <this.x+this.w+15 && ball.y < this.y+(0.5*this.h) && ball.y >this.y-16) {		//top
 			return true;
 		} 	
@@ -56,6 +62,8 @@ class RegBlock extends Block {
 			ball.jumps = 1;
 		}
 		if (this.hitTop(ball) == true) {
+			// bump_sfx.setVolume(map(ball.yVelocity,5,20,0,1))
+			// bump_sfx.play();
 			ball.yVelocity = -ball.yVelocity*0.7;	
 			ball.y = this.y-16;
 			ball.jumps = 1;
@@ -84,8 +92,12 @@ class WinBlock extends Block {
 			ball.jumps = 1;
 		}
 		if (this.hitTop(ball) == true) {
+			console.log(ball.yVelocity);
+			if (ball.win == false) {
+				win_sfx.play();
+			}
 			ball.yVelocity = 0;	
-			ball.xVelocity = 0
+			ball.xVelocity = 0;
 			ball.y = this.y-16;
 			ball.jumps = 1;
 			

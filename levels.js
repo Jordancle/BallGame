@@ -6,24 +6,65 @@ function Levels() {
 	this.startY;
 	this.needUpdate = true;
 	
-	this.updateLevel2 = function() {
+	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
-		blocks.push(new WinBlock(150,50,100,20));
-		blocks.push(new RegBlock(25, 175, 50, 50));
-		blocks.push(new RegBlock(250, 275, 20, 225));
-		//blocks.push(new RegBlock(330, 0, 20, 520));
-		blocks.push(new RegBlock(150,500,120,100));
+		//blocks.push(new WinBlock(150,50,100,20));
+		blocks.push(new RegBlock(0, 500, 400,100  ));
+		
 		this.width = 400;
 		this.height = 600;
 		this.startX = 214;
 		this.startY = this.height/2;
 		createCanvas(this.width ,this.height);
+		background(200);
+		
+	}
+
+	
+	this.levelTest = function() {
+		background(200);
+		
+		/*
+		 * These ball functions should be before the block functions!! It took me like 1.5 hours to figure this out!!!
+		 */
+		ball.show();
+		ball.update(levels);
+		for (var i = 0; i < blocks.length; i++) {
+			blocks[i].show();
+			blocks[i].hit();
+		}
+		
+		if (levels.needUpdate) {
+			levels.updateTest();
+			levels.needUpdate = false;
+		}
+		
+		if (ball.needUpdate) {
+			ball.start(levels);
+			ball.needUpdate = false;
+		}		
+	}
+	
+	this.updateLevel2 = function() {
+		
+		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		//blocks.push(new RegBlock(200,500,200,20));
+		//blocks.push(new RollBlock(0,590,400,200));
+		blocks.push(new WinBlock(300,500,100,20));
+		blocks.push(new RegBlock(0, 550, 100, 20));
+		
+		this.width = 400;
+		this.height = 600;
+		this.startX = 40;
+		this.startY = 500;
+		createCanvas(this.width ,this.height);
 		background(102,102,153);
 		
 	}
+
 	
 	this.level2 = function() {
 		background(102,102,153);
@@ -48,6 +89,50 @@ function Levels() {
 			ball.needUpdate = false;
 		}		
 	}
+	
+	// this.updateLevel2 = function() {
+		
+		// blocks.splice(0,blocks.length);		// Removes any previous blocks
+		blocks.push(new RegBlock(200,500,200,20));
+		blocks.push(new RollBlock(0,590,400,200));
+		// blocks.push(new WinBlock(150,50,100,20));
+		// blocks.push(new RegBlock(25, 175, 50, 50));
+		// blocks.push(new RegBlock(250, 275, 20, 225));
+		blocks.push(new RegBlock(330, 0, 20, 520));
+		// blocks.push(new RegBlock(150,500,120,100));
+		// this.width = 400;
+		// this.height = 600;
+		// this.startX = 214;
+		// this.startY = this.height/2;
+		// createCanvas(this.width ,this.height);
+		// background(102,102,153);
+		
+	// }
+
+	
+	// this.level2 = function() {
+		// background(102,102,153);
+		
+		// /*
+		 // * These ball functions should be before the block functions!! It took me like 1.5 hours to figure this out!!!
+		 // */
+		// ball.show();
+		// ball.update(levels);
+		// for (var i = 0; i < blocks.length; i++) {
+			// blocks[i].show();
+			// blocks[i].hit();
+		// }
+		
+		// if (levels.needUpdate) {
+			// levels.updateLevel2();
+			// levels.needUpdate = false;
+		// }
+		
+		// if (ball.needUpdate) {
+			// ball.start(levels);
+			// ball.needUpdate = false;
+		// }		
+	// }
 	
 	this.updateLevel1 = function() {
 		
@@ -164,7 +249,7 @@ function Levels() {
 		this.startX = 40;
 		this.startY = 400;
 		createCanvas(this.width ,this.height);
-		
+		background(255,204,153);
 	}
 	
 	this.level3 = function() {
