@@ -69,18 +69,12 @@ function draw() {
 	
 	// Ball.drag used to be a constant 0.5
 	// Ball. gravity used to be a constant 1
-	if (keyIsDown(32)) {
-		ball.drag = 0.3;
+	if (keyIsDown(32) && ball.yVelocity < 0) {
 		ball.gravity = 0.9;
+		ball.drag = 0.3;
 	} else {
-		if (ball.yVelocity > 0) {
-			ball.gravity = 1;
-			ball.drag = 0.7; // 0.6
-		} else {
-			ball.gravity = 1.5;
-			ball.drag = 0.5; // 0.6
-		}
-		
+		ball.gravity = 1;
+		ball.drag = 0.7; // 0.6
 	}
 }
 
