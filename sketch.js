@@ -44,6 +44,7 @@ function draw() {
 			text("Level 2", 80,160);
 			text("Level 3", 80,240);
 			text("Level 4", 80,320);
+			text("Level 5", 80,400);
 			ball.win = true;
 			break;
 		case 1:
@@ -63,6 +64,10 @@ function draw() {
 			levels.level4();
 			addTrail();
 			break;
+		case 5:
+			levels.level5();
+			addTrail();
+			break;
 		default:
 			level = 0;
 	}
@@ -73,29 +78,15 @@ function draw() {
 		ball.gravity = 0.9;
 		ball.drag = 0.3;
 	} else {
-		ball.gravity = 1;
-		ball.drag = 0.7; // 0.6
+		ball.gravity = 1.1;
+		ball.drag = 0.5; // 0.6
 	}
 }
 
 function keyPressed() {
 
 	if (key == ' ' && ball.jumps > 0) {
-		jump_sfx.play();
-		if (ball.reverse == false) {
-			ball.yVelocity = -20;
-			ball.bounce = 1
-			ball.xVelocity = 12;
-			ball.drag = 0.5;
-			ball.jumps--;
-		} else {
-			ball.yVelocity = -20*1;
-			ball.bounce = 1
-			ball.xVelocity = -12*1.5;
-			ball.drag = 0.5;
-			ball.jumps--;
-			ball.reverse = false;
-		}
+		ball.jump();
 		
 		
 	}
@@ -154,9 +145,9 @@ function keyPressed() {
 }
 
 function mousePressed() {
-	console.log(mouseX);
-	console.log(mouseY);
-	console.log(ball.trails);
+	// console.log(mouseX);
+	// console.log(mouseY);
+	console.log(ball.yVelocity);
 	
 	if (level == 0) {
 		ball.needUpdate = true;
@@ -169,6 +160,8 @@ function mousePressed() {
 			level = 3;
 		} else if (mouseX > 80 && mouseX < 210 && mouseY > 290 && mouseY < 320) {
 			level = 4;
+		} else if (mouseX > 80 && mouseX < 369 && mouseY > 290 && mouseY < 398) {
+			level = 5;
 		}
 	}
 	
