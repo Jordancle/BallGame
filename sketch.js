@@ -74,13 +74,14 @@ function draw() {
 	
 	// Ball.drag used to be a constant 0.5
 	// Ball. gravity used to be a constant 1
-	if (keyIsDown(32) && ball.yVelocity < 0) {
+	if ((keyIsDown(32) && ball.yVelocity < 0) || (mouseIsPressed && ball.yVelocity < 0)) {
 		ball.gravity = 0.9;
 		ball.drag = 0.3;
 	} else {
 		ball.gravity = 1.1;
 		ball.drag = 0.5; // 0.6
 	}
+	
 }
 
 function keyPressed() {
@@ -145,11 +146,12 @@ function keyPressed() {
 }
 
 function mousePressed() {
-	// console.log(mouseX);
-	// console.log(mouseY);
-	console.log(ball.yVelocity);
+	console.log(mouseX);
+	console.log(mouseY);
+	// console.log(ball.yVelocity);
 	
 	if (level == 0) {
+		ball.win = false;
 		ball.needUpdate = true;
 		levels.needUpdate = true;
 		if (mouseX > 80 && mouseX < 210 && mouseY > 45 && mouseY < 85) {
@@ -165,6 +167,21 @@ function mousePressed() {
 		}
 	}
 	
+	if (mouseIsPressed && ball.jumps > 0) {
+		ball.jump();
+	}
+	
+	if (mouseIsPressed && ball.win == true) {
+		level++;
+		ball.win = false;
+		ball.needUpdate = true;
+		levels.needUpdate = true;
+		ball.yVelocity = 0;
+		ball.xVelocity = 0;
+		ball.trails = 0;
+		trail.splice(0,trail.length);	
+		//ball.jumps = 0;			
+	} 
 }
 
 
