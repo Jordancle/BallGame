@@ -18,7 +18,7 @@ function preload() {
 	jump_sfx = loadSound("sounds/mb_jump.mp3");
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
-	level_select_img = loadImage("Images/level_select_cloud.png");
+	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
 	level2_img = loadImage("Images/Level2.png");
 	level3_img = loadImage("Images/Level3.png");
