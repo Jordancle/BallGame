@@ -11,12 +11,19 @@ var bump_sfx;
 var win_sfx;
 var timer = -5;
 var next_ok = false;
+var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img;
 
 function preload() {
 	soundFormats('mp3');
 	jump_sfx = loadSound("sounds/mb_jump.mp3");
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
+	level_select_img = loadImage("Images/level_select_cloud.png");
+	level1_img = loadImage("Images/level1.png");
+	level2_img = loadImage("Images/level2.png");
+	level3_img = loadImage("Images/level3.png");
+	level4_img = loadImage("Images/level4.png");
+	level5_img = loadImage("Images/Level5.png");
 }
 
 function setup() {
@@ -39,7 +46,8 @@ function draw() {
 			break;
 		case 0:
 			createCanvas(400 ,600);
-			background(223,255,247);
+			// background(223,255,247);
+			image(level_select_img, 0, 0);
 			textSize(40);
 			fill(0);
 			text("Level 1", 80,80);

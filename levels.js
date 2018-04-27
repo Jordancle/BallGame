@@ -49,25 +49,24 @@ function Levels() {
 	}
 	
 	this.updateLevel1 = function() {
-		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
-		blocks.push(new WinBlock(300,500,100,20));
-		blocks.push(new RegBlock(0, 550, 100, 20));
+		blocks.push(new WinBlock(300,300,100,20));
+		blocks.push(new RegBlock(0, 350, 100, 20));
 		
 		this.width = 400;
 		this.height = 600;
 		this.startX = 40;
-		this.startY = 520;
+		this.startY = 320;
 		createCanvas(this.width ,this.height);
-		background(102,102,153);
+		// background(102,102,153);
 		
 	}
 
 	
 	this.level1 = function() {
-		background(102,102,153);
+		image(level1_img, 0, 0);
 		
 		/*
 		 * These ball functions should be before the block functions!! It took me like 1.5 hours to figure this out!!!
@@ -113,7 +112,7 @@ function Levels() {
 
 	
 	this.level3 = function() {
-		background(204,255,229);
+		image(level3_img, 0, 0);
 		
 		/*
 		 * These ball functions should be before the block functions!! It took me like 1.5 hours to figure this out!!!
@@ -162,7 +161,7 @@ function Levels() {
 	}
 	
 	this.level2 = function() {
-		background(255,204,229);
+		image(level2_img, 0, 0);
 		
 		/*
 		 * These ball functions should be before the block functions!! It took me like 1.5 hours to figure this out!!!
@@ -209,7 +208,7 @@ function Levels() {
 	}
 	
 	this.level5 = function() {
-		background(103,154,144);
+		image(level5_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
@@ -261,7 +260,7 @@ function Levels() {
 	}
 	
 	this.level4 = function() {
-		background(255,204,153);
+		image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
