@@ -86,7 +86,7 @@ function draw() {
 
 function keyPressed() {
 
-	if (key == ' ' && ball.jumps > 0) {
+	if (key == ' ' && ball.jumps > 0 && ball.win == false) {
 		ball.jump();
 		
 		
@@ -167,7 +167,7 @@ function mousePressed() {
 		}
 	}
 	
-	if (mouseIsPressed && ball.jumps > 0) {
+	if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
 		ball.jump();
 	}
 	
