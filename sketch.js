@@ -9,6 +9,8 @@ var trail = [];
 var jump_sfx;
 var bump_sfx;
 var win_sfx;
+var timer = -5;
+var next_ok = false;
 
 function preload() {
 	soundFormats('mp3');
@@ -46,6 +48,7 @@ function draw() {
 			text("Level 4", 80,320);
 			text("Level 5", 80,400);
 			ball.win = true;
+			next_ok = true;
 			break;
 		case 1:
 
@@ -82,6 +85,15 @@ function draw() {
 		ball.drag = 0.5; // 0.6
 	}
 	
+	if (timer > 0) {
+		timer--;
+		console.log(timer);
+	}
+	if (timer == 0) {
+		next_ok = true;
+	}
+	
+	
 }
 
 function keyPressed() {
@@ -91,7 +103,7 @@ function keyPressed() {
 		
 		
 	}
-	if (key == ' ' && ball.win == true) {
+	if (key == ' ' && ball.win == true && next_ok == true) {
 		level++;
 		ball.win = false;
 		ball.needUpdate = true;
@@ -100,6 +112,8 @@ function keyPressed() {
 		ball.xVelocity = 0;
 		ball.trails = 0;
 		trail.splice(0,trail.length);	
+		next_ok = false;
+		timer = -5;
 		//ball.jumps = 0;			
 	} 
 	if (keyCode === SHIFT) {
@@ -154,6 +168,12 @@ function mousePressed() {
 		ball.win = false;
 		ball.needUpdate = true;
 		levels.needUpdate = true;
+		ball.yVelocity = 0;
+		ball.xVelocity = 0;
+		ball.trails = 0;
+		trail.splice(0,trail.length);	
+		next_ok = false;
+		timer = -5;
 		if (mouseX > 80 && mouseX < 210 && mouseY > 45 && mouseY < 85) {
 		level = 1;
 		} else if (mouseX > 80 && mouseX < 210 && mouseY > 125 && mouseY < 165) {
