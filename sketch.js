@@ -50,23 +50,23 @@ function draw() {
 		case 1:
 
 			levels.level1();
-			addTrail();
+			// addTrail();
 			break;
 		case 2:
 			levels.level2();
-			addTrail();
+			// addTrail();
 			break;
 		case 3:
 			levels.level3();
-			addTrail();
+			// addTrail();
 			break;
 		case 4:
 			levels.level4();
-			addTrail();
+			// addTrail();
 			break;
 		case 5:
 			levels.level5();
-			addTrail();
+			// addTrail();
 			break;
 		default:
 			level = 0;
