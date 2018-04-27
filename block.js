@@ -92,10 +92,13 @@ class WinBlock extends Block {
 			ball.jumps = 1;
 		}
 		if (this.hitTop(ball) == true) {
-			console.log(ball.yVelocity);
 			if (ball.win == false) {
 				win_sfx.play();
 			}
+			if (timer == -5 && next_ok == false) {
+				timer = 40;
+			}
+			
 			ball.yVelocity = 0;	
 			ball.xVelocity = 0;
 			ball.y = this.y-16;
@@ -104,6 +107,10 @@ class WinBlock extends Block {
 			textSize(50);
 			fill(255);
 			text("YOU WIN!",10,50);
+			if (next_ok == true) {
+				textSize(20);
+				text("Press SPACE to continue\nPress SHIFT to Try Again\nPress ENTER for MENU",10,80);
+			}
 			ball.win = true;
 		}		
 	}
