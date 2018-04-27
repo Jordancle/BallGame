@@ -199,7 +199,7 @@ function mousePressed() {
 		ball.jump();
 	}
 	
-	if (mouseIsPressed && ball.win == true) {
+	if (mouseIsPressed && ball.win == true && next_ok == true) {
 		level++;
 		ball.win = false;
 		ball.needUpdate = true;
@@ -208,6 +208,8 @@ function mousePressed() {
 		ball.xVelocity = 0;
 		ball.trails = 0;
 		trail.splice(0,trail.length);	
+		next_ok = false;
+		timer = -5;
 		//ball.jumps = 0;			
 	} 
 }
