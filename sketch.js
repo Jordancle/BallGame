@@ -12,7 +12,7 @@ var win_sfx;
 
 function preload() {
 	soundFormats('mp3');
-	jump_sfx = loadSound("mb_jump.mp3");
+	jump_sfx = loadSound("sounds/mb_jump.mp3");
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
 }
