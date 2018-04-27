@@ -19,10 +19,10 @@ function preload() {
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
 	level_select_img = loadImage("Images/level_select_cloud.png");
-	level1_img = loadImage("Images/level1.png");
-	level2_img = loadImage("Images/level2.png");
-	level3_img = loadImage("Images/level3.png");
-	level4_img = loadImage("Images/level4.png");
+	level1_img = loadImage("Images/Level1.png");
+	level2_img = loadImage("Images/Level2.png");
+	level3_img = loadImage("Images/Level3.png");
+	level4_img = loadImage("Images/Level4.png");
 	level5_img = loadImage("Images/Level5.png");
 }
 
