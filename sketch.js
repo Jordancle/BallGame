@@ -13,6 +13,7 @@ var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img;
 var message = 0;
+var screenWrap = true;
 
 function preload() {
 	soundFormats('mp3');
@@ -197,6 +198,8 @@ function keyPressed() {
 function mousePressed() {
 	console.log(mouseX);
 	console.log(mouseY);
+	ball.x = mouseX;
+	ball.y = mouseY;
 	// console.log(ball.yVelocity);
 	
 	if (level == 0) {

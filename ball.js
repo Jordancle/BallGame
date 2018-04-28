@@ -1,6 +1,7 @@
 function Ball() {
 	this.y;
 	this.x;
+	this.radius = 16;
 	
 	this.gravity = 1;
 	this.yVelocity = 0;
@@ -37,7 +38,7 @@ function Ball() {
 		} else {
 			fill(0);
 		}
-		ellipse(this.x, this.y, 32, 32);
+		ellipse(this.x, this.y, this.radius*2, this.radius*2);
 	}
 
 	this.update = function(levels) {
@@ -52,7 +53,7 @@ function Ball() {
 		 */
 		if (this.y > height) {
 			this.y = height;
-			
+				
 			this.start(levels);
 			this.yVelocity = 0;
 			this.xVelocity = 0;
@@ -68,13 +69,21 @@ function Ball() {
 		 * X Value Adjustments for determining the deacceleration (both directions)
 		 * and physics of bouncing against the walls
 		 */
-		if (this.x > width) {
-			//this.xVelocity = -this.xVelocity;
-			this.x = 0
+		if (this.x > width - this.radius) {
+			if (screenWrap == true) {
+				this.x = 0;
+			} else {
+				this.x = width-this.radius;
+				this.xVelocity = 0;
+			}
 		}
-		if (this.x < 0) {
-			//this.xVelocity = -this.xVelocity;
-			this.x = width;
+		if (this.x < this.radius) {
+			if (screenWrap == true) {
+				this.x = width;
+			} else {
+				this.x = this.radius;
+				this.xVelocity = 0;
+			}
 		}
 		if (this.xVelocity > 0) {
 			this.xVelocity -= this.drag*(this.xVelocity*0.1)

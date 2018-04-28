@@ -25,6 +25,7 @@ function Levels() {
 
 	
 	this.levelTest = function() {
+		screenWrap = true;
 		background(200);
 		
 		/*
@@ -69,6 +70,7 @@ function Levels() {
 
 	
 	this.level1_1 = function() {
+		screenWrap = true;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -115,6 +117,7 @@ function Levels() {
 
 	
 	this.level1_2 = function() {
+		screenWrap = true;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -159,6 +162,7 @@ function Levels() {
 
 	
 	this.level1_3 = function() {
+		screenWrap = true;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -206,6 +210,7 @@ function Levels() {
 
 	
 	this.level3 = function() {
+		screenWrap = true;
 		image(level3_img, 0, 0);
 		
 		/*
@@ -255,6 +260,7 @@ function Levels() {
 	}
 	
 	this.level2 = function() {
+		screenWrap = true;
 		image(level2_img, 0, 0);
 		
 		/*
@@ -302,6 +308,7 @@ function Levels() {
 	}
 	
 	this.level4 = function() {
+		screenWrap = false;
 		image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
@@ -325,9 +332,10 @@ function Levels() {
 		
 		//blocks.push(new RegBlock(150, 300, 20, 200));
 		blocks.push(new RegBlock(0,500,120,100));
+		// blocks.push(new RegBlock(0,0,1,300));
 		blocks.push(new RollBlock(0,300,220,50));
 		blocks.push(new RegBlock(0,350,20,150));
-		blocks.push(new RollBlock(100,150,300,20));
+		blocks.push(new RollBlock(125,150,275,20));
 		blocks.push(new RegBlock(120,580,140,40));
 		blocks.push(new RollBlock(260,570,140,50));
 		//blocks.push(new RegBlock(380,100,20,50));
@@ -338,8 +346,8 @@ function Levels() {
 		blocks.push(new RegBlock(600,0,400,20));
 		blocks.push(new WinBlock(750,100,230,20));
 		blocks.push(new RegBlock(700,500,200,100));
-		blocks.push(new ReverseBlock(900,150,20,450));
-		blocks.push(new RegBlock(990,120,10,480));
+		blocks.push(new ReverseBlock(900,120,20,480));
+		blocks.push(new RegBlock(920,120,80,480));
 		blocks.push(new RegBlock(950,0,50,120));
 		
 		
@@ -354,6 +362,7 @@ function Levels() {
 	}
 	
 	this.level5 = function() {
+		screenWrap = false;
 		image(level5_img, 0, 0);
 		ball.show();
 		ball.update(levels);
