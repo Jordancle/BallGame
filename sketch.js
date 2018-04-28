@@ -59,22 +59,29 @@ function draw() {
 			ball.win = true;
 			next_ok = true;
 			break;
-		case 1:
-
-			levels.level1();
-			// addTrail();
-if (message >= 0) {
-textSize(20);
-text("Press the SPACE button to jump!", 160, 120);
-}
-if (message >= 1) { 
-textSize(20);
-text("Hold down the SPACE button to jump farther and higher!!", 160,160);
-}
-if (message >= 2) {
-textSize(20);
-text("You can jump again after touching a block!!!", 160, 200);
-}
+		case 100:
+			levels.level1_1();
+			fill(0);
+			textSize(20);
+			text("Press the SPACE button to jump!", 10, 420);
+			break;
+		case 101:
+			levels.level1_2();
+			fill(0);
+			textSize(20);
+			text("Press the SPACE button to jump!", 10, 420);
+			text("Hold down the SPACE button to jump", 10, 440);
+			text("farther and higher!!", 10,460);
+			break;
+		case 102:
+			levels.level1_3();
+			fill(0);
+			textSize(20);
+			text("You can jump again after", 10, 420);
+			text("touching a block!!!", 10, 440);
+			break;
+		case 103:
+			level = 2;
 			break;
 		case 2:
 			levels.level2();
@@ -126,6 +133,9 @@ function keyPressed() {
 	}
 	if (key == ' ' && ball.win == true && next_ok == true) {
 		level++;
+		if (level == 1) {
+			level = 100;
+		}
 		ball.win = false;
 		ball.needUpdate = true;
 		levels.needUpdate = true;
@@ -145,6 +155,8 @@ function keyPressed() {
 		ball.xVelocity = 0;
 		ball.trails = 0;
 		trail.splice(0,trail.length);	
+		next_ok = false;
+		timer = -5;
 		//ball.jumps = 0;
 	}
 	if (keyCode === ENTER) {
@@ -157,6 +169,8 @@ function keyPressed() {
 		ball.xVelocity = 0;
 		ball.trails = 0;
 		trail.splice(0,trail.length);	
+		next_ok = false;
+		timer = -5;
 	}
 	/*
 	if (keyCode  === LEFT_ARROW) {
@@ -196,7 +210,7 @@ function mousePressed() {
 		next_ok = false;
 		timer = -5;
 		if (mouseX > 80 && mouseX < 210 && mouseY > 45 && mouseY < 85) {
-		level = 1;
+		level = 100;
 		} else if (mouseX > 80 && mouseX < 210 && mouseY > 125 && mouseY < 165) {
 			level = 2;
 		} else if (mouseX > 80 && mouseX < 210 && mouseY > 210 && mouseY < 245) {

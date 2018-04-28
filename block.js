@@ -153,8 +153,6 @@ class CheckPointBlock extends WinBlock {
 			ball.xVelocity = 0;
 			ball.y = this.y-16;
 			ball.jumps = 1;
-			
-			message++;
 
 			if (next_ok == true) {
 				textSize(20);
