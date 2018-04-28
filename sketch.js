@@ -198,8 +198,8 @@ function keyPressed() {
 function mousePressed() {
 	console.log(mouseX);
 	console.log(mouseY);
-	ball.x = mouseX;
-	ball.y = mouseY;
+	// ball.x = mouseX;
+	// ball.y = mouseY;
 	// console.log(ball.yVelocity);
 	
 	if (level == 0) {
