@@ -5,6 +5,7 @@ function Levels() {
 	this.startX;
 	this.startY;
 	this.needUpdate = true;
+	this.complete = [false, false, false, false, false, false];
 	
 	this.updateTest = function() {
 		
@@ -187,6 +188,10 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
+		if (ball.win == true) {
+			this.complete[1] = true;
+		}
+		
 	}
 	
 	this.updateLevel3 = function() {
@@ -233,6 +238,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
+		if (ball.win == true) {
+			this.complete[3] = true;
+		}
 			
 	}
 	
@@ -284,6 +292,10 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
+		if (ball.win == true) {
+			this.complete[2] = true;
+		}
+		
 	}
 
 	this.updateLevel4 = function() {
@@ -324,6 +336,10 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+		}
+		
+		if (ball.win == true) {
+			this.complete[4] = true;
 		}
 	}
 	
@@ -378,6 +394,10 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+		}
+		
+		if (ball.win == true) {
+			this.complete[5] = true;
 		}
 	}
 	

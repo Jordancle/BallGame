@@ -52,10 +52,30 @@ function draw() {
 			image(level_select_img, 0, 0);
 			textSize(40);
 			fill(0);
-			text("Level 1", 80,80);
-			text("Level 2", 80,160);
-			text("Level 3", 80,240);
-			text("Level 4", 80,320);
+			if (levels.complete[1]) {
+				text("Level 1 ★", 80,80);
+			} else {
+				text("Level 1", 80,80);
+			}
+			if (levels.complete[2]) {
+				text("Level 2 ★", 80,160);
+			} else {
+				text("Level 2", 80,160);
+			}if (levels.complete[3]) {
+				text("Level 3 ★", 80,240);
+			} else {
+				text("Level 3", 80,240);
+			}if (levels.complete[4]) {
+				text("Level 4 ★", 80,320);
+			} else {
+				text("Level 4", 80,320);
+			}if (levels.complete[5]) {
+				text("Level 5 ★", 80,400);
+			} else {
+				text("Level 5", 80,400);
+			}
+			
+			
 			text("Level 5", 80,400);
 			ball.win = true;
 			next_ok = true;
