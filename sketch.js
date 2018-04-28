@@ -12,6 +12,7 @@ var win_sfx;
 var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img;
+var message = 0;
 
 function preload() {
 	soundFormats('mp3');
@@ -62,6 +63,18 @@ function draw() {
 
 			levels.level1();
 			// addTrail();
+if (message >= 0) {
+textSize(20);
+text(“Press the SPACE button to jump!”, 160, 120);
+}
+if (message >= 1) { 
+textSize(20);
+text(“Hold down the SPACE button to jump farther and higher!!”, 160,160);
+}
+if (message >= 2) {
+textSize(20);
+text(“You can jump again after touching a block!!!”, 160, 200);
+}
 			break;
 		case 2:
 			levels.level2();
