@@ -65,15 +65,15 @@ function draw() {
 			// addTrail();
 if (message >= 0) {
 textSize(20);
-text(“Press the SPACE button to jump!”, 160, 120);
+text("Press the SPACE button to jump!", 160, 120);
 }
 if (message >= 1) { 
 textSize(20);
-text(“Hold down the SPACE button to jump farther and higher!!”, 160,160);
+text("Hold down the SPACE button to jump farther and higher!!", 160,160);
 }
 if (message >= 2) {
 textSize(20);
-text(“You can jump again after touching a block!!!”, 160, 200);
+text("You can jump again after touching a block!!!", 160, 200);
 }
 			break;
 		case 2:
