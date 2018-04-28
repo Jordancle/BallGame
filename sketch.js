@@ -77,11 +77,11 @@ function draw() {
 			} else {
 				text("Level 5", 20,400);
 			}
-			if (levels.complete[6]) {
-				text("Level 6 ★", 220,80);
-			} else {
-				text("Level 6", 220,80);
-			}
+			// if (levels.complete[6]) {
+				// text("Level 6 ★", 220,80);
+			// } else {
+				// text("Level 6", 220,80);
+			// }
 			ball.win = true;
 			next_ok = true;
 			break;
@@ -121,9 +121,9 @@ function draw() {
 		case 5:
 			levels.level5();
 			break;
-		case 6:
-			levels.level6();
-			break;
+		// case 6:
+			// levels.level6();
+			// break;
 		default:
 			level = 0;
 	}
