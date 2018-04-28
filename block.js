@@ -180,7 +180,8 @@ class FallBlock extends Block {
 			ball.jumps = 1;
 		}
 		if (this.hitTop(ball) == true) {
-			ball.yVelocity = -ball.yVelocity*0.7;	
+			ball.yVelocity = 0;
+			ball.xVelocity = 3;
 			ball.y = this.y-16;
 			ball.jumps = 1;
 		}
@@ -282,6 +283,32 @@ class MoveBlock extends Block {
 		}
 			
 		
+	}
+}
+
+class DeathBlock extends Block {
+	constructor(x,y,w,h) {
+		super(x,y,w,h);
+		this.center = (w/2)+x;
+	}
+	show() {
+		fill(100);
+		rect(this.x,this.y,this.w,this.h);
+
+	}
+	hit() {
+		if (this.hitLeft(ball) == true) {
+			ball.start(levels);
+		}
+		if (this.hitRight(ball) == true) {
+			ball.start(levels);
+		}		
+		if (this.hitBottom(ball) == true) {
+			ball.start(levels);
+		}
+		if (this.hitTop(ball) == true) {
+			ball.start(levels);
+		}
 	}
 }
 	

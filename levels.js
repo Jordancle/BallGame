@@ -404,26 +404,32 @@ function Levels() {
 	this.updateLevel6 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
-		blocks.push(new RegBlock(50, 250, 200, 20));
-		blocks.push(new RegBlock(50, 350, 200, 20));
-		blocks.push(new WinBlock(150, 550, 150, 20));
-		blocks.push(new MoveBlock(300, 300, 250, 450, 200, 40, 180));
-		blocks.push(new ReverseBlock(500 , 150, 100, 150));
+		blocks.push(new RegBlock(0, 150, 350, 20));
+		blocks.push(new RegBlock(50, 225, 175, 20));
+		blocks.push(new FallBlock(95, 580, 150, 20));
+		blocks.push(new RegBlock(225, 225, 20, 215));
+		blocks.push(new MoveBlock(245, 245, 225, 350, 255, 90, 180));
+		blocks.push(new DeathBlock(520, 150, 220, 20));
+		blocks.push(new RegBlock(500, 150, 20, 200));
+		blocks.push(new RegBlock(500, 420, 150, 20));
+		blocks.push(new ReverseBlock(550 , 0, 190, 20));
+		blocks.push(new RegBlock(780, 420, 150, 20));
+		blocks.push(new WinBlock(740, 150, 130, 20));
+		blocks.push(new RegBlock(980, 50, 200, 400));
 		// blocks.push(new RegBlock(550, 150, 20, 100));
 		
 		
-		this.width = 800;
+		this.width = 1000;
 		this.height = 600;
 		this.startX = blocks[0].center;
-		this.startY = 200;
+		this.startY = 100;
 		createCanvas(this.width ,this.height);
 		background(255,204,153);
 	}
 	
 	this.level6 = function() {
 		screenWrap = false;
-		background(255,204,153);
-		//image(level6_img, 0, 0);
+		image(level6_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 

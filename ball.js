@@ -16,6 +16,8 @@ function Ball() {
 	this.needUpdate = true;
 	this.trails = 0;
 	
+	this.dragOff = false;
+	
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -40,7 +42,7 @@ function Ball() {
 		}
 		ellipse(this.x, this.y, this.radius*2, this.radius*2);
 	}
-
+	
 	this.update = function(levels) {
 		this.yVelocity += this.gravity;
 		this.y += this.yVelocity;
@@ -58,7 +60,7 @@ function Ball() {
 			this.yVelocity = 0;
 			this.xVelocity = 0;
 			this.jumps = 0;
-			this.trails++;
+			// this.trails++;
 		}
 		if (this.y < 0) {
 			this.y = 0;
@@ -108,13 +110,13 @@ function Ball() {
 			this.yVelocity = -20;
 			this.bounce = 1
 			this.xVelocity = 12;
-			this.drag = 0.5;
+			// this.drag = 0.5;
 			this.jumps--;
 		} else {
 			this.yVelocity = -20*1;
 			this.bounce = 1
 			this.xVelocity = -12*1.5;
-			this.drag = 0.5;
+			// this.drag = 0.5;
 			this.jumps--;
 			this.reverse = false;
 		}

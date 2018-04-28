@@ -11,7 +11,7 @@ var bump_sfx;
 var win_sfx;
 var timer = -5;
 var next_ok = false;
-var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img;
+var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img;
 var message = 0;
 var screenWrap = true;
 
@@ -26,6 +26,7 @@ function preload() {
 	level3_img = loadImage("Images/Level3.png");
 	level4_img = loadImage("Images/Level4.png");
 	level5_img = loadImage("Images/Level5.png");
+	level6_img = loadImage("Images/Level6.png");
 }
 
 function setup() {
@@ -77,11 +78,11 @@ function draw() {
 			} else {
 				text("Level 5", 20,400);
 			}
-			// if (levels.complete[6]) {
-				// text("Level 6 ★", 220,80);
-			// } else {
-				// text("Level 6", 220,80);
-			// }
+			if (levels.complete[6]) {
+				text("Level 6 ★", 220,80);
+			} else {
+				text("Level 6", 220,80);
+			}
 			ball.win = true;
 			next_ok = true;
 			break;
@@ -121,9 +122,9 @@ function draw() {
 		case 5:
 			levels.level5();
 			break;
-		// case 6:
-			// levels.level6();
-			// break;
+		case 6:
+			levels.level6();
+			break;
 		default:
 			level = 0;
 	}
@@ -132,10 +133,23 @@ function draw() {
 	// Ball. gravity used to be a constant 1
 	if ((keyIsDown(32) && ball.yVelocity < 0) || (mouseIsPressed && ball.yVelocity < 0)) {
 		ball.gravity = 0.9;
-		ball.drag = 0.3;
+		if (ball.dragOff == false) {
+			ball.drag = 0.3;
+		} else {
+			ball.drag = 0.1;
+			addTrail();
+			ball.trails = 5;
+		}
+		
 	} else {
 		ball.gravity = 1.1;
-		ball.drag = 0.5; // 0.6
+		if (ball.dragOff == false) {
+			ball.drag = 0.5; // 0.6
+		} else {
+			ball.drag = 0.1;
+			addTrail();
+			ball.trails = 5;
+		}
 	}
 	
 	if (timer > 0) {
