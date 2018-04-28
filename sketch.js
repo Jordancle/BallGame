@@ -53,30 +53,35 @@ function draw() {
 			textSize(40);
 			fill(0);
 			if (levels.complete[1]) {
-				text("Level 1 ★", 80,80);
+				text("Level 1 ★", 20,80);
 			} else {
-				text("Level 1", 80,80);
+				text("Level 1", 20,80);
 			}
 			if (levels.complete[2]) {
-				text("Level 2 ★", 80,160);
+				text("Level 2 ★", 20,160);
 			} else {
-				text("Level 2", 80,160);
-			}if (levels.complete[3]) {
-				text("Level 3 ★", 80,240);
+				text("Level 2", 20,160);
+			} 
+			if (levels.complete[3]) {
+				text("Level 3 ★", 20,240);
 			} else {
-				text("Level 3", 80,240);
-			}if (levels.complete[4]) {
-				text("Level 4 ★", 80,320);
+				text("Level 3", 20,240);
+			} 
+			if (levels.complete[4]) {
+				text("Level 4 ★", 20,320);
 			} else {
-				text("Level 4", 80,320);
-			}if (levels.complete[5]) {
-				text("Level 5 ★", 80,400);
+				text("Level 4", 20,320);
+			} 
+			if (levels.complete[5]) {
+				text("Level 5 ★", 20,400);
 			} else {
-				text("Level 5", 80,400);
+				text("Level 5", 20,400);
 			}
-			
-			
-			text("Level 5", 80,400);
+			if (levels.complete[6]) {
+				text("Level 6 ★", 220,80);
+			} else {
+				text("Level 6", 220,80);
+			}
 			ball.win = true;
 			next_ok = true;
 			break;
@@ -106,19 +111,18 @@ function draw() {
 			break;
 		case 2:
 			levels.level2();
-			// addTrail();
 			break;
 		case 3:
 			levels.level3();
-			// addTrail();
 			break;
 		case 4:
 			levels.level4();
-			// addTrail();
 			break;
 		case 5:
 			levels.level5();
-			// addTrail();
+			break;
+		case 6:
+			levels.level6();
 			break;
 		default:
 			level = 0;
@@ -242,6 +246,8 @@ function mousePressed() {
 			level = 4;
 		} else if (mouseX > 80 && mouseX < 369 && mouseY > 290 && mouseY < 398) {
 			level = 5;
+		} else if (mouseX > 220 && mouseX < 350 && mouseY > 45 && mouseY < 85) {
+			level = 6;
 		}
 	}
 	

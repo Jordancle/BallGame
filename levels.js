@@ -5,7 +5,7 @@ function Levels() {
 	this.startX;
 	this.startY;
 	this.needUpdate = true;
-	this.complete = [false, false, false, false, false, false];
+	this.complete = [false, false, false, false, false, false, false];
 	
 	this.updateTest = function() {
 		
@@ -400,6 +400,50 @@ function Levels() {
 			this.complete[5] = true;
 		}
 	}
+	
+	this.updateLevel6 = function() {
+		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		
+		blocks.push(new RegBlock(50, 250, 200, 20));
+		blocks.push(new RegBlock(50, 350, 200, 20));
+		blocks.push(new WinBlock(150, 550, 150, 20));
+		blocks.push(new MoveBlock(300, 300, 250, 450, 200, 40, 180));
+		blocks.push(new ReverseBlock(500 , 150, 100, 150));
+		// blocks.push(new RegBlock(550, 150, 20, 100));
+		
+		
+		this.width = 800;
+		this.height = 600;
+		this.startX = blocks[0].center;
+		this.startY = 200;
+		createCanvas(this.width ,this.height);
+		background(255,204,153);
+	}
+	
+	this.level6 = function() {
+		screenWrap = false;
+		background(255,204,153);
+		//image(level6_img, 0, 0);
+		ball.show();
+		ball.update(levels);
+
+		if (levels.needUpdate) {
+			levels.updateLevel6();
+			levels.needUpdate = false;
+		}
+		if(ball.needUpdate) {
+			ball.start(levels);
+			ball.needUpdate = false;
+		}
+		for (var i = 0; i < blocks.length; i++) {
+			blocks[i].show();
+			blocks[i].hit();
+		}
+		
+		if (ball.win == true) {
+			this.complete[6] = true;
+		}
+	}	
 	
 
 }
