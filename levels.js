@@ -280,7 +280,7 @@ function Levels() {
 		
 	}
 
-	this.updateLevel5 = function() {
+	this.updateLevel4 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		blocks.push(new WinBlock(900,150,100,20));
 		blocks.push(new RegBlock(150, 350, 20, 150));
@@ -301,13 +301,13 @@ function Levels() {
 		background(103,154,144);
 	}
 	
-	this.level5 = function() {
-		image(level5_img, 0, 0);
+	this.level4 = function() {
+		image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
 		if (levels.needUpdate) {
-			levels.updateLevel5();
+			levels.updateLevel4();
 			levels.needUpdate = false;
 		}
 		if(ball.needUpdate) {
@@ -320,7 +320,7 @@ function Levels() {
 		}
 	}
 	
-	this.updateLevel4 = function() {
+	this.updateLevel5 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		//blocks.push(new RegBlock(150, 300, 20, 200));
@@ -353,13 +353,13 @@ function Levels() {
 		background(255,204,153);
 	}
 	
-	this.level4 = function() {
-		image(level4_img, 0, 0);
+	this.level5 = function() {
+		image(level5_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
 		if (levels.needUpdate) {
-			levels.updateLevel4();
+			levels.updateLevel5();
 			levels.needUpdate = false;
 		}
 		if(ball.needUpdate) {
