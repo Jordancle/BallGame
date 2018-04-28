@@ -147,14 +147,14 @@ function Levels() {
 		this.updateLevel1_3 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 
-		blocks.push(new RegBlock(0, 350, 100, 20));
+		blocks.push(new RegBlock(0, 450, 100, 20));
 		blocks.push(new RegBlock(250, 120, 20, 480));
 		blocks.push(new WinBlock(250,100,150,20));
 		
 		this.width = 400;
 		this.height = 600;
 		this.startX = 40;
-		this.startY = 320;
+		this.startY = 420;
 		createCanvas(this.width ,this.height);
 		// background(102,102,153);
 		
@@ -162,7 +162,7 @@ function Levels() {
 
 	
 	this.level1_3 = function() {
-		screenWrap = true;
+		screenWrap = false;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
