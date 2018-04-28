@@ -52,10 +52,10 @@ function Levels() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
-		blocks.push(new WinBlock(300,300,100,20));
+		blocks.push(new CheckPointBlock(300,300,100,20));
 		blocks.push(new RegBlock(0, 350, 100, 20));
 		
-		this.width = 400;
+		this.width = 1000;
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 320;
