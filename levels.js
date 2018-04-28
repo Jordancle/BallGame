@@ -339,7 +339,7 @@ function Levels() {
 		blocks.push(new WinBlock(750,100,230,20));
 		blocks.push(new RegBlock(700,500,200,100));
 		blocks.push(new ReverseBlock(900,150,20,450));
-		blocks.push(new RegBlock(920,150,10,450));
+		blocks.push(new RegBlock(990,120,10,480));
 		blocks.push(new RegBlock(950,0,50,120));
 		
 		
