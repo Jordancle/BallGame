@@ -69,22 +69,24 @@ function Ball() {
 		 * X Value Adjustments for determining the deacceleration (both directions)
 		 * and physics of bouncing against the walls
 		 */
-		if (this.x > width - this.radius) {
-			if (screenWrap == true) {
+		if (screenWrap == true) {
+			if (this.x > width) {
 				this.x = 0;
-			} else {
+			} 
+			if (this.x < 0) {
+				this.x = width;
+			}
+		} else {
+			if (this.x > width - this.radius) {
 				this.x = width-this.radius;
 				this.xVelocity = 0;
 			}
-		}
-		if (this.x < this.radius) {
-			if (screenWrap == true) {
-				this.x = width;
-			} else {
+			if (this.x < this.radius) {
 				this.x = this.radius;
 				this.xVelocity = 0;
 			}
 		}
+		
 		if (this.xVelocity > 0) {
 			this.xVelocity -= this.drag*(this.xVelocity*0.1)
 
