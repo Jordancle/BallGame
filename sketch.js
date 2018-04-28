@@ -78,8 +78,8 @@ function draw() {
 			levels.level1_3();
 			fill(0);
 			textSize(20);
-			text("You can jump again after", 10, 420);
-			text("touching a block!!!", 10, 440);
+			text("You can jump again after", 10, 360);
+			text("touching a block!!!", 10, 380);
 			break;
 		case 103:
 			level = 2;
