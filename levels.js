@@ -47,8 +47,8 @@ function Levels() {
 			if (next_ok == true) {
 				textSize(20);
 				text("Press SPACE to continue",this.messageX,this.messageY+30);
-				text("Press SHIFT\nto RESTART",this.messageX-10,this.messageY+70);
-				text("Press ENTER\n   for MENU",this.messageX+120,this.messageY+70);
+				text("Press SHIFT\nto RESTART",this.messageX-15,this.messageY+70);
+				text("Press ENTER\n   for MENU",this.messageX+115,this.messageY+70);
 			}
 		}
 		
@@ -277,7 +277,7 @@ function Levels() {
 			this.complete[3] = true;
 		}
 		
-		this.winMessage(50,200,0,100,100,100);
+		this.winMessage(50,200,0,0,153,153);
 			
 	}
 	
@@ -333,7 +333,7 @@ function Levels() {
 			this.complete[2] = true;
 		}
 		
-		this.winMessage(10,150,255,100,100,100);
+		this.winMessage(10,150,255,204,229,255);
 	}
 
 	this.updateLevel4 = function() {
@@ -379,7 +379,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[4] = true;
 		}
-		this.winMessage(10,50,255,100,100,100);
+		this.winMessage(10,50,255,153,153,255);
 	}
 	
 	this.updateLevel5 = function() {
@@ -438,7 +438,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[5] = true;
 		}
-		this.winMessage(10,50,255,100,100,100);
+		this.winMessage(10,50,0,255,255,204);
 	}
 	
 	this.updateLevel6 = function() {
@@ -489,7 +489,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[6] = true;
 		}
-		this.winMessage(10,50,0,100,100,100);
+		this.winMessage(10,50,0,204,229,255);
 	}	
 	
 
