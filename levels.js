@@ -289,7 +289,6 @@ function Levels() {
 		blocks.push(new RegBlock(0, 350, 175, 20));
 		blocks.push(new RegBlock(0, 555, 50, 25));
 		blocks.push(new RollBlock(0, 580,250, 20));
-		//blocks.push(new RegBlock(180,0,20,100));
 		blocks.push(new RegBlock(250,500,75,100));
 		
 		

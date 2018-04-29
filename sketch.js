@@ -59,7 +59,7 @@ function draw() {
 				if (ball.deathCount[1] > 0) {
 					text("Level 1 ★", 20,80);
 				} else {
-					text("Level 1 🌟", 20, 80);
+					text("Level 1 ✮", 20, 80);
 				}
 			} else {
 				text("Level 1", 20,80);
@@ -68,7 +68,7 @@ function draw() {
 				if (ball.deathCount[2] > 0) {
 					text("Level 2 ★", 20,160);;
 				} else {
-					text("Level 2 🌟", 20, 160);
+					text("Level 2 ✮", 20, 160);
 				}
 			} else {
 				text("Level 2", 20,160);
@@ -77,7 +77,7 @@ function draw() {
 				if (ball.deathCount[3] > 0) {
 					text("Level 3 ★", 20,240);
 				} else {
-					text("Level 3 🌟", 20, 240);
+					text("Level 3 ✮", 20, 240);
 				}
 				
 			} else {
@@ -87,7 +87,7 @@ function draw() {
 				if (ball.deathCount[4] > 0) {
 					text("Level 4 ★", 20,320);
 				} else {
-					text("Level 4 🌟", 20, 320);
+					text("Level 4 ✮", 20, 320);
 				}
 			} else {
 				text("Level 4", 20,320);
@@ -96,7 +96,7 @@ function draw() {
 				if (ball.deathCount[5] > 0) {
 					text("Level 5 ★", 20,400);
 				} else {
-					text("Level 5 🌟", 20, 400);
+					text("Level 5 ✮", 20, 400);
 				}
 			} else {
 				text("Level 5", 20,400);
@@ -105,7 +105,7 @@ function draw() {
 				if (ball.deathCount[6] > 0) {
 					text("Level 6 ★", 220,80);
 				} else {
-					text("Level 6 🌟", 220, 80);
+					text("Level 6 ✮", 220, 80);
 				}
 			
 			} else {
@@ -161,7 +161,7 @@ function draw() {
 			level = 0;
 	}
 	
-	// Ball.drag used to be a constant 0.5
+	/* // Ball.drag used to be a constant 0.5
 	// Ball. gravity used to be a constant 1
 	if ((keyIsDown(32) && ball.yVelocity < 0) || (mouseIsPressed && ball.yVelocity < 0)) {
 		ball.gravity = 0.9;
@@ -182,7 +182,7 @@ function draw() {
 			addTrail();
 			ball.trails = 5;
 		}
-	}
+	} */
 	
 	// if (timer > 0) {
 		// timer--;

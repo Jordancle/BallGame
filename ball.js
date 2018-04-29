@@ -118,6 +118,29 @@ function Ball() {
 			this.xVelocity = 0;
 		}
 		
+		// Ball.drag used to be a constant 0.5
+		// Ball. gravity used to be a constant 1
+		if ((keyIsDown(32) && this.yVelocity < 0) || (mouseIsPressed && this.yVelocity < 0)) {
+			this.gravity = 0.9;
+			if (this.dragOff == false) {
+				this.drag = 0.3;
+			} else {
+				this.drag = 0.1;
+				addTrail();
+				this.trails = 5;
+			}
+			
+		} else {
+			this.gravity = 1.1;
+			if (this.dragOff == false) {
+				this.drag = 0.5; // 0.6
+			} else {
+				this.drag = 0.1;
+				addTrail();
+				this.trails = 5;
+			}
+		}
+		
 	}
 	
 	this.jump = function() {
