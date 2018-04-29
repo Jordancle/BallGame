@@ -105,13 +105,13 @@ class WinBlock extends Block {
 			ball.y = this.y-16;
 			ball.jumps = 1;
 			
-			textSize(50);
-			fill(255);
-			text("YOU WIN!",10,50);
-			if (next_ok == true) {
-				textSize(20);
-				text("Press SPACE to continue\nPress SHIFT to Try Again\nPress ENTER for MENU",10,80);
-			}
+			// textSize(50);
+			// fill(255);
+			// text("YOU WIN!",10,50);
+			// if (next_ok == true) {
+				// textSize(20);
+				// text("Press SPACE to continue\nPress SHIFT to Try Again\nPress ENTER for MENU",10,80);
+			// }
 			ball.win = true;
 		}		
 	}
@@ -292,22 +292,26 @@ class DeathBlock extends Block {
 		this.center = (w/2)+x;
 	}
 	show() {
-		fill(100);
+		fill(0);
 		rect(this.x,this.y,this.w,this.h);
 
 	}
 	hit() {
 		if (this.hitLeft(ball) == true) {
 			ball.start(levels);
+			death_sfx.play();
 		}
 		if (this.hitRight(ball) == true) {
 			ball.start(levels);
+			death_sfx.play();
 		}		
 		if (this.hitBottom(ball) == true) {
 			ball.start(levels);
+			death_sfx.play();
 		}
 		if (this.hitTop(ball) == true) {
 			ball.start(levels);
+			death_sfx.play();
 		}
 	}
 }

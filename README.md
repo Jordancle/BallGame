@@ -15,3 +15,6 @@ Land on the Green block to Win!<br />
 You can only jump once and can only jump again once you hit a block.<br />
 There are a variety of different colored blocks in this game, play to find out what they do!
 
+### Credits:
+Game created by Jordan Le<br />
+Background Image 6 by Angela Le<br />

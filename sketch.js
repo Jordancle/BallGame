@@ -8,10 +8,10 @@ var blocks = [];
 var trail = [];
 var jump_sfx;
 var bump_sfx;
-var win_sfx;
+var win_sfx, death_sfx;
 var timer = -5;
 var next_ok = false;
-var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img;
+var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela;
 var message = 0;
 var screenWrap = true;
 
@@ -20,6 +20,7 @@ function preload() {
 	jump_sfx = loadSound("sounds/mb_jump.mp3");
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
+	death_sfx = loadSound("sounds/smb3_player_down.mp3");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
 	level2_img = loadImage("Images/Level2.png");
@@ -27,6 +28,7 @@ function preload() {
 	level4_img = loadImage("Images/Level4.png");
 	level5_img = loadImage("Images/Level5.png");
 	level6_img = loadImage("Images/Level6.png");
+	level6_Angela = loadImage("Images/Level6_Angela.png");
 }
 
 function setup() {
@@ -89,23 +91,26 @@ function draw() {
 		case 100:
 			levels.level1_1();
 			fill(0);
-			textSize(20);
-			text("Press the SPACE button to jump!", 10, 420);
+			textSize(25);
+			if (ball.win == false) {
+				text("Press the SPACE button to jump!", 10, 120);
+			}
 			break;
 		case 101:
 			levels.level1_2();
 			fill(0);
-			textSize(20);
-			text("Press the SPACE button to jump!", 10, 420);
-			text("Hold down the SPACE button to jump", 10, 440);
-			text("farther and higher!!", 10,460);
+			textSize(25);
+			if (ball.win == false) {
+				text("Hold down SPACE to jump\nfarther and higher!!", 10, 140);
+			}
 			break;
 		case 102:
 			levels.level1_3();
 			fill(0);
-			textSize(20);
-			text("You can jump again after", 10, 360);
-			text("touching a block!!!", 10, 380);
+			textSize(25);
+			if (ball.win == false) {
+				text("You can jump again after\ntouching a block!!!", 10, 60);
+			}
 			break;
 		case 103:
 			level = 2;
@@ -152,13 +157,13 @@ function draw() {
 		}
 	}
 	
-	if (timer > 0) {
-		timer--;
-		console.log(timer);
-	}
-	if (timer == 0) {
-		next_ok = true;
-	}
+	// if (timer > 0) {
+		// timer--;
+		// console.log(timer);
+	// }
+	// if (timer == 0) {
+		// next_ok = true;
+	// }
 	
 	
 }
@@ -236,8 +241,8 @@ function keyPressed() {
 function mousePressed() {
 	console.log(mouseX);
 	console.log(mouseY);
-	// ball.x = mouseX;
-	// ball.y = mouseY;
+	ball.x = mouseX;
+	ball.y = mouseY;
 	// console.log(ball.yVelocity);
 	
 	if (level == 0) {
@@ -265,6 +270,32 @@ function mousePressed() {
 		}
 	}
 	
+	if (next_ok == true) {
+		if (mouseX > 65 && mouseX < 200 && mouseY > 300 && mouseY < 385) {
+			ball.win = false;
+			ball.needUpdate = true;
+			levels.needUpdate = true;
+			ball.yVelocity = 0;
+			ball.xVelocity = 0;
+			ball.trails = 0;
+			trail.splice(0,trail.length);	
+			next_ok = false;
+			timer = -5;
+		} else if (mouseX > 200 && mouseX < 335 && mouseY > 300 && mouseY < 385) {
+			ball.win = false;
+			level = 0;
+			ball.needUpdate = true;
+			levels.needUpdate = true;
+			ball.yVelocity = 0;
+			//ball.jumps = 0;
+			ball.xVelocity = 0;
+			ball.trails = 0;
+			trail.splice(0,trail.length);	
+			next_ok = false;
+			timer = -5;
+		}
+	}
+	
 	if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
 		ball.jump();
 	}
@@ -280,7 +311,7 @@ function mousePressed() {
 		trail.splice(0,trail.length);	
 		next_ok = false;
 		timer = -5;
-		//ball.jumps = 0;			
+		// ball.jumps = 0;			
 	} 
 }
 

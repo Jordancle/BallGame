@@ -26,6 +26,7 @@ function Ball() {
 		this.jumps = 0;
 		this.win = false;
 		this.reverse = false;
+		
 	}
 	
 	this.show = function() {
@@ -57,6 +58,7 @@ function Ball() {
 			this.y = height;
 				
 			this.start(levels);
+			death_sfx.play();
 			this.yVelocity = 0;
 			this.xVelocity = 0;
 			this.jumps = 0;

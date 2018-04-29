@@ -4,6 +4,8 @@ function Levels() {
 	this.height;
 	this.startX;
 	this.startY;
+	this.messageX;
+	this.messageY;
 	this.needUpdate = true;
 	this.complete = [false, false, false, false, false, false, false];
 	
@@ -24,6 +26,33 @@ function Levels() {
 		
 	}
 
+	this.winMessage = function(x,y,c,r,g,b) {
+		if (timer > 0) {
+			timer--;
+			console.log(timer);
+		}
+		if (timer == 0) {
+			next_ok = true;
+		}
+		this.messageX = map(timer,40,0,(this.width/2)-112,(this.width/2)-112);
+		this.messageY = map(timer,40,0,-50,(this.height/2)-40);
+		if (ball.win == true) {
+			tint(255,127);
+			fill(r,g,b);
+			rect(this.messageX-25,this.messageY-72,275,200);
+			noTint();
+			textSize(45);
+			fill(c);
+			text("SUCCESS!",this.messageX,this.messageY);
+			if (next_ok == true) {
+				textSize(20);
+				text("Press SPACE to continue",this.messageX,this.messageY+30);
+				text("Press SHIFT\nto RESTART",this.messageX-10,this.messageY+70);
+				text("Press ENTER\n   for MENU",this.messageX+120,this.messageY+70);
+			}
+		}
+		
+	}
 	
 	this.levelTest = function() {
 		screenWrap = true;
@@ -96,6 +125,8 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
+		this.winMessage(10,50,0,204,255,204);
+		
 	}
 	
 		this.updateLevel1_2 = function() {
@@ -142,6 +173,8 @@ function Levels() {
 			blocks[i].show();
 			blocks[i].hit();
 		}
+		
+		this.winMessage(10,50,0,204,255,204);
 		
 	}
 	
@@ -192,6 +225,8 @@ function Levels() {
 			this.complete[1] = true;
 		}
 		
+		this.winMessage(10,50,0,204,255,204);
+		
 	}
 	
 	this.updateLevel3 = function() {
@@ -241,6 +276,8 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[3] = true;
 		}
+		
+		this.winMessage(50,200,0,100,100,100);
 			
 	}
 	
@@ -296,15 +333,16 @@ function Levels() {
 			this.complete[2] = true;
 		}
 		
+		this.winMessage(10,150,255,100,100,100);
 	}
 
 	this.updateLevel4 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		blocks.push(new WinBlock(900,150,100,20));
-		blocks.push(new RegBlock(150, 350, 20, 150));
 		blocks.push(new RegBlock(570, 0, 20, 400));
 		blocks.push(new FallBlock(560,0,10,150));
 		blocks.push(new RegBlock(50,500,120,100));
+		blocks.push(new RegBlock(150, 350, 20, 250));
 		blocks.push(new RegBlock(200,500,120,100));
 		blocks.push(new RegBlock(400,500,120,100));
 		blocks.push(new RegBlock(700,200,20,400));
@@ -341,6 +379,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[4] = true;
 		}
+		this.winMessage(10,50,255,100,100,100);
 	}
 	
 	this.updateLevel5 = function() {
@@ -399,6 +438,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[5] = true;
 		}
+		this.winMessage(10,50,255,100,100,100);
 	}
 	
 	this.updateLevel6 = function() {
@@ -429,7 +469,7 @@ function Levels() {
 	
 	this.level6 = function() {
 		screenWrap = false;
-		image(level6_img, 0, 0);
+		image(level6_Angela, 0, 0);
 		ball.show();
 		ball.update(levels);
 
@@ -449,6 +489,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[6] = true;
 		}
+		this.winMessage(10,50,0,100,100,100);
 	}	
 	
 
