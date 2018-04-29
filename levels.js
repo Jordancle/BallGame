@@ -36,10 +36,10 @@ function Levels() {
 		this.messageX = map(timer,40,0,(this.width/2)-112,(this.width/2)-112);
 		this.messageY = map(timer,40,0,-50,(this.height/2)-40);
 		if (ball.win == true) {
-			tint(255,127);
+			// tint(255,127);
 			fill(r,g,b);
 			rect(this.messageX-25,this.messageY-72,275,200);
-			noTint();
+			// noTint();
 			textSize(45);
 			fill(c);
 			text("SUCCESS!",this.messageX,this.messageY);
@@ -288,9 +288,9 @@ function Levels() {
 		blocks.push(new WinBlock(125,50,50,20));
 		blocks.push(new RegBlock(0, 350, 175, 20));
 		blocks.push(new RegBlock(0, 555, 50, 25));
-		blocks.push(new RollBlock(0, 580,225, 20));
+		blocks.push(new RollBlock(0, 580,250, 20));
 		//blocks.push(new RegBlock(180,0,20,100));
-		blocks.push(new RegBlock(225,500,175,100));
+		blocks.push(new RegBlock(250,500,75,100));
 		
 		
 		blocks.push(new RegBlock(300, 200, 150, 20));
