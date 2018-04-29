@@ -271,7 +271,7 @@ function mousePressed() {
 	}
 	
 	if (next_ok == true) {
-		if (mouseX > 65 && mouseX < 200 && mouseY > 300 && mouseY < 385) {
+		if (mouseX > (this.width/2)-135 && mouseX < this.width/2 && mouseY > 300 && mouseY < 385) {
 			ball.win = false;
 			ball.needUpdate = true;
 			levels.needUpdate = true;
@@ -281,7 +281,7 @@ function mousePressed() {
 			trail.splice(0,trail.length);	
 			next_ok = false;
 			timer = -5;
-		} else if (mouseX > 200 && mouseX < 335 && mouseY > 300 && mouseY < 385) {
+		} else if (mouseX > this.width/2 && mouseX < (this.width/2)+135 && mouseY > 300 && mouseY < 385) {
 			ball.win = false;
 			level = 0;
 			ball.needUpdate = true;
