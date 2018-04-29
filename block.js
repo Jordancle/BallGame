@@ -298,20 +298,16 @@ class DeathBlock extends Block {
 	}
 	hit() {
 		if (this.hitLeft(ball) == true) {
-			ball.start(levels);
-			death_sfx.play();
+			ball.death(levels);
 		}
 		if (this.hitRight(ball) == true) {
-			ball.start(levels);
-			death_sfx.play();
+			ball.death(levels);
 		}		
 		if (this.hitBottom(ball) == true) {
-			ball.start(levels);
-			death_sfx.play();
+			ball.death(levels);
 		}
 		if (this.hitTop(ball) == true) {
-			ball.start(levels);
-			death_sfx.play();
+			ball.death(levels);
 		}
 	}
 }

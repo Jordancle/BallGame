@@ -18,6 +18,8 @@ function Ball() {
 	
 	this.dragOff = false;
 	
+	this.deathCount = [0,0,0,0,0,0,0];
+	
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -27,6 +29,25 @@ function Ball() {
 		this.win = false;
 		this.reverse = false;
 		
+	}
+	
+	this.death = function(levels) {
+		this.x = levels.startX;
+		this.y = levels.startY;
+		this.xVelocity = 0;
+		this.yVelocity = 0;
+		this.jumps = 0;
+		this.win = false;
+		this.reverse = false;
+		death_sfx.play();
+		var currLevel;
+		if (level >= 100) {
+			currLevel = 1;
+		} else {
+			currLevel = level;
+		}
+		this.deathCount[currLevel]++;
+		// this.trails++;
 	}
 	
 	this.show = function() {
@@ -55,14 +76,7 @@ function Ball() {
 		 * -yVelocity instead
 		 */
 		if (this.y > height) {
-			this.y = height;
-				
-			this.start(levels);
-			death_sfx.play();
-			this.yVelocity = 0;
-			this.xVelocity = 0;
-			this.jumps = 0;
-			// this.trails++;
+			this.death(levels);
 		}
 		if (this.y < 0) {
 			this.y = 0;

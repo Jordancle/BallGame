@@ -29,7 +29,6 @@ function Levels() {
 	this.winMessage = function(x,y,c,r,g,b) {
 		if (timer > 0) {
 			timer--;
-			console.log(timer);
 		}
 		if (timer == 0) {
 			next_ok = true;
@@ -277,7 +276,7 @@ function Levels() {
 			this.complete[3] = true;
 		}
 		
-		this.winMessage(50,200,0,0,153,153);
+		this.winMessage(50,200,255,0,153,153);
 			
 	}
 	
@@ -333,7 +332,7 @@ function Levels() {
 			this.complete[2] = true;
 		}
 		
-		this.winMessage(10,150,255,204,229,255);
+		this.winMessage(10,150,0,204,229,255);
 	}
 
 	this.updateLevel4 = function() {
