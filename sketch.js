@@ -160,39 +160,6 @@ function draw() {
 		default:
 			level = 0;
 	}
-	
-	/* // Ball.drag used to be a constant 0.5
-	// Ball. gravity used to be a constant 1
-	if ((keyIsDown(32) && ball.yVelocity < 0) || (mouseIsPressed && ball.yVelocity < 0)) {
-		ball.gravity = 0.9;
-		if (ball.dragOff == false) {
-			ball.drag = 0.3;
-		} else {
-			ball.drag = 0.1;
-			addTrail();
-			ball.trails = 5;
-		}
-		
-	} else {
-		ball.gravity = 1.1;
-		if (ball.dragOff == false) {
-			ball.drag = 0.5; // 0.6
-		} else {
-			ball.drag = 0.1;
-			addTrail();
-			ball.trails = 5;
-		}
-	} */
-	
-	// if (timer > 0) {
-		// timer--;
-		// console.log(timer);
-	// }
-	// if (timer == 0) {
-		// next_ok = true;
-	// }
-	
-	
 }
 
 function keyPressed() {
