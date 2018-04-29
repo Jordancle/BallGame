@@ -87,6 +87,7 @@ function draw() {
 			}
 			ball.win = true;
 			next_ok = true;
+			ball.jumps = 0;
 			break;
 		case 100:
 			levels.level1_1();
@@ -255,15 +256,15 @@ function mousePressed() {
 		trail.splice(0,trail.length);	
 		next_ok = false;
 		timer = -5;
-		if (mouseX > 80 && mouseX < 210 && mouseY > 45 && mouseY < 85) {
+		if (mouseX > 20 && mouseX < 150 && mouseY > 45 && mouseY < 85) {
 		level = 100;
-		} else if (mouseX > 80 && mouseX < 210 && mouseY > 125 && mouseY < 165) {
+		} else if (mouseX > 20 && mouseX < 150 && mouseY > 125 && mouseY < 165) {
 			level = 2;
-		} else if (mouseX > 80 && mouseX < 210 && mouseY > 210 && mouseY < 245) {
+		} else if (mouseX > 20 && mouseX < 150 && mouseY > 210 && mouseY < 245) {
 			level = 3;
-		} else if (mouseX > 80 && mouseX < 210 && mouseY > 290 && mouseY < 320) {
+		} else if (mouseX > 20 && mouseX < 150 && mouseY > 290 && mouseY < 320) {
 			level = 4;
-		} else if (mouseX > 80 && mouseX < 369 && mouseY > 290 && mouseY < 398) {
+		} else if (mouseX > 20 && mouseX < 369 && mouseY > 290 && mouseY < 398) {
 			level = 5;
 		} else if (mouseX > 220 && mouseX < 350 && mouseY > 45 && mouseY < 85) {
 			level = 6;
