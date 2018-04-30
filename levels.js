@@ -7,7 +7,7 @@ function Levels() {
 	this.messageX;
 	this.messageY;
 	this.needUpdate = true;
-	this.complete = [false, false, false, false, false, false, false];
+	this.complete = [false, false, false, false, false, false, false, false];
 	
 	this.updateTest = function() {
 		
@@ -390,7 +390,7 @@ function Levels() {
 		blocks.push(new RegBlock(0,350,20,150));
 		blocks.push(new RollBlock(125,150,275,20));
 		blocks.push(new RegBlock(120,580,140,40));
-		blocks.push(new RollBlock(260,570,140,50));
+		blocks.push(new RollBlock(260,570,140,30));
 		//blocks.push(new RegBlock(380,100,20,50));
 		blocks.push(new ReverseBlock(400,100,40,500));
 		blocks.push(new RegBlock(440,350,20,200));
@@ -444,7 +444,7 @@ function Levels() {
 		
 		blocks.push(new RegBlock(0, 150, 350, 20));
 		blocks.push(new RegBlock(50, 225, 175, 20));
-		blocks.push(new FallBlock(95, 580, 150, 20));
+		blocks.push(new RollRightBlock(95, 580, 150, 20));
 		blocks.push(new RegBlock(225, 225, 20, 215));
 		blocks.push(new MoveBlock(245, 245, 225, 350, 255, 90, 180));
 		blocks.push(new DeathBlock(520, 150, 220, 20));
@@ -489,6 +489,50 @@ function Levels() {
 		}
 		this.winMessage(10,50,0,204,229,255);
 	}	
+	
+	this.updateLevel7 = function() {
+		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		
+		blocks.push(new RegBlock(200, 400, 800, 20));
+		blocks.push(new RegBlock(0, 560, 1000, 50));
+		
+		// blocks.push(new RegBlock(550, 150, 20, 100));
+		
+		
+		this.width = 1000;
+		this.height = 600;
+		this.startX = blocks[0].center;
+		this.startY = 500;
+		createCanvas(this.width ,this.height);
+		background(255,204,153);
+	}
+	
+	this.level7 = function() {
+		screenWrap = true;
+		ball.dragOff = true;
+		// image(Level7_Angela, 0, 0);
+		background(200);
+		ball.show();
+		ball.update(levels);
+
+		if (levels.needUpdate) {
+			levels.updateLevel7();
+			levels.needUpdate = false;
+		}
+		if(ball.needUpdate) {
+			ball.start(levels);
+			ball.needUpdate = false;
+		}
+		for (var i = 0; i < blocks.length; i++) {
+			blocks[i].show();
+			blocks[i].hit();
+		}
+		
+		if (ball.win == true) {
+			this.complete[7] = true;
+		}
+		this.winMessage(10,50,0,204,229,255);
+	}
 	
 
 }

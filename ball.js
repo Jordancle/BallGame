@@ -18,7 +18,7 @@ function Ball() {
 	
 	this.dragOff = false;
 	
-	this.deathCount = [0,0,0,0,0,0,0];
+	this.deathCount = [0,0,0,0,0,0,0,0];
 	
 	this.start = function(levels) {
 		this.x = levels.startX;
@@ -145,11 +145,17 @@ function Ball() {
 	
 	this.jump = function() {
 		jump_sfx.play();
-		if (this.reverse == false) {
+		if (this.reverse == false && this.dragOff == false) {
 			this.yVelocity = -20;
 			this.bounce = 1
 			this.xVelocity = 12;
 			// this.drag = 0.5;
+			this.jumps--;
+		} else if (this.dragOff == true) {
+			this.yVelocity = -20;
+			
+			this.bounce = 1
+			this.xVelocity = 12*1.5;
 			this.jumps--;
 		} else {
 			this.yVelocity = -20*1;

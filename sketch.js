@@ -12,6 +12,7 @@ var win_sfx, death_sfx;
 var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela;
+var arrowLeft_img, arrowRight_img;
 var message = 0;
 var screenWrap = true;
 
@@ -29,6 +30,8 @@ function preload() {
 	level5_img = loadImage("Images/Level5.png");
 	level6_img = loadImage("Images/Level6.png");
 	level6_Angela = loadImage("Images/Level6_Angela.png");
+	arrowLeft_img = loadImage("Images/arrowLeft.png");
+	arrowRight_img = loadImage("Images/arrowRight.png");
 }
 
 function setup() {
@@ -57,27 +60,27 @@ function draw() {
 			fill(0);
 			if (levels.complete[1]) {
 				if (ball.deathCount[1] > 0) {
-					text("Level 1 ★", 20,80);
+					text("Level 1 ✔", 20,80);
 				} else {
-					text("Level 1 ✮", 20, 80);
+					text("Level 1 ★", 20, 80);
 				}
 			} else {
 				text("Level 1", 20,80);
 			}
 			if (levels.complete[2]) {
 				if (ball.deathCount[2] > 0) {
-					text("Level 2 ★", 20,160);;
+					text("Level 2 ✔", 20,160);;
 				} else {
-					text("Level 2 ✮", 20, 160);
+					text("Level 2 ★", 20, 160);
 				}
 			} else {
 				text("Level 2", 20,160);
 			} 
 			if (levels.complete[3]) {
 				if (ball.deathCount[3] > 0) {
-					text("Level 3 ★", 20,240);
+					text("Level 3 ✔", 20,240);
 				} else {
-					text("Level 3 ✮", 20, 240);
+					text("Level 3 ★", 20, 240);
 				}
 				
 			} else {
@@ -85,31 +88,41 @@ function draw() {
 			} 
 			if (levels.complete[4]) {
 				if (ball.deathCount[4] > 0) {
-					text("Level 4 ★", 20,320);
+					text("Level 4 ✔", 20,320);
 				} else {
-					text("Level 4 ✮", 20, 320);
+					text("Level 4 ★", 20, 320);
 				}
 			} else {
 				text("Level 4", 20,320);
 			} 
 			if (levels.complete[5]) {
 				if (ball.deathCount[5] > 0) {
-					text("Level 5 ★", 20,400);
+					text("Level 5 ✔", 20,400);
 				} else {
-					text("Level 5 ✮", 20, 400);
+					text("Level 5 ★", 20, 400);
 				}
 			} else {
 				text("Level 5", 20,400);
 			}
 			if (levels.complete[6]) {
 				if (ball.deathCount[6] > 0) {
-					text("Level 6 ★", 220,80);
+					text("Level 6 ✔", 220,80);
 				} else {
-					text("Level 6 ✮", 220, 80);
+					text("Level 6 ★", 220, 80);
 				}
 			
 			} else {
 				text("Level 6", 220,80);
+			}
+			if (levels.complete[7]) {
+				if (ball.deathCount[7] > 0) {
+					text("Level 7 ✔", 220,160);
+				} else {
+					text("Level 7 ★", 220, 160);
+				}
+			
+			} else {
+				text("Level 7", 220,160);
 			}
 			ball.win = true;
 			next_ok = true;
@@ -156,6 +169,9 @@ function draw() {
 			break;
 		case 6:
 			levels.level6();
+			break;
+		case 7:
+			levels.level7();
 			break;
 		default:
 			level = 0;
@@ -261,6 +277,8 @@ function mousePressed() {
 			level = 5;
 		} else if (mouseX > 215 && mouseX < 350 && mouseY > 45 && mouseY < 85) {
 			level = 6;
+		} else if (mouseX > 215 && mouseX < 350 && mouseY > 125 && mouseY < 165) {
+			level = 7;
 		}
 	}
 	
