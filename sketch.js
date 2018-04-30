@@ -60,7 +60,7 @@ function draw() {
 			fill(0);
 			if (levels.complete[1]) {
 				if (ball.deathCount[1] > 0) {
-					text("Level 1 ✔", 20,80);
+					text("Level 1 🗸", 20,80);
 				} else {
 					text("Level 1 ★", 20, 80);
 				}
@@ -69,7 +69,7 @@ function draw() {
 			}
 			if (levels.complete[2]) {
 				if (ball.deathCount[2] > 0) {
-					text("Level 2 ✔", 20,160);;
+					text("Level 2 🗸", 20,160);;
 				} else {
 					text("Level 2 ★", 20, 160);
 				}
@@ -78,7 +78,7 @@ function draw() {
 			} 
 			if (levels.complete[3]) {
 				if (ball.deathCount[3] > 0) {
-					text("Level 3 ✔", 20,240);
+					text("Level 3 🗸", 20,240);
 				} else {
 					text("Level 3 ★", 20, 240);
 				}
@@ -88,7 +88,7 @@ function draw() {
 			} 
 			if (levels.complete[4]) {
 				if (ball.deathCount[4] > 0) {
-					text("Level 4 ✔", 20,320);
+					text("Level 4 🗸", 20,320);
 				} else {
 					text("Level 4 ★", 20, 320);
 				}
@@ -97,7 +97,7 @@ function draw() {
 			} 
 			if (levels.complete[5]) {
 				if (ball.deathCount[5] > 0) {
-					text("Level 5 ✔", 20,400);
+					text("Level 5 🗸", 20,400);
 				} else {
 					text("Level 5 ★", 20, 400);
 				}
@@ -106,7 +106,7 @@ function draw() {
 			}
 			if (levels.complete[6]) {
 				if (ball.deathCount[6] > 0) {
-					text("Level 6 ✔", 220,80);
+					text("Level 6 🗸", 220,80);
 				} else {
 					text("Level 6 ★", 220, 80);
 				}
@@ -116,7 +116,7 @@ function draw() {
 			}
 			if (levels.complete[7]) {
 				if (ball.deathCount[7] > 0) {
-					text("Level 7 ✔", 220,160);
+					text("Level 7 🗸", 220,160);
 				} else {
 					text("Level 7 ★", 220, 160);
 				}
