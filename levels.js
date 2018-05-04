@@ -447,7 +447,7 @@ function Levels() {
 		blocks.push(new RegBlock(50, 225, 175, 20));
 		blocks.push(new RollRightBlock(95, 580, 150, 20));
 		blocks.push(new RegBlock(225, 225, 20, 215));
-		blocks.push(new MoveBlock(245, 245, 225, 350, 255, 90, 180));
+		blocks.push(new MoveBlock(245, 245, 225, 335, 255, 105, 180));
 		blocks.push(new DeathBlock(520, 150, 220, 20));
 		blocks.push(new RegBlock(500, 150, 20, 185));
 		blocks.push(new RegBlock(500, 420, 150, 20));

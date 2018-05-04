@@ -144,20 +144,22 @@ function Ball() {
 	}
 	
 	this.jump = function() {
-		jump_sfx.play();
 		if (this.reverse == false && this.dragOff == false) {
+			jump_sfx.play();
 			this.yVelocity = -20;
 			this.bounce = 1
 			this.xVelocity = 12;
 			// this.drag = 0.5;
 			this.jumps--;
 		} else if (this.dragOff == true) {
+			jump_sfx.play();
 			this.yVelocity = -20;
 			
 			this.bounce = 1
 			this.xVelocity = 12*1.5;
 			this.jumps--;
 		} else {
+			reverse_jump_sfx.play();
 			this.yVelocity = -20*1;
 			this.bounce = 1
 			this.xVelocity = -12*1.5;

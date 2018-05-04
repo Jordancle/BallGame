@@ -6,7 +6,7 @@ var level = 0;
 
 var blocks = [];
 var trail = [];
-var jump_sfx;
+var jump_sfx, reverse_jump_sfx;
 var bump_sfx;
 var win_sfx, death_sfx;
 var timer = -5;
@@ -22,6 +22,7 @@ function preload() {
 	bump_sfx = loadSound("sounds/smb_bump.mp3");
 	win_sfx = loadSound("sounds/smas_1up.mp3");
 	death_sfx = loadSound("sounds/smb3_player_down.mp3");
+	reverse_jump_sfx = loadSound("sounds/smw_spin_jump.wav");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
 	level2_img = loadImage("Images/Level2.png");
