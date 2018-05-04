@@ -147,15 +147,15 @@ function draw() {
 			}
 			break;
 		case 102:
+			level = 1;
+			break;
+		case 1:
 			levels.level1_3();
 			fill(0);
 			textSize(25);
 			if (ball.win == false) {
 				text("You can jump again after\ntouching a block!!!", 10, 60);
 			}
-			break;
-		case 103:
-			level = 2;
 			break;
 		case 2:
 			levels.level2();
@@ -286,7 +286,7 @@ function mousePressed() {
 	}
 	
 	if (next_ok == true) {
-		if (mouseX > (this.width/2)-135 && mouseX < this.width/2 && mouseY > 300 && mouseY < 385) {
+		if (mouseX > (this.width/2)-135 && mouseX < this.width/2 && mouseY > levels.messageY && mouseY < levels.messageY+50) {
 			ball.win = false;
 			ball.needUpdate = true;
 			levels.needUpdate = true;
@@ -296,7 +296,7 @@ function mousePressed() {
 			trail.splice(0,trail.length);	
 			next_ok = false;
 			timer = -5;
-		} else if (mouseX > this.width/2 && mouseX < (this.width/2)+135 && mouseY > 300 && mouseY < 385) {
+		} else if (mouseX > this.width/2 && mouseX < (this.width/2)+135 && mouseY > levels.messageY && mouseY < levels.messageY+50) {
 			ball.win = false;
 			level = 0;
 			ball.needUpdate = true;
@@ -328,6 +328,7 @@ function mousePressed() {
 		timer = -5;
 		// ball.jumps = 0;			
 	} 
+	
 }
 
 

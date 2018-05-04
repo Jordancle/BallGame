@@ -1,7 +1,7 @@
 
 function Levels() {
-	this.width;
-	this.height;
+	this.width, this.winWidthRadius = 137;
+	this.height, this.winHeightRadius = 125;
 	this.startX;
 	this.startY;
 	this.messageX;
@@ -15,7 +15,7 @@ function Levels() {
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
 		//blocks.push(new WinBlock(150,50,100,20));
-		blocks.push(new RegBlock(0, 500, 400,100  ));
+		blocks.push(new RegBlock(0, 500, 400,100));
 		
 		this.width = 400;
 		this.height = 600;
@@ -26,29 +26,40 @@ function Levels() {
 		
 	}
 
-	this.winMessage = function(x,y,c,r,g,b) {
+	this.winMessage = function(c,r,g,b) {
 		if (timer > 0) {
 			timer--;
 		}
 		if (timer == 0) {
 			next_ok = true;
 		}
-		this.messageX = map(timer,40,0,(this.width/2)-112,(this.width/2)-112);
-		this.messageY = map(timer,40,0,-50,(this.height/2)-40);
+		this.messageX = map(timer,40,0,(this.width/2),(this.width/2));
+		this.messageY = map(timer,40,0,-50,(this.height/2));
 		if (ball.win == true) {
-			// tint(255,127);
+			rectMode(RADIUS);
 			fill(r,g,b);
-			rect(this.messageX-25,this.messageY-72,275,200);
-			// noTint();
+			rect(this.messageX,this.messageY,this.winWidthRadius,this.winHeightRadius);
+			rectMode(CORNER);
 			textSize(45);
+			textAlign(CENTER);
 			fill(c);
-			text("SUCCESS!",this.messageX,this.messageY);
+			text("SUCCESS!",this.messageX,this.messageY-60);
 			if (next_ok == true) {
 				textSize(20);
-				text("Press SPACE to continue",this.messageX,this.messageY+30);
-				text("Press SHIFT\nto RESTART",this.messageX-15,this.messageY+70);
-				text("Press ENTER\n   for MENU",this.messageX+115,this.messageY+70);
+				text("Press SPACE to continue",this.messageX,this.messageY-20);
+				text("Press SHIFT\nto RESTART",this.messageX-70,this.messageY+20);
+				text("Press ENTER\nfor MENU",this.messageX+70,this.messageY+20);
+				if (level < 100) {
+					
+					if (ball.deathCount[level] > 0) {
+						text("Attempts: " + (ball.deathCount[level]+1) + "\n🗸",this.messageX,this.messageY+80);
+					} else {
+						text("Attempts: " + (ball.deathCount[level]+1) + "\n★",this.messageX,this.messageY+80);
+					}
+				}
+				
 			}
+			textAlign(RIGHT);
 		}
 		
 	}
@@ -124,7 +135,7 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		this.winMessage(10,50,0,204,255,204);
+		this.winMessage(0,204,255,204);
 		
 	}
 	
@@ -173,7 +184,7 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		this.winMessage(10,50,0,204,255,204);
+		this.winMessage(0,204,255,204);
 		
 	}
 	
@@ -224,7 +235,7 @@ function Levels() {
 			this.complete[1] = true;
 		}
 		
-		this.winMessage(10,50,0,204,255,204);
+		this.winMessage(0,204,255,204);
 		
 	}
 	
@@ -276,7 +287,7 @@ function Levels() {
 			this.complete[3] = true;
 		}
 		
-		this.winMessage(50,200,255,0,153,153);
+		this.winMessage(255,0,153,153);
 			
 	}
 	
@@ -331,7 +342,7 @@ function Levels() {
 			this.complete[2] = true;
 		}
 		
-		this.winMessage(10,150,0,204,229,255);
+		this.winMessage(0,204,229,255);
 	}
 
 	this.updateLevel4 = function() {
@@ -358,7 +369,7 @@ function Levels() {
 	
 	this.level4 = function() {
 		screenWrap = false;
-		// image(level4_img, 0, 0);
+		image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
@@ -378,7 +389,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[4] = true;
 		}
-		this.winMessage(10,50,255,153,153,255);
+		this.winMessage(255,153,153,255);
 	}
 	
 	this.updateLevel5 = function() {
@@ -437,7 +448,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[5] = true;
 		}
-		this.winMessage(10,50,0,255,255,204);
+		this.winMessage(0,255,255,204);
 	}
 	
 	this.updateLevel6 = function() {
@@ -488,7 +499,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[6] = true;
 		}
-		this.winMessage(10,50,0,204,229,255);
+		this.winMessage(0,204,229,255);
 	}	
 	
 	this.updateLevel7 = function() {
@@ -532,7 +543,7 @@ function Levels() {
 		if (ball.win == true) {
 			this.complete[7] = true;
 		}
-		this.winMessage(10,50,0,204,229,255);
+		this.winMessage(0,204,229,255);
 	}
 	
 
