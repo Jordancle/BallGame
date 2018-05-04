@@ -291,6 +291,7 @@ function mousePressed() {
 			ball.needUpdate = true;
 			levels.needUpdate = true;
 			ball.yVelocity = 0;
+			ball.jumps = 0;
 			ball.xVelocity = 0;
 			ball.trails = 0;
 			trail.splice(0,trail.length);	
@@ -302,7 +303,7 @@ function mousePressed() {
 			ball.needUpdate = true;
 			levels.needUpdate = true;
 			ball.yVelocity = 0;
-			//ball.jumps = 0;
+			ball.jumps = 0;
 			ball.xVelocity = 0;
 			ball.trails = 0;
 			trail.splice(0,trail.length);	
