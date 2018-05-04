@@ -341,6 +341,7 @@ function Levels() {
 		blocks.push(new FallBlock(560,0,10,150));
 		blocks.push(new RegBlock(50,500,120,100));
 		blocks.push(new RegBlock(150, 350, 20, 250));
+		blocks.push(new FallBlock(260,75,10,100));
 		blocks.push(new RegBlock(200,500,120,100));
 		blocks.push(new RegBlock(400,500,120,100));
 		blocks.push(new RegBlock(700,200,20,400));
@@ -350,14 +351,14 @@ function Levels() {
 		this.width = 1000;
 		this.height = 600;
 		this.startX = 64;
-		this.startY = 400;
+		this.startY = 450;
 		createCanvas(this.width ,this.height);
 		background(103,154,144);
 	}
 	
 	this.level4 = function() {
 		screenWrap = false;
-		image(level4_img, 0, 0);
+		// image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
 
