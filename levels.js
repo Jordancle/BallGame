@@ -11,7 +11,7 @@ function Levels() {
 	this.perfects = [false, false, false, false, false, false, false, false];
 	this.upperBound = true;
 	this.screenWrap = true;
-	this.cameraMoved = [false];		// used to determine when the camera has moved
+	this.cameraMoved = [false,false];		// used to determine when the camera has moved
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.updateTest = function() {
 		
@@ -120,14 +120,14 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		// background(102,102,153);
+		image(level1_img, 0, 0);
 		
 	}
 
 	
 	this.level1_1 = function() {
 		
-		background(102,102,153);
+		// background(102,102,153);
 		image(level1_img, 0, 0);
 		
 		/*
@@ -173,13 +173,12 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		// background(102,102,153);
+		image(level1_img, 0, 0);
 		
 	}
 
 	
 	this.level1_2 = function() {
-		background(102,102,153);
 		image(level1_img, 0, 0);
 		
 		/*
@@ -223,13 +222,13 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		// background(102,102,153);
+		image(level1_img, 0, 0);
 		
 	}
 
 	
 	this.level1_3 = function() {
-		background(102,102,153);
+		// background(102,102,153);
 		image(level1_img, 0, 0);
 		
 		/*
@@ -280,7 +279,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(204,255,229);
+		image(level3_img, 0, 0);
 		
 	}
 
@@ -339,7 +338,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		
+		image(level2_img, 0, 0);
 	}
 	
 	this.level2 = function() {
@@ -396,7 +395,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(103,154,144);
+		image(level4_img, 0, 0);
 	}
 	
 	this.level4 = function() {
@@ -458,7 +457,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(255,204,153);
+		image(level5_img, 0, 0);
 	}
 	
 	this.level5 = function() {
@@ -512,7 +511,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(255,204,153);
+		image(level6_Angela, 0, 0);
 	}
 	
 	this.level6 = function() {
@@ -565,7 +564,7 @@ function Levels() {
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(255,204,153);
+		background(200);
 	}
 	
 	this.level7 = function() {
@@ -585,6 +584,18 @@ function Levels() {
 		if (blocks[2].contact == true && this.cameraMoved[0] == false) {
 			if (this.counter <= -300) {
 				this.cameraMoved[0] = true;
+				this.counter = 0;
+			}
+			
+			camera.position.y += -this.cameraSpeed;
+			this.counter += -this.cameraSpeed;
+			
+		}
+		
+		if (blocks[3].contact == true && this.cameraMoved[1] == false) {
+			if (this.counter <= -300) {
+				this.cameraMoved[1] = true;
+				this.counter = 0;
 			}
 			
 			camera.position.y += -this.cameraSpeed;

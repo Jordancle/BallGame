@@ -33,6 +33,7 @@ function Ball() {
 		this.win = false;
 		this.reverse = false;
 		this.rotating = false;
+		levels.needUpdate = true;
 	}
 	
 	this.death = function(levels) {
@@ -45,6 +46,7 @@ function Ball() {
 		this.reverse = false;
 		death_sfx.play();
 		var currLevel;
+		levels.needUpdate = true;
 		if (level >= 100) {
 			currLevel = 1;
 		} else {
@@ -85,7 +87,7 @@ function Ball() {
 		 * bounce caused yVelocity to = -15, but this was changed to
 		 * -yVelocity instead
 		 */
-		if (this.y > height) {
+		if (this.y > levels.height/2 + camera.position.y) {
 			this.death(levels);
 		}
 		if (this.y < 0 && levels.upperBound) {
