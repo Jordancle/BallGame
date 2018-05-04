@@ -32,7 +32,7 @@ function Ball() {
 		this.jumps = 0;
 		this.win = false;
 		this.reverse = false;
-		
+		this.rotating = false;
 	}
 	
 	this.death = function(levels) {
@@ -51,15 +51,15 @@ function Ball() {
 			currLevel = level;
 		}
 		this.deathCount[currLevel]++;
-		// this.trails++;
+		this.rotating = false;
 	}
 	
 	this.show = function() {
 		if (this.jumps == 1) {
-			if (this.reverse == false) {
-				fill(255)
-			} else {
+			if (this.reverse == true) {
 				fill(255, 255, 0);
+			} else {
+				fill(255);
 			}
 		} else if (this.jumps == 0) {
 			fill (100);
@@ -67,6 +67,12 @@ function Ball() {
 			fill(0);
 		}
 		ellipse(this.x, this.y, this.radius*2, this.radius*2);
+		if (this.reverse == true) {
+			push();
+			imageMode(CENTER);
+			image(arrowLeft_img,this.x,this.y);
+			pop();
+		}
 	}
 	
 	this.update = function(levels) {
@@ -82,7 +88,7 @@ function Ball() {
 		if (this.y > height) {
 			this.death(levels);
 		}
-		if (this.y < 0) {
+		if (this.y < 0 && levels.upperBound) {
 			this.y = 0;
 			this.yVelocity = 0;
 		}
@@ -91,7 +97,7 @@ function Ball() {
 		 * X Value Adjustments for determining the deacceleration (both directions)
 		 * and physics of bouncing against the walls
 		 */
-		if (screenWrap == true) {
+		if (levels.screenWrap == true) {
 			if (this.x > width) {
 				this.x = 0;
 			} 

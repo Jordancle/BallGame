@@ -14,7 +14,6 @@ var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela;
 var arrowLeft_img, arrowRight_img;
 var message = 0;
-var screenWrap = true;
 
 function preload() {
 	soundFormats('mp3');

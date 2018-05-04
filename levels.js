@@ -9,6 +9,8 @@ function Levels() {
 	this.needUpdate = true;
 	this.complete = [false, false, false, false, false, false, false, false];
 	this.perfects = [false, false, false, false, false, false, false, false];
+	this.upperBound = true;
+	this.screenWrap = true;
 	
 	this.updateTest = function() {
 		
@@ -74,7 +76,7 @@ function Levels() {
 	}
 	
 	this.levelTest = function() {
-		screenWrap = true;
+		this.screenWrap = true;
 		background(200);
 		
 		/*
@@ -99,6 +101,8 @@ function Levels() {
 	}
 	
 	this.updateLevel1_1 = function() {
+		this.screenWrap = true;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
@@ -119,7 +123,7 @@ function Levels() {
 
 	
 	this.level1_1 = function() {
-		screenWrap = true;
+		
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -149,6 +153,8 @@ function Levels() {
 	}
 	
 		this.updateLevel1_2 = function() {
+		this.screenWrap = true;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
@@ -168,7 +174,6 @@ function Levels() {
 
 	
 	this.level1_2 = function() {
-		screenWrap = true;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -198,6 +203,8 @@ function Levels() {
 	}
 	
 		this.updateLevel1_3 = function() {
+		this.screenWrap = true;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 
 		blocks.push(new RegBlock(0, 450, 100, 20));
@@ -215,7 +222,6 @@ function Levels() {
 
 	
 	this.level1_3 = function() {
-		screenWrap = false;
 		background(102,102,153);
 		image(level1_img, 0, 0);
 		
@@ -249,6 +255,8 @@ function Levels() {
 	}
 	
 	this.updateLevel3 = function() {
+		this.screenWrap = true;
+		this.upperBound = true;
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		// blocks.push(new RegBlock(200,500,200,20));
@@ -269,7 +277,6 @@ function Levels() {
 
 	
 	this.level3 = function() {
-		screenWrap = true;
 		image(level3_img, 0, 0);
 		
 		/*
@@ -301,6 +308,8 @@ function Levels() {
 	}
 	
 	this.updateLevel2 = function() {
+		this.screenWrap = true;
+		this.upperBound = true;
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		//blocks.push(new RegBlock(200,500,200,20));
@@ -323,7 +332,6 @@ function Levels() {
 	}
 	
 	this.level2 = function() {
-		screenWrap = true;
 		image(level2_img, 0, 0);
 		
 		/*
@@ -355,6 +363,8 @@ function Levels() {
 	}
 
 	this.updateLevel4 = function() {
+		this.screenWrap = false;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		blocks.push(new WinBlock(900,150,100,20));
 		blocks.push(new RegBlock(570, 0, 20, 400));
@@ -377,7 +387,6 @@ function Levels() {
 	}
 	
 	this.level4 = function() {
-		screenWrap = false;
 		image(level4_img, 0, 0);
 		ball.show();
 		ball.update(levels);
@@ -402,6 +411,8 @@ function Levels() {
 	}
 	
 	this.updateLevel5 = function() {
+		this.screenWrap = false;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		//blocks.push(new RegBlock(150, 300, 20, 200));
@@ -436,7 +447,6 @@ function Levels() {
 	}
 	
 	this.level5 = function() {
-		screenWrap = false;
 		image(level5_img, 0, 0);
 		ball.show();
 		ball.update(levels);
@@ -461,6 +471,8 @@ function Levels() {
 	}
 	
 	this.updateLevel6 = function() {
+		this.screenWrap = false;
+		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		blocks.push(new RegBlock(0, 150, 350, 20));
@@ -487,7 +499,6 @@ function Levels() {
 	}
 	
 	this.level6 = function() {
-		screenWrap = false;
 		image(level6_Angela, 0, 0);
 		ball.show();
 		ball.update(levels);
@@ -512,11 +523,14 @@ function Levels() {
 	}	
 	
 	this.updateLevel7 = function() {
+		this.screenWrap = true;
+		this.upperBound = false;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		blocks.push(new RegBlock(0, 500, 200, 100));
 		blocks.push(new CircleBlock(250,300,100));
 		blocks.push(new CircleBlock(75,125,50));
+		blocks.push(new CircleBlock(250,-300,30));
 		
 		
 		// blocks.push(new RegBlock(550, 150, 20, 100));
@@ -531,7 +545,6 @@ function Levels() {
 	}
 	
 	this.level7 = function() {
-		screenWrap = true;
 		// image(Level7_Angela, 0, 0);
 		background(200);
 		ball.show();
@@ -547,15 +560,12 @@ function Levels() {
 			ball.needUpdate = false;
 		}
 		if (blocks[2].contact == true) {
-			yTrans = 1;
-			translate(0,1);
+			camera.position.y += -300;
 		}
 		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
-			blocks[i].x += xTrans;
-			blocks[i].y += yTrans;
 		}
 		
 		
