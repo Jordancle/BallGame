@@ -43,18 +43,24 @@ function Levels() {
 			textSize(45);
 			textAlign(CENTER);
 			fill(c);
-			text("SUCCESS!",this.messageX,this.messageY-60);
+			text("SUCCESS!",this.messageX,this.messageY-70);
 			if (next_ok == true) {
 				textSize(20);
-				text("Press SPACE to continue",this.messageX,this.messageY-20);
+				text("Press SPACE to continue",this.messageX,this.messageY-30);
 				text("Press SHIFT\nto RESTART",this.messageX-70,this.messageY+20);
 				text("Press ENTER\nfor MENU",this.messageX+70,this.messageY+20);
+				push();
+				noFill();
+				stroke(c);
+				rect((this.width/2)-135, levels.messageY, 135,50);
+				rect((this.width/2), levels.messageY, 135,50);
+				pop();
 				if (level < 100) {
 					
 					if (ball.deathCount[level] > 0) {
-						text("Attempts: " + (ball.deathCount[level]+1) + "\n🗸",this.messageX,this.messageY+80);
+						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: 🗸",this.messageX,this.messageY+80);
 					} else {
-						text("Attempts: " + (ball.deathCount[level]+1) + "\n★",this.messageX,this.messageY+80);
+						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: ★",this.messageX,this.messageY+80);
 					}
 				}
 				
