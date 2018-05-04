@@ -90,7 +90,7 @@ function Ball() {
 		if (this.y > levels.height/2 + camera.position.y) {
 			this.death(levels);
 		}
-		if (this.y < 0 && levels.upperBound) {
+		if (this.y < camera.position.y - levels.height/2) {
 			this.y = 0;
 			this.yVelocity = 0;
 		}
