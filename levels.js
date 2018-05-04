@@ -515,7 +515,7 @@ function Levels() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		blocks.push(new RegBlock(0, 500, 200, 100));
-		blocks.push(new CircleBlock(250,300,50));
+		blocks.push(new CircleBlock(250,300,100));
 		blocks.push(new CircleBlock(75,125,50));
 		
 		
@@ -536,6 +536,7 @@ function Levels() {
 		background(200);
 		ball.show();
 		ball.update(levels);
+		var xTrans = 0; yTrans = 0;
 
 		if (levels.needUpdate) {
 			levels.updateLevel7();
@@ -545,14 +546,20 @@ function Levels() {
 			ball.start(levels);
 			ball.needUpdate = false;
 		}
+		if (blocks[2].contact == true) {
+			yTrans = 1;
+			translate(0,1);
+		}
+		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].x += xTrans;
+			blocks[i].y += yTrans;
 		}
 		
-		// if (ball.win == true) {
-			// this.complete[7] = true;
-		// }
+		
+		
 		this.winMessage(0,204,229,255);
 	}
 	

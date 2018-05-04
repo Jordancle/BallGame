@@ -354,6 +354,7 @@ class CircleBlock extends Block {
 	constructor(x,y,r) {
 		super(x,y);
 		this.r = r;
+		this.contact = false;
 	}
 	show() {
 		fill(255,0,0);
@@ -361,7 +362,13 @@ class CircleBlock extends Block {
 	}
 	hit() {
 		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius+ 2) {
+			/* this.contact used to tell when the camera should move */
+			this.contact = true;
 			ball.rotating = true;
+			/*
+				a1 and b1 represent the x distance and the y distance between the center of the ball and the CircleBlock respectively.
+				a2 and b2 are those distances idealized to where the edges are exactly touching rather than intersecting.
+			*/
 			var a1,b1;
 			a1 = ball.x - this.x;
 			b1 = ball.y - this.y;
