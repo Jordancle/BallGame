@@ -514,23 +514,23 @@ function Levels() {
 	this.updateLevel7 = function() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
-		blocks.push(new RegBlock(200, 400, 800, 20));
-		blocks.push(new RegBlock(0, 560, 1000, 50));
+		blocks.push(new RegBlock(0, 500, 200, 100));
+		blocks.push(new CircleBlock(250,300,50));
+		
 		
 		// blocks.push(new RegBlock(550, 150, 20, 100));
 		
 		
-		this.width = 1000;
+		this.width = 400;
 		this.height = 600;
 		this.startX = blocks[0].center;
-		this.startY = 500;
+		this.startY = 450;
 		createCanvas(this.width ,this.height);
 		background(255,204,153);
 	}
 	
 	this.level7 = function() {
 		screenWrap = true;
-		ball.dragOff = true;
 		// image(Level7_Angela, 0, 0);
 		background(200);
 		ball.show();

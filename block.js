@@ -350,6 +350,62 @@ class DeathBlock extends Block {
 	}
 }
 	
+class CircleBlock extends Block {
+	constructor(x,y,r) {
+		super(x,y);
+		this.r = r;
+	}
+	show() {
+		fill(20, 20, 200);
+		ellipse(this.x,this.y,this.r*2,this.r*2);
+	}
+	hit() {
+		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius) {
+			var a1,b1,a2,b2,c;
+			a1 = ball.x - this.x;
+			b1 = ball.y - this.y;
+			c = ball.radius + this.r;
+			a2 = sqrt(sq(c) / (1 + sq(b1/a1)));
+			b2 = sqrt(sq(c) / (1 + sq(a1/b1)));
+			
+			if (a1 < 0 && b1 > 0) {
+				ball.x = -a2 + this.x;
+				ball.y = b2 + this.y;
+				ball.xVelocity = b2 /(this.r + ball.radius);
+				ball.yVelocity = -a2/(this.r + ball.radius);
+			} else if (a1 < 0 && b1 < 0) {
+				ball.x = -a2 + this.x;
+				ball.y = -b2 + this.y;
+				ball.xVelocity = b2 /(this.r + ball.radius);
+				ball.yVelocity = a2/(this.r + ball.radius);
+			} else if (a1 > 0 && b1 < 0) {
+				ball.x = a2 + this.x;
+				ball.y = -b2 + this.y;
+				ball.xVelocity = -b2 /(this.r + ball.radius);
+				ball.yVelocity = a2/(this.r + ball.radius);
+			} else if (a1 > 0 && b1 > 0) {
+				ball.x = a2 + this.x;
+				ball.y = b2 + this.y;
+				ball.xVelocity = -b2 /(this.r + ball.radius);
+				ball.yVelocity = -a2/(this.r + ball.radius);
+			} else if (a1 == 0 && b1 > 0) {
+				xVelocity = -1;
+			} else if (a1 == 0 && b1 < 0) {
+				xVelocity = 1;
+			} else if (a1 > 0 && b1 == 0) {
+				yVelocity = 1;
+			} else if (a1 < 0 && b1 == 0) {
+				yVelocity = -1;
+			} 
+			
+			ball.gravity = 0;
+			ball.jumps = 1;
+		} else {
+			ball.gravity = 1;
+		}
+	}
+}
+	
 /*
 function Block(x,y,w,h) {
 	ball = new Ball();
