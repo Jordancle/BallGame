@@ -275,7 +275,7 @@ function mousePressed() {
 			level = 3;
 		} else if (mouseX > 15 && mouseX < 150 && mouseY > 290 && mouseY < 320) {
 			level = 4;
-		} else if (mouseX > 15 && mouseX < 369 && mouseY > 290 && mouseY < 398) {
+		} else if (mouseX > 15 && mouseX < 369 && mouseY > 365 && mouseY < 398) {
 			level = 5;
 		} else if (mouseX > 215 && mouseX < 350 && mouseY > 45 && mouseY < 85) {
 			level = 6;

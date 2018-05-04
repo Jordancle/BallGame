@@ -361,7 +361,7 @@ function Levels() {
 		blocks.push(new FallBlock(560,0,10,150));
 		blocks.push(new RegBlock(50,500,120,100));
 		blocks.push(new RegBlock(150, 350, 20, 250));
-		blocks.push(new FallBlock(260,75,10,100));
+		// blocks.push(new FallBlock(260,75,10,100));
 		blocks.push(new RegBlock(200,500,120,100));
 		blocks.push(new RegBlock(400,500,120,100));
 		blocks.push(new RegBlock(700,200,20,400));
