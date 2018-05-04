@@ -8,6 +8,7 @@ function Levels() {
 	this.messageY;
 	this.needUpdate = true;
 	this.complete = [false, false, false, false, false, false, false, false];
+	this.perfects = [false, false, false, false, false, false, false, false];
 	
 	this.updateTest = function() {
 		
@@ -61,7 +62,9 @@ function Levels() {
 						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: 🗸",this.messageX,this.messageY+80);
 					} else {
 						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: ★",this.messageX,this.messageY+80);
+						this.perfects[level] = true;
 					}
+					this.complete[level] = true;
 				}
 				
 			}
@@ -237,9 +240,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[1] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[1] = true;
+		// }
 		
 		this.winMessage(0,204,255,204);
 		
@@ -289,9 +292,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[3] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[3] = true;
+		// }
 		
 		this.winMessage(255,0,153,153);
 			
@@ -344,9 +347,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[2] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[2] = true;
+		// }
 		
 		this.winMessage(0,204,229,255);
 	}
@@ -392,9 +395,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[4] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[4] = true;
+		// }
 		this.winMessage(255,153,153,255);
 	}
 	
@@ -451,9 +454,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[5] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[5] = true;
+		// }
 		this.winMessage(0,255,255,204);
 	}
 	
@@ -502,9 +505,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[6] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[6] = true;
+		// }
 		this.winMessage(0,204,229,255);
 	}	
 	
@@ -546,9 +549,9 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		if (ball.win == true) {
-			this.complete[7] = true;
-		}
+		// if (ball.win == true) {
+			// this.complete[7] = true;
+		// }
 		this.winMessage(0,204,229,255);
 	}
 	
