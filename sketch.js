@@ -48,8 +48,6 @@ function setup() {
 }
 
 function draw() {
-	camera.position.x = levels.width/2;
-	camera.position.y = levels.height/2;
 	switch(level) {
 		case -1:
 			levels.levelTest();

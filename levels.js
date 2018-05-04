@@ -116,6 +116,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 320;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		// background(102,102,153);
 		
@@ -167,6 +169,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 320;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		// background(102,102,153);
 		
@@ -215,6 +219,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 420;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		// background(102,102,153);
 		
@@ -270,6 +276,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 214;
 		this.startY = 400;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(204,255,229);
 		
@@ -327,6 +335,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 150;
 		this.startY = 400;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		
 	}
@@ -382,6 +392,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 64;
 		this.startY = 450;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(103,154,144);
 	}
@@ -442,6 +454,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 400;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(255,204,153);
 	}
@@ -494,6 +508,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = blocks[0].center;
 		this.startY = 100;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(255,204,153);
 	}
@@ -540,6 +556,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = blocks[0].center;
 		this.startY = 450;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(255,204,153);
 	}
@@ -549,7 +567,6 @@ function Levels() {
 		background(200);
 		ball.show();
 		ball.update(levels);
-		var xTrans = 0; yTrans = 0;
 
 		if (levels.needUpdate) {
 			levels.updateLevel7();
