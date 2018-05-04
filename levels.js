@@ -11,7 +11,8 @@ function Levels() {
 	this.perfects = [false, false, false, false, false, false, false, false];
 	this.upperBound = true;
 	this.screenWrap = true;
-	
+	this.cameraMoved = [false];		// used to determine when the camera has moved
+	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
@@ -541,12 +542,17 @@ function Levels() {
 	this.updateLevel7 = function() {
 		this.screenWrap = true;
 		this.upperBound = false;
+		this.counter = 0;
+		for (var i = 0; i < this.cameraMoved.length; i++) {
+			this.cameraMoved[i] = false;
+		}
+		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		blocks.push(new RegBlock(0, 500, 200, 100));
 		blocks.push(new CircleBlock(250,300,100));
 		blocks.push(new CircleBlock(75,125,50));
-		blocks.push(new CircleBlock(250,-300,30));
+		blocks.push(new CircleBlock(275,0,30));
 		
 		
 		// blocks.push(new RegBlock(550, 150, 20, 100));
@@ -576,8 +582,14 @@ function Levels() {
 			ball.start(levels);
 			ball.needUpdate = false;
 		}
-		if (blocks[2].contact == true) {
-			camera.position.y += -300;
+		if (blocks[2].contact == true && this.cameraMoved[0] == false) {
+			if (this.counter <= -300) {
+				this.cameraMoved[0] = true;
+			}
+			
+			camera.position.y += -this.cameraSpeed;
+			this.counter += -this.cameraSpeed;
+			
 		}
 		
 		for (var i = 0; i < blocks.length; i++) {
