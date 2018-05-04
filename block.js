@@ -356,53 +356,32 @@ class CircleBlock extends Block {
 		this.r = r;
 	}
 	show() {
-		fill(20, 20, 200);
+		fill(255,0,0);
 		ellipse(this.x,this.y,this.r*2,this.r*2);
 	}
 	hit() {
-		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius) {
-			var a1,b1,a2,b2,c;
+		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius+ 2) {
+			ball.rotating = true;
+			var a1,b1;
 			a1 = ball.x - this.x;
 			b1 = ball.y - this.y;
-			c = ball.radius + this.r;
-			a2 = sqrt(sq(c) / (1 + sq(b1/a1)));
-			b2 = sqrt(sq(c) / (1 + sq(a1/b1)));
-			
-			if (a1 < 0 && b1 > 0) {
-				ball.x = -a2 + this.x;
-				ball.y = b2 + this.y;
-				ball.xVelocity = b2 /(this.r + ball.radius);
-				ball.yVelocity = -a2/(this.r + ball.radius);
-			} else if (a1 < 0 && b1 < 0) {
-				ball.x = -a2 + this.x;
-				ball.y = -b2 + this.y;
-				ball.xVelocity = b2 /(this.r + ball.radius);
-				ball.yVelocity = a2/(this.r + ball.radius);
-			} else if (a1 > 0 && b1 < 0) {
-				ball.x = a2 + this.x;
-				ball.y = -b2 + this.y;
-				ball.xVelocity = -b2 /(this.r + ball.radius);
-				ball.yVelocity = a2/(this.r + ball.radius);
-			} else if (a1 > 0 && b1 > 0) {
-				ball.x = a2 + this.x;
-				ball.y = b2 + this.y;
-				ball.xVelocity = -b2 /(this.r + ball.radius);
-				ball.yVelocity = -a2/(this.r + ball.radius);
-			} else if (a1 == 0 && b1 > 0) {
-				xVelocity = -1;
-			} else if (a1 == 0 && b1 < 0) {
-				xVelocity = 1;
-			} else if (a1 > 0 && b1 == 0) {
-				yVelocity = 1;
-			} else if (a1 < 0 && b1 == 0) {
-				yVelocity = -1;
-			} 
+			ball.c = ball.radius + this.r;
+			ball.a2 = sqrt(sq(ball.c) / (1 + sq(b1/a1)));
+			ball.b2 = sqrt(sq(ball.c) / (1 + sq(a1/b1)));
+			if ((a1 > 0 && ball.a2 < 0) || (a1 < 0 && ball.a2 > 0)) {
+				ball.a2 = -ball.a2;
+			}
+			if ((b1 > 0 && ball.b2 < 0) || (b1 < 0 && ball.b2 > 0)) {
+				ball.b2 = -ball.b2;
+			}
+			ball.x = ball.a2 + this.x;
+			ball.y = ball.b2 + this.y;
+			ball.xVelocity = -ball.b2*5/ball.c;
+			ball.yVelocity = ball.a2*5/ball.c;
 			
 			ball.gravity = 0;
 			ball.jumps = 1;
-		} else {
-			ball.gravity = 1;
-		}
+		} 
 	}
 }
 	

@@ -20,6 +20,10 @@ function Ball() {
 	
 	this.deathCount = [0,0,0,0,0,0,0,0];
 	
+	// Variables for if ball is on CircleBlock
+	this.rotating;
+	this.a2, this.b2, this.c;
+	
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -144,28 +148,34 @@ function Ball() {
 	}
 	
 	this.jump = function() {
-		if (this.reverse == false && this.dragOff == false) {
-			jump_sfx.play();
-			this.yVelocity = -20;
-			this.bounce = 1
-			this.xVelocity = 12;
-			// this.drag = 0.5;
-			this.jumps--;
-		} else if (this.dragOff == true) {
-			jump_sfx.play();
-			this.yVelocity = -20;
-			
-			this.bounce = 1
-			this.xVelocity = 12*1.5;
-			this.jumps--;
-		} else {
+		if (this.reverse == true) {
 			reverse_jump_sfx.play();
 			this.yVelocity = -20*1;
-			this.bounce = 1
+			// this.bounce = 1
 			this.xVelocity = -12*1.5;
 			// this.drag = 0.5;
 			this.jumps--;
 			this.reverse = false;
+		} else if (this.dragOff == true) {
+			jump_sfx.play();
+			this.yVelocity = -20;
+			this.xVelocity = 12*1.5;
+			this.jumps--;
+		} else if (this.rotating == true) {
+			jump_sfx.play();
+			this.yVelocity = this.b2*18/this.c;
+			this.xVelocity = this.a2*18/this.c;
+			this.gravity = 1;
+			this.rotating = false;
+			this.jumps--;
+		} else {
+			jump_sfx.play();
+			this.yVelocity = -20;
+			// this.bounce = 1
+			this.xVelocity = 12;
+			// this.drag = 0.5;
+			this.jumps--;
+			
 		}
 	}
 
