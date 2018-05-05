@@ -580,19 +580,13 @@ function Levels() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
-		blocks.push(new RegBlock(0, 500, 100, 100));
-		blocks.push(new CircleBlock(150,300,50));
-		blocks.push(new CircleBlock(250,0,100));
-		blocks.push(new CircleBlock(75,-175,30));
-		blocks.push(new CircleBlock(100,-500,50));
-		blocks.push(new CircleBlock(325,-950,30));
-		blocks.push(new CircleBlock(275,-300,50));
-		blocks.push(new RegBlock(250,-850,20,350));
-		blocks.push(new RegBlock(100,550,500,50));
-		blocks.push(new WinBlock(0,-950,150,10));
-		blocks.push(new RegBlock(0,-940,170,20));
-		blocks.push(new RegBlock(150, -1100, 20,160));
-		blocks.push(new RegBlock(0,-1100,170,20));
+		blocks.push(new RegBlock(0, 525, 50, 100));
+		blocks.push(new RollBlock(50,550,350,50));
+		blocks.push(new CircleBlock(150,350,50));
+		blocks.push(new RegBlock(250,250,150,20));
+		blocks.push(new RegBlock(380,0,20,250));
+		// blocks.push(new CircleBlock(150,300,50));
+		
 		
 		// blocks.push(new RegBlock(0, 500, 100, 100));
 		// blocks.push(new CircleBlock(150,300,30));
@@ -612,7 +606,7 @@ function Levels() {
 		this.width = 400;
 		this.height = 600;
 		this.startX = blocks[0].center;
-		this.startY = 450;
+		this.startY = 475;
 		this.startXVelocity = 0;
 		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
@@ -636,10 +630,10 @@ function Levels() {
 			ball.needUpdate = false;
 		}
 		
-		this.moveCamera(blocks[2],0,-this.cameraSpeed,-200);
-		this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
-		this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
-		this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
+		// this.moveCamera(blocks[2],0,-this.cameraSpeed,-200);
+		// this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
+		// this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
+		// this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
 		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();

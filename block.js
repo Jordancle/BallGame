@@ -409,6 +409,7 @@ class CircleBlock extends Block {
 			}
 			
 			push();
+			strokeWeight(3);
 			stroke(0,0,255);
 			// line(ball.x-ball.xVelocity,ball.y-ball.yVelocity,ball.x+ball.a2*32/abs(ball.c),ball.y+ball.b2*32/abs(ball.c));
 			line(ball.x-ball.xVelocity,ball.y-ball.yVelocity,this.x,this.y);
