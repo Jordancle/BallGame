@@ -13,7 +13,7 @@ function Levels() {
 	this.perfects = [false, false, false, false, false, false, false, false];
 	this.upperBound = true;
 	this.screenWrap = true;
-	this.cameraMoved = [false,false];		// used to determine when the camera has moved
+	this.cameraMoved = [false,false,false,false];		// used to determine when the camera has moved
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.updateTest = function() {
 		
@@ -39,8 +39,8 @@ function Levels() {
 		if (timer == 0) {
 			next_ok = true;
 		}
-		this.messageX = map(timer,40,0,(this.width/2),(this.width/2));
-		this.messageY = map(timer,40,0,-50,(this.height/2));
+		this.messageX = map(timer,40,0,(this.width/2) + camera.position.x - levels.width/2,(this.width/2) + camera.position.x - levels.width/2);
+		this.messageY = map(timer,40,0,-50 + camera.position.y - levels.height/2,(this.height/2) + camera.position.y - levels.height/2);
 		if (ball.win == true) {
 			rectMode(RADIUS);
 			fill(r,g,b);
@@ -64,9 +64,9 @@ function Levels() {
 				if (level < 100) {
 					
 					if (ball.deathCount[level] > 0) {
-						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: 🗸",this.messageX,this.messageY+80);
+						text("Falls: " + (ball.deathCount[level]) + "\nRank: 🗸",this.messageX,this.messageY+80);
 					} else {
-						text("Attempts: " + (ball.deathCount[level]+1) + "\nRank: ★",this.messageX,this.messageY+80);
+						text("Falls: " + (ball.deathCount[level]) + "\nRank: ★",this.messageX,this.messageY+80);
 						this.perfects[level] = true;
 					}
 					this.complete[level] = true;
@@ -74,6 +74,7 @@ function Levels() {
 				
 			}
 			textAlign(RIGHT);
+			ball.deathCount[level] = 0;
 		}
 		
 	}
@@ -568,13 +569,19 @@ function Levels() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
-		blocks.push(new RegBlock(0, 500, 200, 100));
-		blocks.push(new CircleBlock(250,300,100));
-		blocks.push(new CircleBlock(75,125,50));
-		blocks.push(new CircleBlock(275,0,30));
-		
-		
-		// blocks.push(new RegBlock(550, 150, 20, 100));
+		blocks.push(new RegBlock(0, 500, 100, 100));
+		blocks.push(new CircleBlock(150,300,30));
+		blocks.push(new CircleBlock(250,0,100));
+		blocks.push(new CircleBlock(75,-175,30));
+		blocks.push(new CircleBlock(100,-500,50));
+		blocks.push(new CircleBlock(325,-950,30));
+		blocks.push(new CircleBlock(275,-300,50));
+		blocks.push(new RegBlock(250,-850,20,200));
+		blocks.push(new RegBlock(100,550,500,50));
+		blocks.push(new WinBlock(0,-950,150,10));
+		blocks.push(new RegBlock(0,-940,170,20));
+		blocks.push(new RegBlock(150, -1100, 20,160));
+		blocks.push(new RegBlock(0,-1100,170,20));
 		
 		
 		this.width = 400;
@@ -590,8 +597,8 @@ function Levels() {
 	}
 	
 	this.level7 = function() {
-		// image(Level7_Angela, 0, 0);
-		background(200);
+		image(level7_img, 0, -1320);
+		// background(200);
 		ball.show();
 		ball.update(levels);
 
@@ -604,7 +611,7 @@ function Levels() {
 			ball.needUpdate = false;
 		}
 		if (blocks[2].contact == true && this.cameraMoved[0] == false) {
-			if (this.counter <= -300) {
+			if (this.counter <= -200) {
 				this.cameraMoved[0] = true;
 				this.counter = 0;
 			}
@@ -615,8 +622,29 @@ function Levels() {
 		}
 		
 		if (blocks[3].contact == true && this.cameraMoved[1] == false) {
-			if (this.counter <= -300) {
+			if (this.counter <= -400) {
 				this.cameraMoved[1] = true;
+				this.counter = 0;
+			}
+			
+			camera.position.y += -this.cameraSpeed;
+			this.counter += -this.cameraSpeed;
+			
+		}
+		
+		if (blocks[4].contact == true && this.cameraMoved[2] == false) {
+			if (this.counter <= -400) {
+				this.cameraMoved[2] = true;
+				this.counter = 0;
+			}
+			
+			camera.position.y += -this.cameraSpeed;
+			this.counter += -this.cameraSpeed;
+			
+		}
+		if (blocks[5].contact == true && this.cameraMoved[3] == false) {
+			if (this.counter <= -300) {
+				this.cameraMoved[3] = true;
 				this.counter = 0;
 			}
 			
@@ -632,7 +660,7 @@ function Levels() {
 		
 		
 		
-		this.winMessage(0,204,229,255);
+		this.winMessage(0,200,191,232);
 	}
 	
 

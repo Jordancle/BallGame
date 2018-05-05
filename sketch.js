@@ -11,7 +11,7 @@ var bump_sfx;
 var win_sfx, death_sfx;
 var timer = -5;
 var next_ok = false;
-var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela;
+var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela, level7_img;
 var arrowLeft_img, arrowRight_img;
 var message = 0;
 
@@ -30,6 +30,7 @@ function preload() {
 	level5_img = loadImage("Images/Level5.png");
 	level6_img = loadImage("Images/Level6.png");
 	level6_Angela = loadImage("Images/Level6_Angela.png");
+	level7_img = loadImage("Images/Level7.png");
 	arrowLeft_img = loadImage("Images/arrowLeft.png");
 	arrowRight_img = loadImage("Images/arrowRight.png");
 }
@@ -115,7 +116,7 @@ function draw() {
 				text("Level 6", 220,80);
 			}
 			if (levels.complete[7]) {
-				if (!levels.perfect[7]) {
+				if (!levels.perfects[7]) {
 					text("Level 7 🗸", 220,160);
 				} else {
 					text("Level 7 ★", 220, 160);
@@ -226,6 +227,7 @@ function keyPressed() {
 		trail.splice(0,trail.length);	
 		next_ok = false;
 		timer = -5;
+		// ball.deathCount[level] = 0; Not sure if I want this here or not. Might make it too easy to get the perfect run through
 	}
 	/*
 	if (keyCode  === LEFT_ARROW) {
@@ -250,8 +252,8 @@ function keyPressed() {
 }
 
 function mousePressed() {
-	console.log(mouseX);
-	console.log(mouseY);
+	console.log(mouseX + camera.position.x - levels.width/2);
+	console.log(mouseY + camera.position.y - levels.height/2);
 	// ball.x = mouseX;
 	// ball.y = mouseY;
 	// console.log(ball.yVelocity);
@@ -310,9 +312,9 @@ function mousePressed() {
 		}
 	}
 	
-	if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
-		ball.jump();
-	}
+	// if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
+		// ball.jump();
+	// }
 	
 	if (mouseIsPressed && ball.win == true && next_ok == true) {
 		level++;

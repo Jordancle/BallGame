@@ -91,7 +91,7 @@ function Ball() {
 			this.death(levels);
 		}
 		if (this.y < camera.position.y - levels.height/2) {
-			this.y = 0;
+			this.y = camera.position.y - levels.height/2;
 			this.yVelocity = 0;
 		}
 		
@@ -171,8 +171,8 @@ function Ball() {
 			this.jumps--;
 		} else if (this.rotating == true) {
 			jump_sfx.play();
-			this.yVelocity = this.b2*18/this.c;
-			this.xVelocity = this.a2*18/this.c;
+			this.yVelocity = this.b2*20/this.c;
+			this.xVelocity = this.a2*20/this.c;
 			this.gravity = 1;
 			this.rotating = false;
 			this.jumps--;
