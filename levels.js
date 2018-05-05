@@ -70,11 +70,11 @@ function Levels() {
 						this.perfects[level] = true;
 					}
 					this.complete[level] = true;
+					// ball.deathCount[level] = 0;
 				}
-				
 			}
 			textAlign(RIGHT);
-			ball.deathCount[level] = 0;
+			
 		}
 		
 	}
