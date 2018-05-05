@@ -585,6 +585,10 @@ function Levels() {
 		blocks.push(new CircleBlock(150,350,50));
 		blocks.push(new RegBlock(250,250,150,20));
 		blocks.push(new RegBlock(380,0,20,250));
+		blocks.push(new CircleBlock(300,0,50));
+		blocks.push(new CircleBlock(100,-100,50));
+		blocks.push(new RegBlock(0,0,20,250));
+		blocks.push(new RegBlock(0,250,100,20));
 		// blocks.push(new CircleBlock(150,300,50));
 		
 		
@@ -630,7 +634,7 @@ function Levels() {
 			ball.needUpdate = false;
 		}
 		
-		// this.moveCamera(blocks[2],0,-this.cameraSpeed,-200);
+		this.moveCamera(blocks[5],0,-this.cameraSpeed,-300);
 		// this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
 		// this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
 		// this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
