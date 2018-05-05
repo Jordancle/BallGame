@@ -13,7 +13,7 @@ function Levels() {
 	this.perfects = [false, false, false, false, false, false, false, false];
 	this.upperBound = true;
 	this.screenWrap = true;
-	this.cameraMoved = [false,false,false,false];		// used to determine when the camera has moved
+	this.cameraMoved = [];		// used to determine when the camera has moved
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.updateTest = function() {
 		
@@ -33,15 +33,13 @@ function Levels() {
 	}
 
 	this.moveCamera = function(block,cameraIndex,speed,distance) {
-		if (block.contact == true && this.cameraMoved[cameraIndex] == false) {
+		if (block.contact == true && this.cameraMoved[cameraIndex] != true) {
 			if (this.counter <= distance) {
 				this.cameraMoved[cameraIndex] = true;
 				this.counter = 0;
 			}
-			
 			camera.position.y += speed;
 			this.counter += speed;
-			
 		}
 	}
 	
@@ -637,52 +635,11 @@ function Levels() {
 			ball.start(levels);
 			ball.needUpdate = false;
 		}
-		// if (blocks[2].contact == true && this.cameraMoved[0] == false) {
-			// if (this.counter <= -200) {
-				// this.cameraMoved[0] = true;
-				// this.counter = 0;
-			// }
-			
-			// camera.position.y += -this.cameraSpeed;
-			// this.counter += -this.cameraSpeed;
-			
-		// }
+		
 		this.moveCamera(blocks[2],0,-this.cameraSpeed,-200);
 		this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
 		this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
 		this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
-		
-		// if (blocks[3].contact == true && this.cameraMoved[1] == false) {
-			// if (this.counter <= -400) {
-				// this.cameraMoved[1] = true;
-				// this.counter = 0;
-			// }
-			
-			// camera.position.y += -this.cameraSpeed;
-			// this.counter += -this.cameraSpeed;
-			
-		// }
-		
-		// if (blocks[4].contact == true && this.cameraMoved[2] == false) {
-			// if (this.counter <= -400) {
-				// this.cameraMoved[2] = true;
-				// this.counter = 0;
-			// }
-			
-			// camera.position.y += -this.cameraSpeed;
-			// this.counter += -this.cameraSpeed;
-			
-		// }
-		// if (blocks[5].contact == true && this.cameraMoved[3] == false) {
-			// if (this.counter <= -300) {
-				// this.cameraMoved[3] = true;
-				// this.counter = 0;
-			// }
-			
-			// camera.position.y += -this.cameraSpeed;
-			// this.counter += -this.cameraSpeed;
-			
-		// }
 		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();

@@ -361,7 +361,7 @@ class CircleBlock extends Block {
 		ellipse(this.x,this.y,this.r*2,this.r*2);
 	}
 	hit() {
-		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius+ 2) {
+		if (dist(ball.x,ball.y,this.x,this.y) <= this.r + ball.radius + 2) {
 			/* this.contact used to tell when the camera should move */
 			this.contact = true;
 			ball.rotating = true;
@@ -381,8 +381,14 @@ class CircleBlock extends Block {
 			if ((b1 > 0 && ball.b2 < 0) || (b1 < 0 && ball.b2 > 0)) {
 				ball.b2 = -ball.b2;
 			}
+			
+			push();
+			stroke(0,0,255);
+			line(ball.x,ball.y,ball.x+ball.a2*32/abs(ball.c),ball.y+ball.b2*32/abs(ball.c));
+			pop();
 			ball.x = ball.a2 + this.x;
 			ball.y = ball.b2 + this.y;
+			
 			ball.xVelocity = -ball.b2*5/ball.c;
 			ball.yVelocity = ball.a2*5/ball.c;
 			
