@@ -581,13 +581,13 @@ function Levels() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		
 		blocks.push(new RegBlock(0, 500, 100, 100));
-		blocks.push(new CircleBlock(150,300,30));
+		blocks.push(new CircleBlock(150,300,50));
 		blocks.push(new CircleBlock(250,0,100));
 		blocks.push(new CircleBlock(75,-175,30));
 		blocks.push(new CircleBlock(100,-500,50));
 		blocks.push(new CircleBlock(325,-950,30));
 		blocks.push(new CircleBlock(275,-300,50));
-		blocks.push(new RegBlock(250,-850,20,200));
+		blocks.push(new RegBlock(250,-850,20,350));
 		blocks.push(new RegBlock(100,550,500,50));
 		blocks.push(new WinBlock(0,-950,150,10));
 		blocks.push(new RegBlock(0,-940,170,20));
