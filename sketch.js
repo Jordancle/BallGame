@@ -114,17 +114,17 @@ function draw() {
 			} else {
 				text("Level 6", 220,80);
 			}
-			// if (levels.complete[7]) {
-				// if (!levels.perfect[7]) {
-					// text("Level 7 🗸", 220,160);
-				// } else {
-					// text("Level 7 ★", 220, 160);
-				// }
+			if (levels.complete[7]) {
+				if (!levels.perfect[7]) {
+					text("Level 7 🗸", 220,160);
+				} else {
+					text("Level 7 ★", 220, 160);
+				}
 			
-			// } 
-			// else {
-				// text("Level 7", 220,160);
-			// }
+			} 
+			else {
+				text("Level 7", 220,160);
+			}
 			ball.win = true;
 			next_ok = true;
 			ball.jumps = 0;
@@ -171,9 +171,9 @@ function draw() {
 		case 6:
 			levels.level6();
 			break;
-		// case 7:
-			// levels.level7();
-			// break;
+		case 7:
+			levels.level7();
+			break;
 		default:
 			level = 0;
 	}
@@ -278,10 +278,9 @@ function mousePressed() {
 			level = 5;
 		} else if (mouseX > 215 && mouseX < 350 && mouseY > 45 && mouseY < 85) {
 			level = 6;
-		} 
-		// else if (mouseX > 215 && mouseX < 350 && mouseY > 125 && mouseY < 165) {
-			// level = 7;
-		// }
+		} else if (mouseX > 215 && mouseX < 350 && mouseY > 125 && mouseY < 165) {
+			level = 7;
+		}
 	}
 	
 	if (next_ok == true) {
