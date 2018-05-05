@@ -32,6 +32,19 @@ function Levels() {
 		
 	}
 
+	this.moveCamera = function(block,cameraIndex,speed,distance) {
+		if (block.contact == true && this.cameraMoved[cameraIndex] == false) {
+			if (this.counter <= distance) {
+				this.cameraMoved[cameraIndex] = true;
+				this.counter = 0;
+			}
+			
+			camera.position.y += speed;
+			this.counter += speed;
+			
+		}
+	}
+	
 	this.winMessage = function(c,r,g,b) {
 		if (timer > 0) {
 			timer--;
@@ -583,6 +596,20 @@ function Levels() {
 		blocks.push(new RegBlock(150, -1100, 20,160));
 		blocks.push(new RegBlock(0,-1100,170,20));
 		
+		// blocks.push(new RegBlock(0, 500, 100, 100));
+		// blocks.push(new CircleBlock(150,300,30));
+		// blocks.push(new CircleBlock(250,0,100));
+		// blocks.push(new CircleBlock(75,-175,30));
+		// blocks.push(new CircleBlock(100,-500,50));
+		// blocks.push(new CircleBlock(325,-950,30));
+		// blocks.push(new CircleBlock(275,-300,50));
+		// blocks.push(new RegBlock(250,-850,20,200));
+		// blocks.push(new RegBlock(100,550,500,50));
+		// blocks.push(new WinBlock(0,-950,150,10));
+		// blocks.push(new RegBlock(0,-940,170,20));
+		// blocks.push(new RegBlock(150, -1100, 20,160));
+		// blocks.push(new RegBlock(0,-1100,170,20));
+		
 		
 		this.width = 400;
 		this.height = 600;
@@ -610,48 +637,52 @@ function Levels() {
 			ball.start(levels);
 			ball.needUpdate = false;
 		}
-		if (blocks[2].contact == true && this.cameraMoved[0] == false) {
-			if (this.counter <= -200) {
-				this.cameraMoved[0] = true;
-				this.counter = 0;
-			}
+		// if (blocks[2].contact == true && this.cameraMoved[0] == false) {
+			// if (this.counter <= -200) {
+				// this.cameraMoved[0] = true;
+				// this.counter = 0;
+			// }
 			
-			camera.position.y += -this.cameraSpeed;
-			this.counter += -this.cameraSpeed;
+			// camera.position.y += -this.cameraSpeed;
+			// this.counter += -this.cameraSpeed;
 			
-		}
+		// }
+		this.moveCamera(blocks[2],0,-this.cameraSpeed,-200);
+		this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
+		this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
+		this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
 		
-		if (blocks[3].contact == true && this.cameraMoved[1] == false) {
-			if (this.counter <= -400) {
-				this.cameraMoved[1] = true;
-				this.counter = 0;
-			}
+		// if (blocks[3].contact == true && this.cameraMoved[1] == false) {
+			// if (this.counter <= -400) {
+				// this.cameraMoved[1] = true;
+				// this.counter = 0;
+			// }
 			
-			camera.position.y += -this.cameraSpeed;
-			this.counter += -this.cameraSpeed;
+			// camera.position.y += -this.cameraSpeed;
+			// this.counter += -this.cameraSpeed;
 			
-		}
+		// }
 		
-		if (blocks[4].contact == true && this.cameraMoved[2] == false) {
-			if (this.counter <= -400) {
-				this.cameraMoved[2] = true;
-				this.counter = 0;
-			}
+		// if (blocks[4].contact == true && this.cameraMoved[2] == false) {
+			// if (this.counter <= -400) {
+				// this.cameraMoved[2] = true;
+				// this.counter = 0;
+			// }
 			
-			camera.position.y += -this.cameraSpeed;
-			this.counter += -this.cameraSpeed;
+			// camera.position.y += -this.cameraSpeed;
+			// this.counter += -this.cameraSpeed;
 			
-		}
-		if (blocks[5].contact == true && this.cameraMoved[3] == false) {
-			if (this.counter <= -300) {
-				this.cameraMoved[3] = true;
-				this.counter = 0;
-			}
+		// }
+		// if (blocks[5].contact == true && this.cameraMoved[3] == false) {
+			// if (this.counter <= -300) {
+				// this.cameraMoved[3] = true;
+				// this.counter = 0;
+			// }
 			
-			camera.position.y += -this.cameraSpeed;
-			this.counter += -this.cameraSpeed;
+			// camera.position.y += -this.cameraSpeed;
+			// this.counter += -this.cameraSpeed;
 			
-		}
+		// }
 		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
