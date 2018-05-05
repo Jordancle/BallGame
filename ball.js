@@ -27,8 +27,8 @@ function Ball() {
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
-		this.xVelocity = 0;
-		this.yVelocity = 0;
+		this.xVelocity = levels.startXVelocity;
+		this.yVelocity = levels.startYVelocity;
 		this.jumps = 0;
 		this.win = false;
 		this.reverse = false;
@@ -39,8 +39,8 @@ function Ball() {
 	this.death = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
-		this.xVelocity = 0;
-		this.yVelocity = 0;
+		this.xVelocity = levels.startXVelocity;
+		this.yVelocity = levels.startYVelocity;
 		this.jumps = 0;
 		this.win = false;
 		this.reverse = false;

@@ -4,6 +4,8 @@ function Levels() {
 	this.height, this.winHeightRadius = 125;
 	this.startX;
 	this.startY;
+	this.startXVelocity;
+	this.startYVelocity;
 	this.messageX;
 	this.messageY;
 	this.needUpdate = true;
@@ -117,6 +119,9 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 320;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
+		
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -170,6 +175,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 320;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -219,6 +226,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 40;
 		this.startY = 420;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -276,6 +285,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = 214;
 		this.startY = 400;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -333,8 +344,10 @@ function Levels() {
 		
 		this.width = 400;
 		this.height = 600;
-		this.startX = 150;
-		this.startY = 400;
+		this.startX = 0;
+		this.startY = 450;
+		this.startXVelocity = 12;
+		this.startYVelocity = -10;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -380,9 +393,10 @@ function Levels() {
 		blocks.push(new RegBlock(570, 0, 20, 400));
 		blocks.push(new FallBlock(560,0,10,150));
 		blocks.push(new RegBlock(50,500,120,100));
-		blocks.push(new RegBlock(150, 350, 20, 250));
-		// blocks.push(new FallBlock(260,75,10,100));
-		blocks.push(new RegBlock(200,500,120,100));
+		blocks.push(new RegBlock(100,0, 20, 300));
+		blocks.push(new FallBlock(90,150,10,170));
+		blocks.push(new RegBlock(100,300,245,20));
+		blocks.push(new RegBlock(225,500,120,100));
 		blocks.push(new RegBlock(400,500,120,100));
 		blocks.push(new RegBlock(700,200,20,400));
 		blocks.push(new RegBlock(700,0,300,70));
@@ -390,8 +404,10 @@ function Levels() {
 		
 		this.width = 1000;
 		this.height = 600;
-		this.startX = 64;
-		this.startY = 450;
+		this.startX = 16;
+		this.startY = 250;
+		this.startXVelocity = 10;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -452,8 +468,10 @@ function Levels() {
 		
 		this.width = 1000;
 		this.height = 600;
-		this.startX = 40;
-		this.startY = 400;
+		this.startX = 200; // 40
+		this.startY = 400; // 400
+		this.startXVelocity = 20;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -508,6 +526,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = blocks[0].center;
 		this.startY = 100;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
@@ -561,6 +581,8 @@ function Levels() {
 		this.height = 600;
 		this.startX = blocks[0].center;
 		this.startY = 450;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
