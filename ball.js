@@ -176,8 +176,8 @@ function Ball() {
 			this.jumps--;
 		} else if (this.rotating == true) {
 			jump_sfx.play();
-			this.yVelocity = this.b2*20/this.c;
-			this.xVelocity = this.a2*20/this.c;
+			this.yVelocity = (this.b2-this.yVelocity)*20/this.c;
+			this.xVelocity = (this.a2-this.xVelocity)*20/this.c;
 			this.gravity = 1;
 			this.rotating = false;
 			this.jumps--;

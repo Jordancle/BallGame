@@ -15,6 +15,7 @@ function Levels() {
 	this.screenWrap = true;
 	this.cameraMoved = [];		// used to determine when the camera has moved
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
+	this.blockIndex = 0;		// used to see which block is at which blocks array index
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
@@ -69,8 +70,8 @@ function Levels() {
 				push();
 				noFill();
 				stroke(c);
-				rect((this.width/2)-135, levels.messageY, 135,50);
-				rect((this.width/2), levels.messageY, 135,50);
+				rect((this.messageX)-135, levels.messageY, 135,50);
+				rect((this.messageX), levels.messageY, 135,50);
 				pop();
 				if (level < 100) {
 					
@@ -137,6 +138,7 @@ function Levels() {
 		this.screenWrap = true;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		this.blockIndex = 0;
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
 		// blocks.push(new RegBlock(0, 350, 100, 20));
@@ -194,6 +196,7 @@ function Levels() {
 		this.screenWrap = true;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		this.blockIndex = 0;
 		//blocks.push(new RegBlock(200,500,200,20));
 		//blocks.push(new RollBlock(0,590,400,200));
 		// blocks.push(new RegBlock(0, 350, 100, 20));
@@ -247,7 +250,7 @@ function Levels() {
 		this.screenWrap = true;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-
+		this.blockIndex = 0;
 		blocks.push(new RegBlock(0, 450, 100, 20));
 		blocks.push(new RegBlock(250, 120, 20, 480));
 		blocks.push(new WinBlock(250,100,150,20));
@@ -304,6 +307,7 @@ function Levels() {
 		this.upperBound = true;
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		this.blockIndex = 0;
 		// blocks.push(new RegBlock(200,500,200,20));
 		// blocks.push(new RollBlock(0,590,400,200));
 		blocks.push(new WinBlock(200,50,100,20));
@@ -361,8 +365,7 @@ function Levels() {
 		this.upperBound = true;
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		//blocks.push(new RegBlock(200,500,200,20));
-		//blocks.push(new RollBlock(0,590,400,200));
+		this.blockIndex = 0;
 		blocks.push(new WinBlock(125,50,50,20));
 		blocks.push(new RegBlock(0, 350, 175, 20));
 		blocks.push(new RegBlock(0, 555, 50, 25));
@@ -419,6 +422,7 @@ function Levels() {
 		this.screenWrap = false;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		this.blockIndex = 0;
 		blocks.push(new WinBlock(900,150,100,20));
 		blocks.push(new RegBlock(570, 0, 20, 400));
 		blocks.push(new FallBlock(560,0,10,150));
@@ -472,7 +476,7 @@ function Levels() {
 		this.screenWrap = false;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		
+		this.blockIndex = 0;
 		//blocks.push(new RegBlock(150, 300, 20, 200));
 		blocks.push(new RegBlock(0,500,120,100));
 		// blocks.push(new RegBlock(0,0,1,300));
@@ -536,7 +540,7 @@ function Levels() {
 		this.screenWrap = false;
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		
+		this.blockIndex = 0;
 		blocks.push(new RegBlock(0, 150, 350, 20));
 		blocks.push(new RegBlock(50, 225, 175, 20));
 		blocks.push(new RollRightBlock(95, 580, 150, 20));
@@ -597,36 +601,40 @@ function Levels() {
 		for (var i = 0; i < this.cameraMoved.length; i++) {
 			this.cameraMoved[i] = false;
 		}
-		
+		level7_music.stop();
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		
+		this.blockIndex = 0;
 		blocks.push(new RegBlock(0, 525, 50, 100));
 		blocks.push(new RollBlock(50,550,350,50));
 		blocks.push(new CircleBlock(150,350,50));
-		blocks.push(new RegBlock(250,200,150,20));
-		blocks.push(new RegBlock(380,0,20,200));
+		blocks.push(new RegBlock(300,220,100,20));
+		blocks.push(new RegBlock(380,0,20,220));
 		blocks.push(new CircleBlock(300,0,50));
-		blocks.push(new RegBlock(0,0,20,200));
-		blocks.push(new RegBlock(0,200,100,20));
-		blocks.push(new CircleBlock(100,-100,80));
-		blocks.push(new CircleBlock(100,-350,50));
+		blocks.push(new RegBlock(0,0,20,220));
+		blocks.push(new RegBlock(0,220,100,20));
+		blocks.push(new CircleBlock(100,-150,50));
+		blocks.push(new CircleBlock(300,-300,50));
+		// blocks.push(new CircleBlock(150,-350,60));
 		// blocks.push(new CircleBlock(100,-500,30));
-		blocks.push(new CircleBlock(300,-600,50));
-		// blocks.push(new CircleBlock(350,-1000,250));
-		blocks.push(new FakeWinBlock(25,-725,100,20));
+		blocks.push(new CircleBlock(75,-500,60));
+		// blocks.push(new CircleBlock(300,-750,50));
+		blocks.push(new FakeWinBlock(120,-725,100,20));
+		blocks.push(new RegBlock(100,-705,140,20));
+		// blocks.push(new RegBlock(125,-820,20,115));
 		
 		
-		blocks.push(new CircleBlock(150,-900,30));
+		blocks.push(new CircleBlock(175,-950,50));
 		blocks.push(new CircleBlock(250,-1200,100));
 		blocks.push(new CircleBlock(75,-1375,30));
 		blocks.push(new CircleBlock(100,-1700,50));
-		blocks.push(new CircleBlock(325,-2150,30));
+		blocks.push(new CircleBlock(325,-2150,40));
 		blocks.push(new CircleBlock(275,-1500,50));
-		blocks.push(new RegBlock(250,-2050,20,400);
+		blocks.push(new RegBlock(250,-2050,20,400));
 		blocks.push(new WinBlock(0,-2150,150,10));
 		blocks.push(new RegBlock(0,-2140,170,20));
 		blocks.push(new RegBlock(150, -2300, 20,160));
 		blocks.push(new RegBlock(0,-2300,170,20));
+		// blocks.push(new CircleBlock(350,-2600,250));
 		
 		
 		this.width = 400;
@@ -644,6 +652,8 @@ function Levels() {
 	this.level7 = function() {
 		background(200);
 		image(level7_img, 0, -1320);
+		image(level7_img, 0, -3960);
+		image(level7_img, 0, -2640);
 		
 		ball.show();
 		ball.update(levels);
@@ -658,7 +668,7 @@ function Levels() {
 		}
 		
 		this.moveCameraOnBlock(blocks[5],0,-this.cameraSpeed,-350);
-		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-300);
+		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-250);
 		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-200);
 		// this.moveCameraOnBlock(blocks[5],3,-this.cameraSpeed,-300);
 		
@@ -666,17 +676,32 @@ function Levels() {
 			blocks[i].show();
 			blocks[i].hit();
 		}
-		
+		var tempCamX, tempCamY;
 		if (ball.stall == true) {
 			this.counter++;
-			if (this.counter >= 120) {
-				camera.position.y += -1;
+			if (this.counter == 60) {
+				tempCamX = camera.position.x;
+				tempCamY = camera.position.y;
+				console.log("tempCamX " + tempCamX);
+				console.log("tempCamY " + tempCamY);
+			}
+			if (this.counter > 60) {
+				camera.position.x += random(-2,2);
+				camera.position.y += random(-2,2);
+			}
+			// if (this.counter == 120) {
+				// camera.position.x = tempCamX;
+				// camera.position.y = tempCamY;
+			// }
+			if (this.counter >= 120 && ball.win == false) {
+				camera.position.y += -2;
 			}
 			if (this.counter < 180) {
 				ball.jumps = 0;
 			}
 			if (this.counter == 180) {
 				ball.jumps = 1;
+				level7_music.play();
 			}
 		}
 		this.winMessage(0,200,191,232);
