@@ -160,7 +160,6 @@ class FakeWinBlock extends Block {
 			ball.yVelocity = 0;	
 			ball.xVelocity = 0;
 			ball.y = this.y-16;
-			ball.jumps = 0;
 			ball.stall = true;
 		}		
 	}

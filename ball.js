@@ -36,6 +36,8 @@ function Ball() {
 		this.reverse = false;
 		this.rotating = false;
 		levels.needUpdate = true;
+		ball.stall = false;
+		
 	}
 	
 	this.death = function(levels) {
@@ -49,6 +51,7 @@ function Ball() {
 		death_sfx.play();
 		var currLevel;
 		levels.needUpdate = true;
+		ball.stall = false;
 		if (level >= 100) {
 			currLevel = 1;
 		} else {

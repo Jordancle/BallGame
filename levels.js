@@ -546,7 +546,7 @@ function Levels() {
 		blocks.push(new RegBlock(500, 150, 20, 185));
 		// blocks.push(new FallBlock(550,420,25,20));
 		blocks.push(new RegBlock(550, 420, 450, 20));
-		blocks.push(new MoveBlock(575, 700, 250, 250, 20, 170, 100));
+		blocks.push(new MoveBlock(650, 800, 250, 250, 20, 170, 100));
 		blocks.push(new ReverseBlock(550 , 0, 190, 40));
 		// blocks.push(new RegBlock(780, 420, 150, 20));
 		blocks.push(new WinBlock(740, 150, 130, 20));
@@ -612,23 +612,21 @@ function Levels() {
 		blocks.push(new CircleBlock(100,-350,50));
 		// blocks.push(new CircleBlock(100,-500,30));
 		blocks.push(new CircleBlock(300,-600,50));
-		blocks.push(new CircleBlock(350,-1000,250));
-		// blocks.push(new FakeWinBlock(150,-850,100,20));
+		// blocks.push(new CircleBlock(350,-1000,250));
+		blocks.push(new FakeWinBlock(25,-725,100,20));
 		
 		
-		// blocks.push(new RegBlock(0, 500, 100, 100));
-		// blocks.push(new CircleBlock(150,300,30));
-		// blocks.push(new CircleBlock(250,0,100));
-		// blocks.push(new CircleBlock(75,-175,30));
-		// blocks.push(new CircleBlock(100,-500,50));
-		// blocks.push(new CircleBlock(325,-950,30));
-		// blocks.push(new CircleBlock(275,-300,50));
-		// blocks.push(new RegBlock(250,-850,20,200));
-		// blocks.push(new RegBlock(100,550,500,50));
-		// blocks.push(new WinBlock(0,-950,150,10));
-		// blocks.push(new RegBlock(0,-940,170,20));
-		// blocks.push(new RegBlock(150, -1100, 20,160));
-		// blocks.push(new RegBlock(0,-1100,170,20));
+		blocks.push(new CircleBlock(150,-900,30));
+		blocks.push(new CircleBlock(250,-1200,100));
+		blocks.push(new CircleBlock(75,-1375,30));
+		blocks.push(new CircleBlock(100,-1700,50));
+		blocks.push(new CircleBlock(325,-2150,30));
+		blocks.push(new CircleBlock(275,-1500,50));
+		blocks.push(new RegBlock(250,-2050,20,400);
+		blocks.push(new WinBlock(0,-2150,150,10));
+		blocks.push(new RegBlock(0,-2140,170,20));
+		blocks.push(new RegBlock(150, -2300, 20,160));
+		blocks.push(new RegBlock(0,-2300,170,20));
 		
 		
 		this.width = 400;
@@ -644,8 +642,9 @@ function Levels() {
 	}
 	
 	this.level7 = function() {
+		background(200);
 		image(level7_img, 0, -1320);
-		// background(200);
+		
 		ball.show();
 		ball.update(levels);
 
@@ -668,28 +667,18 @@ function Levels() {
 			blocks[i].hit();
 		}
 		
-		var autoScroll, ballWait, ballStall;
 		if (ball.stall == true) {
 			this.counter++;
-			if (this.counter >= 200 & ballStall != false) {
-				autoScroll = true;
-				ballWait = true;
-				ballStall = false;
+			if (this.counter >= 120) {
+				camera.position.y += -1;
 			}
-		}
-		if (autoScroll == true) {
-			console.log("auto");
-			camera.position.y += -1;
-			this.counter += 1;
-		}
-		if (ballWait == true) {
-			console.log("ballWait");
-			if (this.counter >= 100) {
+			if (this.counter < 180) {
+				ball.jumps = 0;
+			}
+			if (this.counter == 180) {
 				ball.jumps = 1;
-				ballWait = false;
 			}
 		}
-		
 		this.winMessage(0,200,191,232);
 	}
 	
