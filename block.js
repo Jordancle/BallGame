@@ -7,6 +7,8 @@ class Block {
 		this.h = h;
 		//this.win = false;
 		this.blockIndex = levels.blockIndex;
+		this.selected = false;
+		this.tempX, this.tempY;
 		levels.blockIndex++;
 	}
 
@@ -47,7 +49,18 @@ class RegBlock extends Block {
 		fill(255);
 		rect(this.x,this.y,this.w,this.h);
 		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+			if (keyCode === 68) {
+				this.selected = true;
+				this.tempX = camera.mouseX - this.x;
+				this.tempY = camera.mouseY - this.y;
+			} else if (keyCode == 70) {
+				this.selected = false;
+			}
 			console.log("RegBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
+		}
+		if (this.selected == true && mouseIsPressed) {
+			this.x = camera.mouseX - this.tempX;
+			this.y = camera.mouseY - this.tempY;
 		}
 	}
 	hit() {

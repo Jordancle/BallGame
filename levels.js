@@ -668,8 +668,8 @@ function Levels() {
 		}
 		
 		this.moveCameraOnBlock(blocks[5],0,-this.cameraSpeed,-350);
-		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-250);
-		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-200);
+		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-300);
+		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-150);
 		// this.moveCameraOnBlock(blocks[5],3,-this.cameraSpeed,-300);
 		
 		for (var i = 0; i < blocks.length; i++) {
