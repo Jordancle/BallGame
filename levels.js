@@ -586,11 +586,16 @@ function Levels() {
 		blocks.push(new CircleBlock(150,350,50));
 		blocks.push(new RegBlock(250,250,150,20));
 		blocks.push(new RegBlock(380,0,20,250));
-		blocks.push(new CircleBlock(300,0,50));
+		blocks.push(new CircleBlock(300,-25,50));
 		blocks.push(new RegBlock(0,0,20,250));
 		blocks.push(new RegBlock(0,250,100,20));
 		blocks.push(new CircleBlock(100,-100,80));
 		blocks.push(new CircleBlock(100,-350,50));
+		blocks.push(new CircleBlock(100,-500,30));
+		blocks.push(new CircleBlock(100,-600,10));
+		blocks.push(new CircleBlock(30,-700,50));
+		blocks.push(new CircleBlock(370,-700,50));
+		blocks.push(new WinBlock(150,-900,100,20));
 		
 		
 		// blocks.push(new RegBlock(0, 500, 100, 100));
@@ -636,8 +641,8 @@ function Levels() {
 		}
 		
 		this.moveCamera(blocks[5],0,-this.cameraSpeed,-300);
-		this.moveCamera(blocks[9],1,-this.cameraSpeed,-400);
-		// this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
+		this.moveCamera(blocks[9],1,-this.cameraSpeed,-300);
+		this.moveCamera(blocks[11],2,-this.cameraSpeed,-400);
 		// this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
 		
 		for (var i = 0; i < blocks.length; i++) {
