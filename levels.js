@@ -526,11 +526,12 @@ function Levels() {
 		blocks.push(new MoveBlock(245, 245, 225, 335, 255, 105, 180));
 		blocks.push(new DeathBlock(520, 150, 220, 20));
 		blocks.push(new RegBlock(500, 150, 20, 185));
-		blocks.push(new RegBlock(500, 420, 150, 20));
-		blocks.push(new ReverseBlock(550 , 0, 190, 20));
-		blocks.push(new RegBlock(780, 420, 150, 20));
+		blocks.push(new RegBlock(550, 420, 450, 20));
+		blocks.push(new MoveBlock(550, 700, 250, 250, 20, 170, 250));
+		blocks.push(new ReverseBlock(550 , 0, 190, 40));
+		// blocks.push(new RegBlock(780, 420, 150, 20));
 		blocks.push(new WinBlock(740, 150, 130, 20));
-		blocks.push(new RegBlock(980, 0, 200, 400));
+		blocks.push(new RegBlock(980, 0, 200, 420));
 		// blocks.push(new RegBlock(550, 150, 20, 100));
 		
 		
@@ -586,10 +587,10 @@ function Levels() {
 		blocks.push(new RegBlock(250,250,150,20));
 		blocks.push(new RegBlock(380,0,20,250));
 		blocks.push(new CircleBlock(300,0,50));
-		blocks.push(new CircleBlock(100,-100,50));
 		blocks.push(new RegBlock(0,0,20,250));
 		blocks.push(new RegBlock(0,250,100,20));
-		// blocks.push(new CircleBlock(150,300,50));
+		blocks.push(new CircleBlock(100,-100,80));
+		blocks.push(new CircleBlock(100,-350,50));
 		
 		
 		// blocks.push(new RegBlock(0, 500, 100, 100));
@@ -635,7 +636,7 @@ function Levels() {
 		}
 		
 		this.moveCamera(blocks[5],0,-this.cameraSpeed,-300);
-		// this.moveCamera(blocks[3],1,-this.cameraSpeed,-400);
+		this.moveCamera(blocks[9],1,-this.cameraSpeed,-400);
 		// this.moveCamera(blocks[4],2,-this.cameraSpeed,-400);
 		// this.moveCamera(blocks[5],3,-this.cameraSpeed,-300);
 		
