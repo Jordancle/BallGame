@@ -20,6 +20,8 @@ function Ball() {
 	
 	this.deathCount = [0,0,0,0,0,0,0,0];
 	
+	this.stall = false; 	// For the FakeWinBlock
+	
 	// Variables for if ball is on CircleBlock
 	this.rotating;
 	this.a2, this.b2, this.c;

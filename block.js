@@ -129,6 +129,51 @@ class WinBlock extends Block {
 	}
 }
 
+class FakeWinBlock extends Block {
+	constructor(x,y,w,h) {
+		super(x,y,w,h);
+	}	
+	hit(){
+		if (this.hitLeft(ball) == true) {
+			ball.xVelocity = -ball.xVelocity
+			ball.x = this.x-16;
+			ball.jumps = 1;
+		}
+		if (this.hitRight(ball) == true) {
+			ball.xVelocity = -ball.xVelocity
+			ball.x = this.x+this.w+16;
+			ball.jumps = 1;
+		}
+		if (this.hitBottom(ball) == true) {
+			ball.yVelocity = 0
+			ball.y = this.y+this.h+16;
+			ball.jumps = 1;
+		}
+		if (this.hitTop(ball) == true) {
+			if (ball.stall == false) {
+				bump_sfx.play();
+			}
+			if (timer == -5 && next_ok == false) {
+				timer = 40;
+			}
+			
+			ball.yVelocity = 0;	
+			ball.xVelocity = 0;
+			ball.y = this.y-16;
+			ball.jumps = 0;
+			ball.stall = true;
+		}		
+	}
+
+	show() {
+		fill(34,139,34);
+		rect(this.x,this.y,this.w,this.h);
+		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+			console.log("FakeWinBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")");
+		}
+	}
+}
+
 class RollBlock extends Block {
 	constructor(x,y,w,h) {
 		super(x,y,w,h);
@@ -230,7 +275,7 @@ class FallBlock extends Block {
 		}
 		if (this.hitTop(ball) == true) {
 			ball.yVelocity = 0;
-			ball.xVelocity = 3;
+			ball.xVelocity = 0;
 			ball.y = this.y-16;
 			ball.jumps = 1;
 		}
