@@ -690,15 +690,16 @@ function Levels() {
 		var tempCamX, tempCamY;
 		if (ball.stall == true) {
 			this.counter++;
-			if (this.counter == 60) {
-				tempCamX = camera.position.x;
-				tempCamY = camera.position.y;
-				console.log("tempCamX " + tempCamX);
-				console.log("tempCamY " + tempCamY);
-			}
+			// Begins the shaking
 			if (this.counter > 60 && ball.win == false) {
 				camera.position.x += random(-2,2);
 				camera.position.y += random(-2,2);
+			}
+			// to make sure cameraX stays within a certain bound
+			if (camera.position.x > this.width/2 + 20) {
+				camera.position.x += -1;
+			} else if (camera.position.x < this.width/2 - 20) {
+				camera.position.x += +1;
 			}
 			if (this.counter == 60) {
 				rumble_sfx.play();
