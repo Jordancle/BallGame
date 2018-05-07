@@ -625,7 +625,7 @@ function Levels() {
 		blocks.push(new CircleBlock(300,-300,30));
 
 		blocks.push(new CircleBlock(400,-600,200));
-		blocks.push(new FakeWinBlock(30,-525,100,20));
+		blocks.push(new FakeWinBlock(20,-525,110,20));
 		blocks.push(new RegBlock(0,-515,150,20));
 		blocks.push(new RegBlock(0,-750,20,235));
 		blocks.push(new RegBlock(130,-600,20,85));
@@ -700,16 +700,18 @@ function Levels() {
 				camera.position.x += random(-2,2);
 				camera.position.y += random(-2,2);
 			}
+			if (this.counter == 60) {
+				rumble_sfx.play();
+			}
 			// if (this.counter == 120) {
 				// camera.position.x = tempCamX;
 				// camera.position.y = tempCamY;
 			// }
-			if (this.counter >= 120 && ball.win == false && keyCode != 65) {
+			if (this.counter >= 180 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
 			}
-			if (this.counter >= 800 && ball.win == false && keyCode != 65) {
+			if (this.counter >= 850 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
-				console.log("hello");
 			}
 			if (this.counter < 180) {
 				ball.jumps = 0;
@@ -720,6 +722,8 @@ function Levels() {
 			}
 		}
 		if (ball.win == true) {
+			ball.stall = false;
+			this.counter = 0;
 			level7_music.stop();
 		}
 		this.winMessage(0,200,191,232);
