@@ -9,9 +9,31 @@ class Block {
 		this.blockIndex = levels.blockIndex;
 		this.selected = false;
 		this.tempX, this.tempY;
+		this.mouseOn = false;
 		levels.blockIndex++;
 	}
-
+	
+	click() {
+		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+			this.selected = true;
+			this.mouseOn = true;
+		} else {
+			this.mouseOn = false;
+		}
+		if (keyCode === 68) {		// d
+			this.tempX = camera.mouseX - this.x;
+			this.tempY = camera.mouseY - this.y;
+		} 
+		if (keyCode == 70) {		// f
+			this.selected = false;
+		}
+		if (this.selected == true && mouseIsPressed && keyCode ===83) {		// s
+			this.x = camera.mouseX - this.tempX;
+			this.y = camera.mouseY - this.tempY;
+		}
+	}
+	
+	
 	hitLeft(ball) {
 		//bump_sfx.play();
 		if (ball.x >this.x-16 && ball.x <this.x && ball.y <this.y+this.h+15 && ball.y >this.y-15) {		//left
@@ -48,19 +70,8 @@ class RegBlock extends Block {
 	show() {
 		fill(255);
 		rect(this.x,this.y,this.w,this.h);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
-			if (keyCode === 68) {
-				this.selected = true;
-				this.tempX = camera.mouseX - this.x;
-				this.tempY = camera.mouseY - this.y;
-			} else if (keyCode == 70) {
-				this.selected = false;
-			}
+		if (this.mouseOn) {
 			console.log("RegBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
-		}
-		if (this.selected == true && mouseIsPressed) {
-			this.x = camera.mouseX - this.tempX;
-			this.y = camera.mouseY - this.tempY;
 		}
 	}
 	hit() {
@@ -138,7 +149,7 @@ class WinBlock extends Block {
 	show() {
 		fill(34,139,34);
 		rect(this.x,this.y,this.w,this.h);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("WinBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 	}
@@ -182,7 +193,7 @@ class FakeWinBlock extends Block {
 	show() {
 		fill(34,139,34);
 		rect(this.x,this.y,this.w,this.h);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("FakeWinBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 	}
@@ -220,7 +231,7 @@ class RollBlock extends Block {
 		fill(255,0,0);
 		rect(this.x,this.y,this.w,this.h);
 		image(arrowLeft_img,this.x+(this.w/2)-10,this.y+(this.h/2)-10);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("RollBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 	}
@@ -258,7 +269,7 @@ class RollRightBlock extends Block {
 		fill(255,0,0);
 		rect(this.x,this.y,this.w,this.h);
 		image(arrowRight_img,this.x+(this.w/2)-10,this.y);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("RollRightBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 	}
@@ -297,7 +308,7 @@ class FallBlock extends Block {
 		show() {
 			fill(255,0,255);
 			rect(this.x,this.y,this.w,this.h);
-			if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+			if (this.mouseOn) {
 				console.log("FallBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 			}
 		}
@@ -310,7 +321,7 @@ class ReverseBlock extends Block {
 	show() {
 		fill(255, 255, 0);
 		rect(this.x,this.y,this.w,this.h);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("ReverseBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 	}
@@ -395,7 +406,7 @@ class MoveBlock extends Block {
 			this.forward = false;
 		}
 		
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("MoveBlock(" + this.x1 + "," + this.x2 + "," + this.y1 + "," + this.y2 + "," + this.w + "," + this.h + "," + this.t + ")\nBlock Index: " + this.blockIndex);
 		}
 			
@@ -411,7 +422,7 @@ class DeathBlock extends Block {
 	show() {
 		fill(0);
 		rect(this.x,this.y,this.w,this.h);
-		if (mouseIsPressed && (mouseX + camera.position.x - levels.width/2) >= this.x && (mouseX + camera.position.x - levels.width/2) <= this.x+this.w && (mouseY + camera.position.y - levels.height/2) >= this.y && (mouseY + camera.position.y - levels.height/2) <= this.y+this.h) {
+		if (this.mouseOn) {
 			console.log("DeathBlock(" + this.x + "," + this.y + "," + this.w + "," + this.h + ")\nBlock Index: " + this.blockIndex);
 		}
 
@@ -432,17 +443,39 @@ class DeathBlock extends Block {
 	}
 }
 	
-class CircleBlock extends Block {
+class CircleBlock {
 	constructor(x,y,r) {
-		super(x,y);
+		this.x = x;
+		this.y = y;
 		this.r = r;
+		this.tempX;
+		this.tempY;
 		this.contact = false;
+		this.selected = false; 
+		this.blockIndex = levels.blockIndex;
+		levels.blockIndex++;
 	}
 	show() {
 		fill(255,0,0);
 		ellipse(this.x,this.y,this.r*2,this.r*2);
+		
+	}
+	click() {
 		if (mouseIsPressed && dist((mouseX + camera.position.x - levels.width/2),(mouseY + camera.position.y - levels.height/2),this.x,this.y) <= this.r) {
 			console.log("CircleBlock(" + this.x + "," + this.y + "," + this.r + ")\nBlock Index: " + this.blockIndex);
+			this.selected = true;
+		}
+		
+		if (keyCode === 68) {		// d
+			this.tempX = camera.mouseX - this.x;
+			this.tempY = camera.mouseY - this.y;
+		} 
+		if (keyCode == 70) {		// f
+			this.selected = false;
+		}
+		if (this.selected == true && mouseIsPressed && keyCode ===83) {		// s
+			this.x = camera.mouseX - this.tempX;
+			this.y = camera.mouseY - this.tempY;
 		}
 	}
 	hit() {

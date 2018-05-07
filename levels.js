@@ -121,6 +121,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click();
 		}
 		
 		if (levels.needUpdate) {
@@ -186,6 +187,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		this.winMessage(0,204,255,204);
@@ -240,6 +242,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		this.winMessage(0,204,255,204);
@@ -292,6 +295,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -350,6 +354,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -409,6 +414,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -464,6 +470,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -528,6 +535,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -586,6 +594,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click()
 		}
 		
 		// if (ball.win == true) {
@@ -675,6 +684,7 @@ function Levels() {
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
 			blocks[i].hit();
+			blocks[i].click();
 		}
 		var tempCamX, tempCamY;
 		if (ball.stall == true) {
