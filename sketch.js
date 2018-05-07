@@ -289,7 +289,7 @@ function mousePressed() {
 	}
 	
 	if (next_ok == true) {
-		if (mouseX > (this.width/2)-135 && mouseX < this.width/2 && mouseY > levels.messageY && mouseY < levels.messageY+50) {
+		if (camera.mouseX > (this.width/2)-135 && camera.mouseX < this.width/2 && camera.mouseY > levels.messageY && camera.mouseY < levels.messageY+50) {
 			ball.win = false;
 			ball.needUpdate = true;
 			levels.needUpdate = true;
@@ -300,7 +300,7 @@ function mousePressed() {
 			trail.splice(0,trail.length);	
 			next_ok = false;
 			timer = -5;
-		} else if (mouseX > this.width/2 && mouseX < (this.width/2)+135 && mouseY > levels.messageY && mouseY < levels.messageY+50) {
+		} else if (camera.mouseX > this.width/2 && camera.mouseX < (this.width/2)+135 && camera.mouseY > levels.messageY && camera.mouseY < levels.messageY+50) {
 			ball.win = false;
 			level = 0;
 			ball.needUpdate = true;
