@@ -179,10 +179,7 @@ class FakeWinBlock extends Block {
 			if (ball.stall == false) {
 				bump_sfx.play();
 			}
-			if (timer == -5 && next_ok == false) {
-				timer = 40;
-			}
-			
+			ball.jumps = 1;
 			ball.yVelocity = 0;	
 			ball.xVelocity = 0;
 			ball.y = this.y-16;
