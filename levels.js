@@ -707,6 +707,10 @@ function Levels() {
 			if (this.counter >= 120 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
 			}
+			if (this.counter >= 800 && ball.win == false && keyCode != 65) {
+				camera.position.y += -1;
+				console.log("hello");
+			}
 			if (this.counter < 180) {
 				ball.jumps = 0;
 			}
