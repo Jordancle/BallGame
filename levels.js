@@ -628,22 +628,26 @@ function Levels() {
 		blocks.push(new FakeWinBlock(20,-525,110,20));
 		blocks.push(new RegBlock(0,-515,150,20));
 		blocks.push(new RegBlock(0,-750,20,235));
-		blocks.push(new RegBlock(130,-750,20,235));
 		blocks.push(new CircleBlock(300,-950,50));
 		blocks.push(new CircleBlock(150,-1200,100));
 		blocks.push(new CircleBlock(75,-1375,30));
 		blocks.push(new RegBlock(140,-1600,20,200));
 		blocks.push(new RegBlock(140,-1400,260,20));
-		
 		blocks.push(new CircleBlock(100,-1700,50));
+		
 		blocks.push(new CircleBlock(285,-2200,70));
 		blocks.push(new CircleBlock(275,-1500,50));
 		blocks.push(new RegBlock(250,-2050,20,400));
 		blocks.push(new RegBlock(250,-2070,150,20));
-		blocks.push(new WinBlock(0,-2150,150,10));
-		blocks.push(new RegBlock(0,-2140,170,20));
-		blocks.push(new RegBlock(150, -2300, 20,160));
-		blocks.push(new RegBlock(0,-2300,170,20));
+		blocks.push(new CircleBlock(185,-2400,50));
+		blocks.push(new CircleBlock(100,-2650,50));
+		blocks.push(new CircleBlock(300,-2850,50));
+		blocks.push(new CircleBlock(325,-3075,40));
+		// blocks.push(new RegBlock(
+		blocks.push(new WinBlock(0,-3050,150,10));
+		blocks.push(new RegBlock(0,-3040,170,20));
+		blocks.push(new RegBlock(150,-3200, 20,160));
+		blocks.push(new RegBlock(0,-3200,170,20));
 		// blocks.push(new CircleBlock(350,-2600,250));
 		
 		
@@ -663,6 +667,7 @@ function Levels() {
 		background(200);
 		image(level7_img, 0, -1320);
 		image(level7_img, 0, -3240);
+		image(level7_img, 0, -5160);
 		// image(level7_img, 0, -5760);
 		
 		ball.show();
@@ -704,15 +709,22 @@ function Levels() {
 			if (this.counter == 60) {
 				rumble_sfx.play();
 			}
-			// if (this.counter == 120) {
-				// camera.position.x = tempCamX;
-				// camera.position.y = tempCamY;
-			// }
+			
 			if (this.counter >= 180 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
 			}
+			// Speed Up
 			if (this.counter >= 800 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
+			}
+			if (this.counter == 800) {
+				rumble_sfx.play();
+			}
+			if (this.counter >= 1300 && ball.win == false && keyCode != 65) {
+				camera.position.y += -1;
+			}
+			if (this.counter == 1300) {
+				rumble_sfx.play();
 			}
 			if (this.counter < 180) {
 				ball.jumps = 0;
@@ -725,7 +737,7 @@ function Levels() {
 		if (ball.win == true) {
 			ball.stall = false;
 			this.counter = 0;
-			level7_music.stop();
+			// level7_music.stop();
 		}
 		this.winMessage(0,200,191,232);
 	}

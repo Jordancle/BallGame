@@ -15,6 +15,7 @@ var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela, level7_img;
 var arrowLeft_img, arrowRight_img;
 var message = 0;
+var clickJump = true;
 
 function preload() {
 	soundFormats('mp3');
@@ -181,6 +182,10 @@ function draw() {
 		default:
 			level = 0;
 	}
+	
+	if (level != 7) {
+		level7_music.stop();
+	}
 }
 
 function keyPressed() {
@@ -315,7 +320,7 @@ function mousePressed() {
 		}
 	}
 	
-	if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
+	if (mouseIsPressed && ball.jumps > 0 && ball.win == false && clickJump == true) {
 		ball.jump();
 	}
 	
