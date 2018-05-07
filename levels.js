@@ -636,7 +636,7 @@ function Levels() {
 		blocks.push(new RegBlock(140,-1400,260,20));
 		
 		blocks.push(new CircleBlock(100,-1700,50));
-		blocks.push(new CircleBlock(300,-2150,40));
+		blocks.push(new CircleBlock(285,-2200,70));
 		blocks.push(new CircleBlock(275,-1500,50));
 		blocks.push(new RegBlock(250,-2050,20,400));
 		blocks.push(new RegBlock(250,-2070,150,20));
