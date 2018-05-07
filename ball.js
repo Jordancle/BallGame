@@ -107,9 +107,11 @@ function Ball() {
 		if (levels.screenWrap == true) {
 			if (this.x > width) {
 				this.x = 0;
+				ball.rotating = false;
 			} 
 			if (this.x < 0) {
 				this.x = width;
+				ball.rotating = false;
 			}
 		} else {
 			if (this.x > width - this.radius) {

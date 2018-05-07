@@ -622,23 +622,24 @@ function Levels() {
 		blocks.push(new RegBlock(0,0,20,220));
 		blocks.push(new RegBlock(0,220,100,20));
 		blocks.push(new CircleBlock(100,-150,50));
-		blocks.push(new CircleBlock(300,-300,50));
-		// blocks.push(new CircleBlock(150,-350,60));
-		// blocks.push(new CircleBlock(100,-500,30));
-		blocks.push(new CircleBlock(75,-500,60));
-		// blocks.push(new CircleBlock(300,-750,50));
-		blocks.push(new FakeWinBlock(120,-725,100,20));
-		blocks.push(new RegBlock(100,-705,140,20));
-		// blocks.push(new RegBlock(125,-820,20,115));
-		
-		
+		blocks.push(new CircleBlock(300,-300,30));
+
+		blocks.push(new CircleBlock(400,-600,200));
+		blocks.push(new FakeWinBlock(30,-525,100,20));
+		blocks.push(new RegBlock(0,-515,150,20));
+		blocks.push(new RegBlock(0,-750,20,235));
+		blocks.push(new RegBlock(130,-600,20,85));
 		blocks.push(new CircleBlock(175,-950,50));
 		blocks.push(new CircleBlock(250,-1200,100));
 		blocks.push(new CircleBlock(75,-1375,30));
+		blocks.push(new RegBlock(140,-1600,20,200));
+		blocks.push(new RegBlock(140,-1400,260,20));
+		
 		blocks.push(new CircleBlock(100,-1700,50));
-		blocks.push(new CircleBlock(325,-2150,40));
+		blocks.push(new CircleBlock(300,-2150,40));
 		blocks.push(new CircleBlock(275,-1500,50));
 		blocks.push(new RegBlock(250,-2050,20,400));
+		blocks.push(new RegBlock(250,-2070,150,20));
 		blocks.push(new WinBlock(0,-2150,150,10));
 		blocks.push(new RegBlock(0,-2140,170,20));
 		blocks.push(new RegBlock(150, -2300, 20,160));
@@ -661,8 +662,8 @@ function Levels() {
 	this.level7 = function() {
 		background(200);
 		image(level7_img, 0, -1320);
-		image(level7_img, 0, -3960);
-		image(level7_img, 0, -2640);
+		image(level7_img, 0, -3240);
+		// image(level7_img, 0, -5760);
 		
 		ball.show();
 		ball.update(levels);
@@ -678,7 +679,7 @@ function Levels() {
 		
 		this.moveCameraOnBlock(blocks[5],0,-this.cameraSpeed,-350);
 		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-300);
-		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-150);
+		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-200);
 		// this.moveCameraOnBlock(blocks[5],3,-this.cameraSpeed,-300);
 		
 		for (var i = 0; i < blocks.length; i++) {
@@ -695,7 +696,7 @@ function Levels() {
 				console.log("tempCamX " + tempCamX);
 				console.log("tempCamY " + tempCamY);
 			}
-			if (this.counter > 60) {
+			if (this.counter > 60 && ball.win == false) {
 				camera.position.x += random(-2,2);
 				camera.position.y += random(-2,2);
 			}
@@ -703,7 +704,7 @@ function Levels() {
 				// camera.position.x = tempCamX;
 				// camera.position.y = tempCamY;
 			// }
-			if (this.counter >= 120 && ball.win == false) {
+			if (this.counter >= 120 && ball.win == false && keyCode != 65) {
 				camera.position.y += -2;
 			}
 			if (this.counter < 180) {
@@ -713,6 +714,9 @@ function Levels() {
 				ball.jumps = 1;
 				level7_music.play();
 			}
+		}
+		if (ball.win == true) {
+			level7_music.stop();
 		}
 		this.winMessage(0,200,191,232);
 	}
