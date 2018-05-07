@@ -628,7 +628,7 @@ function Levels() {
 		blocks.push(new FakeWinBlock(20,-525,110,20));
 		blocks.push(new RegBlock(0,-515,150,20));
 		blocks.push(new RegBlock(0,-750,20,235));
-		blocks.push(new RegBlock(130,-600,20,85));
+		blocks.push(new RegBlock(130,-750,20,235));
 		blocks.push(new CircleBlock(300,-950,50));
 		blocks.push(new CircleBlock(150,-1200,100));
 		blocks.push(new CircleBlock(75,-1375,30));
@@ -711,7 +711,7 @@ function Levels() {
 			if (this.counter >= 180 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
 			}
-			if (this.counter >= 850 && ball.win == false && keyCode != 65) {
+			if (this.counter >= 800 && ball.win == false && keyCode != 65) {
 				camera.position.y += -1;
 			}
 			if (this.counter < 180) {
