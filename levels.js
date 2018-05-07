@@ -737,7 +737,6 @@ function Levels() {
 		if (ball.win == true) {
 			ball.stall = false;
 			this.counter = 0;
-			// level7_music.stop();
 		}
 		this.winMessage(0,200,191,232);
 	}
