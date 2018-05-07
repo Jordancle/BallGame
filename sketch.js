@@ -314,9 +314,9 @@ function mousePressed() {
 		}
 	}
 	
-	// if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
-		// ball.jump();
-	// }
+	if (mouseIsPressed && ball.jumps > 0 && ball.win == false) {
+		ball.jump();
+	}
 	
 	if (mouseIsPressed && ball.win == true && next_ok == true) {
 		level++;
