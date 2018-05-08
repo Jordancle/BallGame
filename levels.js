@@ -630,9 +630,9 @@ function Levels() {
 		blocks.push(new RegBlock(0,-750,20,235));
 		blocks.push(new CircleBlock(300,-950,50));
 		blocks.push(new CircleBlock(150,-1200,100));
-		blocks.push(new CircleBlock(75,-1375,30));
-		blocks.push(new RegBlock(140,-1600,20,200));
-		blocks.push(new RegBlock(140,-1400,260,20));
+		blocks.push(new CircleBlock(70,-1395,30));
+		blocks.push(new RegBlock(140,-1600,20,225));
+		blocks.push(new RegBlock(140,-1375,260,20));
 		blocks.push(new CircleBlock(100,-1700,50));
 		
 		blocks.push(new CircleBlock(285,-2200,70));
@@ -738,6 +738,57 @@ function Levels() {
 			ball.stall = false;
 			this.counter = 0;
 		}
+		this.winMessage(0,200,191,232);
+	}
+	
+	this.updateLevel10 = function() {
+		this.screenWrap = true;
+		this.upperBound = false;
+		this.counter = 0;
+		for (var i = 0; i < this.cameraMoved.length; i++) {
+			this.cameraMoved[i] = false;
+		}
+		// level7_music.stop();
+		blocks.splice(0,blocks.length);		// Removes any previous blocks
+		this.blockIndex = 0;
+		
+		this.width = 400;
+		this.height = 600;
+		this.startX = blocks[0].center;
+		this.startY = 475;
+		this.startXVelocity = 0;
+		this.startYVelocity = 0;
+		camera.position.x = this.width/2;
+		camera.position.y = this.height/2;
+		createCanvas(this.width ,this.height);
+		background(200);
+	}
+	
+	this.level10 = function() {
+		background(200);
+		// image(level7_img, 0, -1320);
+		// image(level7_img, 0, -3240);
+		// image(level7_img, 0, -5160);
+		// image(level7_img, 0, -5760);
+		
+		ball.show();
+		ball.update(levels);
+
+		if (levels.needUpdate) {
+			levels.updateLevel10();
+			levels.needUpdate = false;
+		}
+		if(ball.needUpdate) {
+			ball.start(levels);
+			ball.needUpdate = false;
+		}
+		
+		for (var i = 0; i < blocks.length; i++) {
+			blocks[i].show();
+			blocks[i].hit();
+			blocks[i].click();
+		}
+	
 		this.winMessage(0,200,191,232);
 	}
 	

@@ -26,6 +26,8 @@ function Ball() {
 	this.rotating;
 	this.a2, this.b2, this.c;
 	
+	this.lag = -1;
+	
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -36,7 +38,8 @@ function Ball() {
 		this.reverse = false;
 		this.rotating = false;
 		levels.needUpdate = true;
-		ball.stall = false;
+		this.stall = false;
+		this.lag = -1;
 		
 	}
 	
@@ -51,7 +54,8 @@ function Ball() {
 		death_sfx.play();
 		var currLevel;
 		levels.needUpdate = true;
-		ball.stall = false;
+		this.stall = false;
+		this.lag = -1;
 		if (level >= 100) {
 			currLevel = 1;
 		} else {
@@ -83,6 +87,12 @@ function Ball() {
 	}
 	
 	this.update = function(levels) {
+		if (this.lag > 0) {
+			this.lag--;
+		}
+		if (this.rotating == true && this.lag == -1) {
+			this.lag = 10;
+		}
 		this.yVelocity += this.gravity;
 		this.y += this.yVelocity;
 		this.x += this.xVelocity
@@ -107,11 +117,13 @@ function Ball() {
 		if (levels.screenWrap == true) {
 			if (this.x > width) {
 				this.x = 0;
-				ball.rotating = false;
+				this.rotating = false;
+				this.lag = -1;
 			} 
 			if (this.x < 0) {
 				this.x = width;
-				ball.rotating = false;
+				this.rotating = false;
+				this.lag = -1;
 			}
 		} else {
 			if (this.x > width - this.radius) {
@@ -177,12 +189,15 @@ function Ball() {
 			this.xVelocity = 12*1.5;
 			this.jumps--;
 		} else if (this.rotating == true) {
-			jump_sfx.play();
-			this.yVelocity = (this.b2-this.yVelocity)*20/this.c;
-			this.xVelocity = (this.a2-this.xVelocity)*20/this.c;
-			this.gravity = 1;
-			this.rotating = false;
-			this.jumps--;
+			if (this.lag == 0) {
+				jump_sfx.play();
+				this.yVelocity = (this.b2-this.yVelocity)*20/this.c;
+				this.xVelocity = (this.a2-this.xVelocity)*20/this.c;
+				this.gravity = 1;
+				this.rotating = false;
+				this.lag = -1;
+				this.jumps--;
+			}
 		} else {
 			jump_sfx.play();
 			this.yVelocity = -20;

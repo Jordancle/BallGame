@@ -24,7 +24,6 @@ function preload() {
 	win_sfx = loadSound("sounds/smas_1up.mp3");
 	death_sfx = loadSound("sounds/smb3_player_down.mp3");
 	reverse_jump_sfx = loadSound("sounds/smw_spin_jump.wav");
-	level7_music = loadSound("sounds/Speedy Comet.mp3");
 	rumble_sfx = loadSound("sounds/Super Metroid Explosions.mp3");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
@@ -40,9 +39,7 @@ function preload() {
 }
 
 function setup() {
-	// width = 400;
-	// height = 600;
-	//createCanvas(1000 ,600);		// 400,600
+	level7_music = loadSound("sounds/Speedy Comet.mp3");
 	frameRate(120);
 	/*
 	mySound.setVolume(0.1);
