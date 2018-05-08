@@ -26,7 +26,9 @@ function Ball() {
 	this.rotating;
 	this.a2, this.b2, this.c;
 	
-	this.lag = -1;
+	this.lag = -1;			// To prevent people from falling off the CircleBlock too quickly
+	this.health = 3; 		// For the final battle
+	this.energy = false;	// For attacking in the final battle
 	
 	this.start = function(levels) {
 		this.x = levels.startX;

@@ -749,7 +749,7 @@ function Levels() {
 		this.screenWrap = true;
 		this.upperBound = false;
 		this.counter = 0;
-		this.words = "You've met with a terrible fate,\nhaven't you?";
+		this.words = "Quite unfortunate for you to end up here, \nisn't it?";
 		for (var i = 0; i < this.cameraMoved.length; i++) {
 			this.cameraMoved[i] = false;
 		}
