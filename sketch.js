@@ -10,6 +10,7 @@ var jump_sfx, reverse_jump_sfx;
 var bump_sfx;
 var win_sfx, death_sfx;
 var level7_music, rumble_sfx;
+var charge_sfx, shot_sfx;
 var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela, level7_img;
@@ -24,6 +25,8 @@ function preload() {
 	win_sfx = loadSound("sounds/smas_1up.mp3");
 	death_sfx = loadSound("sounds/smb3_player_down.mp3");
 	reverse_jump_sfx = loadSound("sounds/smw_spin_jump.wav");
+	charge_sfx = loadSound("sounds/Megaman X Charge.mp3");
+	shot_sfx = loadSound("sounds/Megaman X Shot.mp3");
 	rumble_sfx = loadSound("sounds/Super Metroid Explosions.mp3");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
@@ -190,6 +193,13 @@ function draw() {
 }
 
 function keyPressed() {
+
+	if (key == ' ' && ball.charged == true) {
+		shot_sfx.play();
+		ball.energy = false;
+		ball.charged = false;
+		charge_sfx.stop();
+	}
 
 	if (key == ' ' && ball.jumps > 0 && ball.win == false) {
 		ball.jump();

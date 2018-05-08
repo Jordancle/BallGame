@@ -750,6 +750,7 @@ function Levels() {
 		this.upperBound = false;
 		this.counter = 0;
 		this.words = "Quite unfortunate for you to end up here, \nisn't it?";
+		// this.words = "\t\t\t\tSup Bro";
 		for (var i = 0; i < this.cameraMoved.length; i++) {
 			this.cameraMoved[i] = false;
 		}
@@ -758,6 +759,7 @@ function Levels() {
 		this.blockIndex = 0;
 		
 		blocks.push(new RegBlock(0,300,200,20));
+		blocks.push(new EnergyBall(180,220));
 		
 		this.width = 1000;
 		this.height = 600;
@@ -773,6 +775,7 @@ function Levels() {
 	
 	this.level10 = function() {
 		background(0);
+		// image(level6_Angela, 0, 0);
 		if (frameCount%5 == 1) {
 			this.counter++;
 		}
