@@ -16,6 +16,7 @@ function Levels() {
 	this.cameraMoved = [];		// used to determine when the camera has moved
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.blockIndex = 0;		// used to see which block is at which blocks array index
+	this.words;
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
@@ -661,6 +662,9 @@ function Levels() {
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
 		background(200);
+		image(level7_img, 0, -1320);
+		image(level7_img, 0, -3240);
+		image(level7_img, 0, -5160);
 	}
 	
 	this.level7 = function() {
@@ -745,6 +749,7 @@ function Levels() {
 		this.screenWrap = true;
 		this.upperBound = false;
 		this.counter = 0;
+		this.words = "You've met with a terrible fate,\nhaven't you?";
 		for (var i = 0; i < this.cameraMoved.length; i++) {
 			this.cameraMoved[i] = false;
 		}
@@ -752,28 +757,29 @@ function Levels() {
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		this.blockIndex = 0;
 		
-		this.width = 400;
+		blocks.push(new RegBlock(0,300,200,20));
+		
+		this.width = 1000;
 		this.height = 600;
 		this.startX = blocks[0].center;
-		this.startY = 475;
+		this.startY = blocks[0].y - ball.radius;
 		this.startXVelocity = 0;
 		this.startYVelocity = 0;
 		camera.position.x = this.width/2;
 		camera.position.y = this.height/2;
 		createCanvas(this.width ,this.height);
-		background(200);
+		background(0);
 	}
 	
 	this.level10 = function() {
-		background(200);
-		// image(level7_img, 0, -1320);
-		// image(level7_img, 0, -3240);
-		// image(level7_img, 0, -5160);
-		// image(level7_img, 0, -5760);
+		background(0);
+		if (frameCount%5 == 1) {
+			this.counter++;
+		}
 		
 		ball.show();
 		ball.update(levels);
-
+		
 		if (levels.needUpdate) {
 			levels.updateLevel10();
 			levels.needUpdate = false;
@@ -788,6 +794,15 @@ function Levels() {
 			blocks[i].hit();
 			blocks[i].click();
 		}
+		var typing = this.words.slice(0,this.counter);
+		push();
+		textSize(40);
+		text(typing,20,200);
+		pop();
+		if (typing.length < this.words.length) {
+			ball.jumps = 0;
+		}
+		
 	
 		this.winMessage(0,200,191,232);
 	}

@@ -176,6 +176,9 @@ function draw() {
 		case 7:
 			levels.level7();
 			break;
+		case 11:
+			levels.level10();
+			break;
 		default:
 			level = 0;
 	}

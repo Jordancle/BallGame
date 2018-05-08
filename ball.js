@@ -102,10 +102,16 @@ function Ball() {
 		 * bounce caused yVelocity to = -15, but this was changed to
 		 * -yVelocity instead
 		 */
-		if (this.y > levels.height/2 + camera.position.y && !ball.rotating) {
+		if (this.y > levels.height) {
 			this.death(levels);
 		}
-		if (this.y < camera.position.y - levels.height/2) {
+		if (this.y > levels.height/2 + ball.radius*2 + camera.position.y && !ball.rotating) {
+			this.death(levels);
+		}
+		if (this.y > levels.height + camera.position.y && ball.rotating) {
+			this.death(levels);
+		}
+		if (this.y < camera.position.y - levels.height/2 && levels.screenWrap == false) {
 			this.y = camera.position.y - levels.height/2;
 			this.yVelocity = 0;
 		}
