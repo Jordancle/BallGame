@@ -40,6 +40,7 @@ function preload() {
 
 function setup() {
 	level7_music = loadSound("sounds/Speedy Comet.mp3");
+	rumble_sfx.setVolume(8);
 	frameRate(120);
 	/*
 	mySound.setVolume(0.1);
