@@ -111,7 +111,7 @@ function Ball() {
 		if (this.y > levels.height + camera.position.y && ball.rotating) {
 			this.death(levels);
 		}
-		if (this.y < camera.position.y - levels.height/2 && levels.screenWrap == false) {
+		if (this.y < camera.position.y - levels.height/2) {
 			this.y = camera.position.y - levels.height/2;
 			this.yVelocity = 0;
 		}
