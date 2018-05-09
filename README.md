@@ -2,8 +2,7 @@
 My First Game using p5.js framework for Java Script
 
 ### To play:
-Download all files into one folder, then
-open the index.html file in web browser.
+Click on the link: https://jordancle.github.io/BallGame
 
 ### Controls:
 Press **SPACE** to jump!<br />
