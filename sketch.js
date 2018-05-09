@@ -198,6 +198,7 @@ function keyPressed() {
 		shot_sfx.play();
 		ball.energy = false;
 		ball.charged = false;
+		ball.fired = true;
 		charge_sfx.stop();
 	}
 

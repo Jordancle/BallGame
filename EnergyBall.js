@@ -6,6 +6,7 @@ class EnergyBall {
 		this.count = -1;
 		this.initX,this.initY;
 		this.chargeTime = 100;
+		this.contact = false;
 	}
 	
 	show() {
@@ -17,12 +18,18 @@ class EnergyBall {
 	
 	hit() {
 		if (dist(ball.x,ball.y,this.x,this.y) <= ball.radius + ball.radius + 2) {
-			ball.energy = true;
 			ball.xVelocity = 0;
 			ball.yVelocity = 0;
 			ball.gravity = 0;
+			// This.contact used to have ball.energy set to true only once when the ball touches it
+			if (this.contact == false) {
+				ball.energy = true;
+				this.contact = true;
+			}
+		} else {
+			this.contact = false;
 		}
-		if (ball.energy == true) {
+		if (ball.energy == true && this.contact == true) {
 			
 			if (this.count == -1) {			// Initialize count
 				this.count = 0;
@@ -32,9 +39,7 @@ class EnergyBall {
 				this.initY = ball.y;
 				charge_sfx.play();
 			} 
-			if (this.count == this.chargeTime+1) {
-				ball.charged = true;
-			}
+			
 			this.count++;
 			camera.zoom = constrain(map(this.count,0,this.chargeTime,1,2),1,2);
 			
@@ -78,10 +83,27 @@ class EnergyBall {
 			camera.position.x = x;
 			camera.position.y = y;
 			
+			// Think of this line as the condition of a for loop
+			if (this.count == this.chargeTime+1) {
+				ball.charged = true;
+				ball.energy = false;
+				this.count = -1;
+			}
 			
-		} else {
-			this.count = -1;
+		} 
+		
+		if (ball.fired == true && this.contact == true) {
+			ball.fired = false;
+			ball.x += ball.radius*2 + 3;
+			ball.xVelocity = 60;
+			ball.yVelocity = 0;
+			ball.gravity = 1;
+			camera.position.x = this.width/2;
+			camera.position.y = this.height/2;
+			camera.zoom = 1;
 		}
+		
+		
 	}
 	
 	click() {
@@ -97,7 +119,7 @@ class EnergyBall {
 		if (keyCode == 70) {		// f
 			this.selected = false;
 		}
-		if (this.selected == true && mouseIsPressed && keyCode ===83) {		// s
+		if (this.selected == true && mouseIsPressed && keyCode === 83) {		// s
 			this.x = camera.mouseX - this.tempX;
 			this.y = camera.mouseY - this.tempY;
 		}

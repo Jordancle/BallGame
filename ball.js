@@ -30,6 +30,7 @@ function Ball() {
 	this.health = 3; 		// For the final battle
 	this.energy = false;	// For attacking in the final battle
 	this.charged = false;
+	this.fired = false;
 	
 	this.start = function(levels) {
 		this.x = levels.startX;
