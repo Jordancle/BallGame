@@ -783,6 +783,8 @@ function Levels() {
 		ball.show();
 		ball.update(levels);
 		
+		animation(boss_sprite,0,0);
+		
 		if (levels.needUpdate) {
 			levels.updateLevel10();
 			levels.needUpdate = false;

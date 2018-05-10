@@ -95,7 +95,7 @@ class EnergyBall {
 		if (ball.fired == true && this.contact == true) {
 			ball.fired = false;
 			ball.x += ball.radius*2 + 3;
-			ball.xVelocity = 60;
+			ball.xVelocity = 80;
 			ball.yVelocity = 0;
 			ball.gravity = 1;
 			camera.position.x = this.width/2;

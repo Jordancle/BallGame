@@ -17,6 +17,7 @@ var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img
 var arrowLeft_img, arrowRight_img;
 var message = 0;
 var clickJump = true;
+var boss_sprite;
 
 function preload() {
 	soundFormats('mp3');
@@ -39,6 +40,7 @@ function preload() {
 	level7_img = loadImage("Images/Level7.png");
 	arrowLeft_img = loadImage("Images/arrowLeft.png");
 	arrowRight_img = loadImage("Images/arrowRight.png");
+	boss_sprite = loadAnimation("Sprites/phoenix/Animation_005/Picture1.png","Sprites/phoenix/Animation_005/Picture5.png");
 }
 
 function setup() {
