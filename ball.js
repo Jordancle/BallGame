@@ -109,7 +109,7 @@ function Ball() {
 		if (this.y > levels.height + camera.position.y && ball.rotating) {
 			this.death(levels);
 		}
-		if (this.y < camera.position.y - levels.height/2) {
+		if (this.y < camera.position.y - levels.height/2 && ball.rotating == false) {
 			this.y = camera.position.y - levels.height/2;
 			this.yVelocity = 0;
 		}
