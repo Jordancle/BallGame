@@ -59,10 +59,10 @@ function Levels() {
 			fill(r,g,b);
 			rect(this.messageX,this.messageY,this.winWidthRadius,this.winHeightRadius);
 			rectMode(CORNER);
-			textSize(20); // 45
+			textSize(45); // 45
 			textAlign(CENTER);
 			fill(c);
-			text("HAPPY BIRTHDAY ROBERT!",this.messageX,this.messageY-70);
+			text("SUCCESS!",this.messageX,this.messageY-70);
 			if (next_ok == true) {
 				textSize(20);
 				text("Press SPACE to continue",this.messageX,this.messageY-30);
