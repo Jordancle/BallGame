@@ -17,6 +17,7 @@ function Levels() {
 	this.counter = 0, this.cameraSpeed = 20;				// attempt at static variables
 	this.blockIndex = 0;		// used to see which block is at which blocks array index
 	this.words;
+	this.boss;
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
@@ -760,6 +761,7 @@ function Levels() {
 		
 		blocks.push(new RegBlock(0,300,200,20));
 		blocks.push(new EnergyBall(180,220));
+		this.boss = new Boss(100,100,0);
 		
 		this.width = 1000;
 		this.height = 600;
@@ -783,8 +785,6 @@ function Levels() {
 		ball.show();
 		ball.update(levels);
 		
-		animation(boss_sprite,0,0);
-		
 		if (levels.needUpdate) {
 			levels.updateLevel10();
 			levels.needUpdate = false;
@@ -799,6 +799,10 @@ function Levels() {
 			blocks[i].hit();
 			blocks[i].click();
 		}
+		
+		this.boss.show();
+		// animation(boss_sprite,0,0);
+		
 		var typing = this.words.slice(0,this.counter);
 		push();
 		textSize(40);
