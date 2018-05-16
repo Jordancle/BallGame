@@ -26,7 +26,11 @@ function Ball() {
 	this.rotating;
 	this.a2, this.b2, this.c;
 	
-	this.lag = -1;
+	this.lag = -1;			// To prevent people from falling off the CircleBlock too quickly
+	this.health = 3; 		// For the final battle
+	this.energy = false;	// For attacking in the final battle
+	this.charged = false;
+	this.fired = false;
 	
 	this.start = function(levels) {
 		this.x = levels.startX;
@@ -40,21 +44,15 @@ function Ball() {
 		levels.needUpdate = true;
 		this.stall = false;
 		this.lag = -1;
-		
+		this.energy = false;
+		camera.zoom = 1;
 	}
 	
 	this.death = function(levels) {
-		this.x = levels.startX;
-		this.y = levels.startY;
-		this.xVelocity = levels.startXVelocity;
-		this.yVelocity = levels.startYVelocity;
-		this.jumps = 0;
-		this.win = false;
-		this.reverse = false;
+		this.start(levels);
 		death_sfx.play();
 		var currLevel;
-		levels.needUpdate = true;
-		this.stall = false;
+		
 		this.lag = -1;
 		if (level >= 100) {
 			currLevel = 1;
@@ -62,7 +60,7 @@ function Ball() {
 			currLevel = level;
 		}
 		this.deathCount[currLevel]++;
-		this.rotating = false;
+		
 	}
 	
 	this.show = function() {
@@ -111,7 +109,9 @@ function Ball() {
 		if (this.y > levels.height + camera.position.y && ball.rotating) {
 			this.death(levels);
 		}
+
 		if (this.y < camera.position.y - levels.height/2 && !ball.rotating) {
+
 			this.y = camera.position.y - levels.height/2;
 			this.yVelocity = 0;
 		}

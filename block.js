@@ -130,6 +130,13 @@ class WinBlock extends Block {
 				timer = 40;
 			}
 			
+			// Constrain the ball so that it doesn't fall offscreenBuffering
+			if (ball.x > this.x + this.w) {
+				ball.x = this.x + this.w;
+			} else if (ball.x < this.x) {
+				ball.x = this.x;
+			}
+			
 			ball.yVelocity = 0;	
 			ball.xVelocity = 0;
 			ball.y = this.y-16;
@@ -179,6 +186,14 @@ class FakeWinBlock extends Block {
 			if (ball.stall == false) {
 				bump_sfx.play();
 			}
+			
+			// Constrain the ball so that it doesn't fall offscreenBuffering
+			if (ball.x > this.x + this.w) {
+				ball.x = this.x + this.w;
+			} else if (ball.x < this.x) {
+				ball.x = this.x;
+			}
+			
 			ball.jumps = 1;
 			ball.yVelocity = 0;	
 			ball.xVelocity = 0;
