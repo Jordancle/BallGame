@@ -142,7 +142,6 @@ function Levels() {
 	
 	this.level1_1 = function() {
 		
-		// background(102,102,153);
 		image(level1_img, 0, 0);
 		
 		/*
@@ -246,7 +245,6 @@ function Levels() {
 
 	
 	this.level1_3 = function() {
-		// background(102,102,153);
 		image(level1_img, 0, 0);
 		
 		/*
@@ -270,10 +268,6 @@ function Levels() {
 			blocks[i].hit();
 			blocks[i].click()
 		}
-		
-		// if (ball.win == true) {
-			// this.complete[1] = true;
-		// }
 		
 		this.winMessage(0,204,255,204);
 		
@@ -329,10 +323,6 @@ function Levels() {
 			blocks[i].hit();
 			blocks[i].click()
 		}
-		
-		// if (ball.win == true) {
-			// this.complete[3] = true;
-		// }
 		
 		this.winMessage(255,0,153,153);
 			
@@ -390,10 +380,6 @@ function Levels() {
 			blocks[i].click()
 		}
 		
-		// if (ball.win == true) {
-			// this.complete[2] = true;
-		// }
-		
 		this.winMessage(0,204,229,255);
 	}
 
@@ -446,9 +432,6 @@ function Levels() {
 			blocks[i].click()
 		}
 		
-		// if (ball.win == true) {
-			// this.complete[4] = true;
-		// }
 		this.winMessage(255,153,153,255);
 	}
 	
@@ -511,9 +494,6 @@ function Levels() {
 			blocks[i].click()
 		}
 		
-		// if (ball.win == true) {
-			// this.complete[5] = true;
-		// }
 		this.winMessage(0,255,255,204);
 	}
 	
