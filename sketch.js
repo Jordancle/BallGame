@@ -10,6 +10,7 @@ var jump_sfx, reverse_jump_sfx;
 var bump_sfx;
 var win_sfx, death_sfx;
 var level7_music, rumble_sfx;
+var bg_music;
 var charge_sfx, shot_sfx;
 var timer = -5;
 var next_ok = false;
@@ -40,6 +41,7 @@ function preload() {
 	level7_img = loadImage("Images/Level7.png");
 	arrowLeft_img = loadImage("Images/arrowLeft.png");
 	arrowRight_img = loadImage("Images/arrowRight.png");
+	bg_music = loadSound("sounds/a.mp3");
 	// boss_sprite = loadAnimation("Sprites/phoenix/Animation_005/Picture1.png","Sprites/phoenix/Animation_005/Picture5.png");
 	for (var i = 1; i <= 5; i++) {
 		boss_sprite[i-1] = loadImage("Sprites/phoenix/Animation_005/Picture" + i + ".png");
@@ -50,10 +52,7 @@ function setup() {
 	level7_music = loadSound("sounds/Speedy Comet.mp3");
 	rumble_sfx.setVolume(8);
 	frameRate(120);
-	/*
-	mySound.setVolume(0.1);
-	mySound.play();
-	*/
+	bg_music.play();
 	levels = new Levels();
 	ball = new Ball();
 }
