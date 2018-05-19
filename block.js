@@ -5,12 +5,21 @@ class Block {
 		this.y = y;
 		this.w = w;
 		this.h = h;
-		//this.win = false;
 		this.blockIndex = levels.blockIndex;
 		this.selected = false;
 		this.tempX, this.tempY;
 		this.mouseOn = false;
 		levels.blockIndex++;
+		
+		// For the strike method
+		this.count = -1;		// Used for timing purposes
+		this.shift = false;
+		this.move = 0;
+		this.x1;
+		this.x2;
+		this.y2;
+		this.y1;
+		this.t;
 	}
 	
 	click() {
@@ -33,6 +42,34 @@ class Block {
 		}
 	}
 	
+	// Must be called after show()
+	// x and y are the position that the block moves to
+	strike(x, y, t) {
+		if (this.count == -1) {
+			this.count = 0;
+			this.x1 = this.x;
+			this.y1 = this.y;
+			this.x2 = x;
+			this.y2 = y;
+			this.t = t;
+		} else {
+			this.count++;
+		}
+		if (this.count == 120) {
+			this.shift = true;
+		}
+		if (this.shift = true) {
+			this.x = map(this.move, 0, this.t, this.x1, this.x2);
+			this.y = map(this.move, 0, this.t, this.y1, this.y2);
+			if (this.move == this.t) {
+				this.shift = false;
+			} else {
+				this.move++;
+			}
+		}
+		
+
+	}
 	
 	hitLeft(ball) {
 		//bump_sfx.play();
@@ -370,12 +407,11 @@ class MoveBlock extends Block {
 	
 	constructor(x1,x2,y1,y2,w,h,t) {
 		super(x1,y1,w,h);
-		this.x1 = x1;
-		this.x2 = x2;
-		this.y1 = y1;
-		this.y2 = y2;
-		this.t = t;
-		this.move = 0;
+		super.x1 = x1;
+		super.x2 = x2;
+		super.y1 = y1;
+		super.y2 = y2;
+		super.t = t;
 		this.forward = true;
 	}	
 	hit(){

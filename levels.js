@@ -706,6 +706,7 @@ function Levels() {
 		this.blockIndex = 0;
 		
 		blocks.push(new RegBlock(0,300,200,20));
+		blocks.push(new RegBlock(500,300,200,20));
 		blocks.push(new EnergyBall(180,220));
 		this.boss = new Boss(100,100,0);
 		
@@ -746,7 +747,9 @@ function Levels() {
 			blocks[i].click();
 		}
 		
-		this.boss.show();
+		if (this.counter > 30)
+		blocks[1].strike(300,500,10);
+		// this.boss.show();
 		// animation(boss_sprite,0,0);
 		
 		var typing = this.words.slice(0,this.counter);
