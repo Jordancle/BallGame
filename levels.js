@@ -21,9 +21,6 @@ function Levels() {
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		//blocks.push(new RegBlock(200,500,200,20));
-		//blocks.push(new RollBlock(0,590,400,200));
-		//blocks.push(new WinBlock(150,50,100,20));
 		blocks.push(new RegBlock(0, 500, 400,100));
 		
 		this.width = 400;
@@ -92,25 +89,7 @@ function Levels() {
 		}
 		
 	}
-	
-	// this.stall = function() {
-		// if (ball.stall == true) {
-			// this.counter--;
-		// }
-		// if (this.counter <= -200) {
-			// ball.stall == false;
-			// if (this.counter <= -1000) {
-				// this.counter = 0;
-			// }
-			// camera.position.y += -1;
-			// this.counter += -1;
-		// }
-		// if (this.counter == -300) {
-			// this.counter = 0;
-			// ball.jumps = 1;
-		// }
-	// }
-	
+		
 	this.levelTest = function() {
 		this.screenWrap = true;
 		background(200);
@@ -142,10 +121,6 @@ function Levels() {
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		this.blockIndex = 0;
-		//blocks.push(new RegBlock(200,500,200,20));
-		//blocks.push(new RollBlock(0,590,400,200));
-		// blocks.push(new RegBlock(0, 350, 100, 20));
-		// blocks.push(new RegBlock(250, 350, 100, 20));
 		blocks.push(new RegBlock(0, 350, 100, 20));
 		blocks.push(new WinBlock(225,350,100,20));
 		
@@ -201,10 +176,6 @@ function Levels() {
 		this.upperBound = true;
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
 		this.blockIndex = 0;
-		//blocks.push(new RegBlock(200,500,200,20));
-		//blocks.push(new RollBlock(0,590,400,200));
-		// blocks.push(new RegBlock(0, 350, 100, 20));
-		// blocks.push(new RegBlock(250, 350, 100, 20));
 		blocks.push(new WinBlock(300,300,100,20));
 		blocks.push(new RegBlock(0, 350, 100, 20));
 		
@@ -558,14 +529,11 @@ function Levels() {
 		blocks.push(new MoveBlock(245, 245, 225, 335, 255, 105, 180));
 		blocks.push(new DeathBlock(520, 150, 220, 20));
 		blocks.push(new RegBlock(500, 150, 20, 185));
-		// blocks.push(new FallBlock(550,420,25,20));
 		blocks.push(new RegBlock(550, 420, 450, 20));
 		blocks.push(new MoveBlock(650, 800, 250, 250, 20, 170, 100));
 		blocks.push(new ReverseBlock(550 , 0, 190, 40));
-		// blocks.push(new RegBlock(780, 420, 150, 20));
 		blocks.push(new WinBlock(740, 150, 130, 20));
 		blocks.push(new RegBlock(980, 0, 200, 420));
-		// blocks.push(new RegBlock(550, 150, 20, 100));
 		
 		
 		this.width = 1000;
@@ -673,7 +641,6 @@ function Levels() {
 		image(level7_img, 0, -1320);
 		image(level7_img, 0, -3240);
 		image(level7_img, 0, -5160);
-		// image(level7_img, 0, -5760);
 		
 		ball.show();
 		ball.update(levels);
@@ -690,7 +657,6 @@ function Levels() {
 		this.moveCameraOnBlock(blocks[5],0,-this.cameraSpeed,-350);
 		this.moveCameraOnBlock(blocks[9],1,-this.cameraSpeed,-300);
 		this.moveCameraOnBlock(blocks[10],2,-this.cameraSpeed,-200);
-		// this.moveCameraOnBlock(blocks[5],3,-this.cameraSpeed,-300);
 		
 		for (var i = 0; i < blocks.length; i++) {
 			blocks[i].show();
