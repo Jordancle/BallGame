@@ -142,6 +142,7 @@ function Ball() {
 			}
 		}
 		
+		// These 3 if statements will eventually cause the ball to stop
 		if (this.xVelocity > 0) {
 			this.xVelocity -= this.drag*(this.xVelocity*0.1)
 
