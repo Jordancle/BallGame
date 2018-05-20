@@ -59,7 +59,7 @@ function setup() {
 function draw() {
 	switch(level) {
 		case -1:
-			levels.levelTest();
+			levelTest();
 			break;
 		case 0:
 			createCanvas(400 ,600);
@@ -139,7 +139,7 @@ function draw() {
 			ball.jumps = 0;
 			break;
 		case 100:
-			levels.level1_1();
+			level1_1(levels);
 			fill(0);
 			textSize(25);
 			if (ball.win == false) {
@@ -147,7 +147,7 @@ function draw() {
 			}
 			break;
 		case 101:
-			levels.level1_2();
+			level1_2(levels);
 			fill(0);
 			textSize(25);
 			if (ball.win == false) {
@@ -158,7 +158,7 @@ function draw() {
 			level = 1;
 			break;
 		case 1:
-			levels.level1_3();
+			level1_3(levels);
 			fill(0);
 			textSize(25);
 			if (ball.win == false) {
@@ -166,25 +166,25 @@ function draw() {
 			}
 			break;
 		case 2:
-			levels.level2();
+			level2(levels);
 			break;
 		case 3:
-			levels.level3();
+			level3(levels);
 			break;
 		case 4:
-			levels.level4();
+			level4(levels);
 			break;
 		case 5:
-			levels.level5();
+			level5(levels);
 			break;
 		case 6:
-			levels.level6();
+			level6(levels);
 			break;
 		case 7:
-			levels.level7();
+			level7(levels);
 			break;
 		case 11:
-			levels.level10();
+			level10(levels);
 			break;
 		default:
 			level = 0;
