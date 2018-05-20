@@ -17,6 +17,7 @@ var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela, level7_img;
 var arrowLeft_img, arrowRight_img;
+var level10_music_1;
 var message = 0;
 var clickJump = true;
 var boss_sprite = [];
@@ -45,6 +46,8 @@ function preload() {
 	arrowRight_img = loadImage("Images/arrowRight.png");
 	// bg_music = loadSound("Sounds/a.mp3");
 	level7_music = loadSound("Music/Speedy Comet.mp3");
+	level10_music_1 = loadSound("Music/The Forlorn Sanctum (Tower Lair) - Shovel Knight [OST]")
+	level10_music_1.setVolume(0.3);
 	// boss_sprite = loadAnimation("Sprites/phoenix/Animation_005/Picture1.png","Sprites/phoenix/Animation_005/Picture5.png");
 	for (var i = 1; i <= 5; i++) {
 		boss_sprite[i-1] = loadImage("Sprites/phoenix/Animation_005/Picture" + i + ".png");
@@ -52,7 +55,7 @@ function preload() {
 }
 
 function setup() {
-	rumble_sfx.setVolume(8);
+	rumble_sfx.setVolume(6);
 	frameRate(120);
 	levels = new Levels();
 	ball = new Ball();

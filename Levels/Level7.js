@@ -116,8 +116,8 @@ level7 = function(levels) {
         if (levels.counter == 800) {
             rumble_sfx.play();
         }
-        // Speed up, y position incremented by 2/3 per frame
-        if (levels.counter >= 1300 && frameCount%3 != 2 && ball.win == false && keyCode != 65) {
+        // Speed up, y position incremented by 5/6 per frame
+        if (levels.counter >= 1300 && frameCount%6 != 5 && ball.win == false && keyCode != 65) {
             camera.position.y += -1;
         }
         if (levels.counter == 1300) {

@@ -2,12 +2,11 @@ updateLevel10 = function(levels) {
     levels.screenWrap = true;
     levels.upperBound = false;
     levels.counter = 0;
-    levels.words = "Quite unfortunate for you to end up here, \nisn't it?";
-    // levels.words = "\t\t\t\tSup Bro";
+    // levels.words = "Quite unfortunate for you to end up here, \nisn't it?";
+    levels.words = "\t\t\t\tSup Bro";
     for (var i = 0; i < levels.cameraMoved.length; i++) {
         levels.cameraMoved[i] = false;
     }
-    // level7_music.stop();
     blocks.splice(0,blocks.length);		// Removes any previous blocks
     levels.blockIndex = 0;
     
@@ -26,6 +25,8 @@ updateLevel10 = function(levels) {
     camera.position.y = levels.height/2;
     createCanvas(levels.width ,levels.height);
     background(0);
+    level10_music_1.stop();
+    level10_music_1.play();
 }
 
 level10 = function(levels) {
