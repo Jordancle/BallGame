@@ -30,7 +30,9 @@ function preload() {
 	death_sfx = loadSound("Sounds/smb3_player_down.mp3");
 	reverse_jump_sfx = loadSound("Sounds/smw_spin_jump.wav");
 	charge_sfx = loadSound("Sounds/Megaman X Charge.mp3");
+	charge_sfx.setVolume(2);
 	shot_sfx = loadSound("Sounds/Megaman X Shot.mp3");
+	shot_sfx.setVolume(2);
 	rumble_sfx = loadSound("Sounds/Super Metroid Explosions.mp3");
 	cameraPan_sfx = loadSound("Sounds/sm64_camera_spin.wav");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
@@ -47,7 +49,7 @@ function preload() {
 	// bg_music = loadSound("Sounds/a.mp3");
 	level7_music = loadSound("Music/Speedy Comet.mp3");
 	level10_music_1 = loadSound("Music/The Forlorn Sanctum (Tower Lair) - Shovel Knight [OST]")
-	level10_music_1.setVolume(0.3);
+	level10_music_1.setVolume(0.5);
 	// boss_sprite = loadAnimation("Sprites/phoenix/Animation_005/Picture1.png","Sprites/phoenix/Animation_005/Picture5.png");
 	for (var i = 1; i <= 5; i++) {
 		boss_sprite[i-1] = loadImage("Sprites/phoenix/Animation_005/Picture" + i + ".png");
@@ -194,10 +196,6 @@ function draw() {
 		default:
 			level = 0;
 	}
-	
-	if (level != 7) {
-		level7_music.stop();
-	}
 }
 
 function keyPressed() {
@@ -229,6 +227,7 @@ function keyPressed() {
 		trail.splice(0,trail.length);	
 		next_ok = false;
 		timer = -5;
+		stopMusic();
 		//ball.jumps = 0;			
 	} 
 	if (keyCode === SHIFT) {
@@ -255,6 +254,7 @@ function keyPressed() {
 		trail.splice(0,trail.length);	
 		next_ok = false;
 		timer = -5;
+		stopMusic();
 		// ball.deathCount[level] = 0; Not sure if I want this here or not. Might make it too easy to get the perfect run through
 	}
 	/*
@@ -375,3 +375,9 @@ addTrail = function() {
 	
 }
 
+stopMusic = function() {
+	level7_music.stop();
+	level10_music_1.stop();
+	charge_sfx.stop();
+	rumble_sfx.stop();
+}
