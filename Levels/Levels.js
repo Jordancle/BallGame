@@ -18,6 +18,8 @@ function Levels() {
 	this.blockIndex = 0;		// used to see which block is at which blocks array index
 	this.words;
 	this.boss;
+	this.cameraTrigger = [];	// Array used to trigger camera movements
+	this.cameraCounter = 0;		// Used to count through camera incrementions
 	this.updateTest = function() {
 		
 		blocks.splice(0,blocks.length);		// Removes any previous blocks
@@ -32,16 +34,16 @@ function Levels() {
 		
 	}
 
-	this.moveCameraOnBlock = function(block,cameraIndex,speed,distance) {
-		if (block.contact == true && this.cameraMoved[cameraIndex] != true) {
-			if (this.counter == 0) {
+	this.moveCamera = function(trigger,cameraIndex,speed,distance) {
+		if (trigger == true && this.cameraMoved[cameraIndex] != true) {
+			if (this.cameraCounter == 0) {
 				cameraPan_sfx.play();
 			}
 			camera.position.y += speed;
-			this.counter += speed;
-			if (this.counter <= distance) {
+			this.cameraCounter += speed;
+			if ((this.cameraCounter <= distance && speed < 0) || (this.cameraCounter >= distance && speed > 0)) {
 				this.cameraMoved[cameraIndex] = true;
-				this.counter = 0;
+				this.cameraCounter = 0;
 			}
 		}
 	}

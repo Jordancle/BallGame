@@ -1,11 +1,16 @@
 updateLevel10 = function(levels) {
     levels.screenWrap = true;
     levels.upperBound = false;
+    ball.canFall = false;       // Used for moving camera downwards
     levels.counter = 0;
     // levels.words = "Quite unfortunate for you to end up here, \nisn't it?";
     levels.words = "\t\t\t\tSup Bro";
+    // Reset Camera moved array
     for (var i = 0; i < levels.cameraMoved.length; i++) {
         levels.cameraMoved[i] = false;
+    }
+    for (var i = 0; i < levels.cameraTrigger.length; i++) {
+        levels.cameraTrigger[i] = false;
     }
     blocks.splice(0,blocks.length);		// Removes any previous blocks
     levels.blockIndex = 0;
@@ -31,6 +36,9 @@ updateLevel10 = function(levels) {
 
 level10 = function(levels) {
     background(0);
+    image(level7_img, 0, 0);
+    image(level7_img, 0, 1320);
+    image(level7_img, 0, 3240);
     // image(level6_Angela, 0, 0);
     if (frameCount%5 == 1) {
         levels.counter++;
@@ -59,6 +67,48 @@ level10 = function(levels) {
     // levels.boss.show();
     // animation(boss_sprite,0,0);
     
+    // check for levels.cameraTrigger so that this if statement only happens once
+    if (ball.y > levels.height/2 + ball.radius*2 + camera.position.y && levels.cameraTrigger[0] != true) {
+        levels.cameraTrigger[0] = true;
+        ball.saveX = ball.xVelocity;
+        ball.saveY = ball.yVelocity;
+        console.log(ball.saveY);
+    }
+    if (levels.cameraTrigger[0] == true && levels.cameraMoved[0] != true) {
+        ball.yVelocity = 0;
+        ball.xVelocity = 0;
+        ball.gravity = 0;
+    } else if (levels.cameraTrigger[0] == true && levels.cameraMoved[0] == true && ball.saveX != 0 && ball.saveY != 0 && levels.cameraTrigger[1] != true) {      // Restore Ball velocity state
+        console.log(ball.saveY);
+        ball.xVelocity = ball.saveX;
+        ball.yVelocity = ball.saveY;
+        ball.saveX = 0;
+        ball.saveY = 0;
+        ball.gravity = 1;
+    }
+    levels.moveCamera(levels.cameraTrigger[0],0,5,400);
+   
+    // check for levels.cameraTrigger so that this if statement only happens once
+    if (ball.y > levels.height/2 + ball.radius*2 + camera.position.y && levels.cameraTrigger[1] != true && levels.cameraMoved[0] == true) {
+        levels.cameraTrigger[1] = true;
+        ball.saveX = ball.xVelocity;
+        ball.saveY = ball.yVelocity;
+        console.log(ball.saveY);
+    }
+    if (levels.cameraTrigger[1] == true && levels.cameraMoved[1] != true) {
+        ball.yVelocity = 0;
+        ball.xVelocity = 0;
+        ball.gravity = 0;
+    } else if (levels.cameraTrigger[1] == true && levels.cameraMoved[1] == true && ball.saveX != 0 && ball.saveY != 0) {      // Restore Ball velocity state
+        //console.log(ball.saveY);
+        ball.xVelocity = ball.saveX;
+        ball.yVelocity = ball.saveY;
+        ball.saveX = 0;
+        ball.saveY = 0;
+        ball.gravity = 1;
+    }
+    levels.moveCamera(levels.cameraTrigger[1],1,5,400);
+
     var typing = levels.words.slice(0,levels.counter);
     push();
     textSize(40);

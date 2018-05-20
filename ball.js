@@ -31,7 +31,12 @@ function Ball() {
 	this.energy = false;	// For attacking in the final battle
 	this.charged = false;
 	this.fired = false;
-	
+
+	// Mainly for the final level where you fall to move the camera
+	this.canFall = true;
+	this.saveX = 0;
+	this.saveY = 0;
+
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -100,10 +105,10 @@ function Ball() {
 		 * bounce caused yVelocity to = -15, but this was changed to
 		 * -yVelocity instead
 		 */
-		if (this.y > levels.height) {
+		if (this.y > levels.height && this.canFall ) {
 			this.death(levels);
 		}
-		if (this.y > levels.height/2 + ball.radius*2 + camera.position.y && !ball.rotating) {
+		if (this.y > levels.height/2 + ball.radius*2 + camera.position.y && !ball.rotating && this.canFall) {
 			this.death(levels);
 		}
 		if (this.y > levels.height + camera.position.y && ball.rotating) {
@@ -158,27 +163,29 @@ function Ball() {
 		
 		// Ball.drag used to be a constant 0.5
 		// Ball. gravity used to be a constant 1
-		if ((keyIsDown(32) && this.yVelocity < 0) || (mouseIsPressed && this.yVelocity < 0)) {
-			this.gravity = 0.9;
-			if (this.dragOff == false) {
-				this.drag = 0.3;
+		// Ball.gravity should not equal so that other functions can turn gravity off
+		if (this.gravity != 0) {
+			if ((keyIsDown(32) && this.yVelocity < 0) || (mouseIsPressed && this.yVelocity < 0)) {
+				this.gravity = 0.9;
+				if (this.dragOff == false) {
+					this.drag = 0.3;
+				} else {
+					this.drag = 0.1;
+					addTrail();
+					this.trails = 5;
+				}
+				
 			} else {
-				this.drag = 0.1;
-				addTrail();
-				this.trails = 5;
-			}
-			
-		} else {
-			this.gravity = 1.1;
-			if (this.dragOff == false) {
-				this.drag = 0.5; // 0.6
-			} else {
-				this.drag = 0.1;
-				addTrail();
-				this.trails = 5;
+				this.gravity = 1.1;
+				if (this.dragOff == false) {
+					this.drag = 0.5; // 0.6
+				} else {
+					this.drag = 0.1;
+					addTrail();
+					this.trails = 5;
+				}
 			}
 		}
-		
 	}
 	
 	this.jump = function() {

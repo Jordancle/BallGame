@@ -98,8 +98,9 @@ class EnergyBall {
 			ball.xVelocity = 80;
 			ball.yVelocity = 0;
 			ball.gravity = 1;
-			camera.position.x = this.width/2;
-			camera.position.y = this.height/2;
+			camera.position.x = levels.width/2;
+			camera.position.y = levels.height/2;
+			// camera(this.width/2; this.height/2)
 			camera.zoom = 1;
 		}
 		

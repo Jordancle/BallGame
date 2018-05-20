@@ -2,6 +2,7 @@ updateLevel7 = function(levels) {
     levels.screenWrap = true;
     levels.upperBound = false;
     levels.counter = 0;
+    // Reset cameraMoved array
     for (var i = 0; i < levels.cameraMoved.length; i++) {
         levels.cameraMoved[i] = false;
     }
@@ -79,9 +80,9 @@ level7 = function(levels) {
         ball.needUpdate = false;
     }
     
-    levels.moveCameraOnBlock(blocks[5],0,-levels.cameraSpeed,-350);
-    levels.moveCameraOnBlock(blocks[9],1,-levels.cameraSpeed,-300);
-    levels.moveCameraOnBlock(blocks[10],2,-levels.cameraSpeed,-200);
+    levels.moveCamera(blocks[5].contact,0,-levels.cameraSpeed,-350);
+    levels.moveCamera(blocks[9].contact,1,-levels.cameraSpeed,-300);
+    levels.moveCamera(blocks[10].contact,2,-levels.cameraSpeed,-200);
     
     for (var i = 0; i < blocks.length; i++) {
         blocks[i].show();
