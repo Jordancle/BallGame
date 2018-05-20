@@ -8,6 +8,7 @@ var blocks = [];
 var trail = [];
 var jump_sfx, reverse_jump_sfx;
 var bump_sfx;
+var cameraPan_sfx;
 var win_sfx, death_sfx;
 var level7_music, rumble_sfx;
 var bg_music;
@@ -22,14 +23,15 @@ var boss_sprite = [];
 
 function preload() {
 	soundFormats('mp3');
-	jump_sfx = loadSound("sounds/mb_jump.mp3");
-	bump_sfx = loadSound("sounds/smb_bump.mp3");
-	win_sfx = loadSound("sounds/smas_1up.mp3");
-	death_sfx = loadSound("sounds/smb3_player_down.mp3");
-	reverse_jump_sfx = loadSound("sounds/smw_spin_jump.wav");
-	charge_sfx = loadSound("sounds/Megaman X Charge.mp3");
-	shot_sfx = loadSound("sounds/Megaman X Shot.mp3");
-	rumble_sfx = loadSound("sounds/Super Metroid Explosions.mp3");
+	jump_sfx = loadSound("Sounds/mb_jump.mp3");
+	bump_sfx = loadSound("Sounds/smb_bump.mp3");
+	win_sfx = loadSound("Sounds/smas_1up.mp3");
+	death_sfx = loadSound("Sounds/smb3_player_down.mp3");
+	reverse_jump_sfx = loadSound("Sounds/smw_spin_jump.wav");
+	charge_sfx = loadSound("Sounds/Megaman X Charge.mp3");
+	shot_sfx = loadSound("Sounds/Megaman X Shot.mp3");
+	rumble_sfx = loadSound("Sounds/Super Metroid Explosions.mp3");
+	cameraPan_sfx = loadSound("Sounds/sm64_camera_spin.wav");
 	level_select_img = loadImage("Images/Level_Select_Cloud.png");
 	level1_img = loadImage("Images/Level1.png");
 	level2_img = loadImage("Images/Level2.png");
@@ -41,8 +43,8 @@ function preload() {
 	level7_img = loadImage("Images/Level7.png");
 	arrowLeft_img = loadImage("Images/arrowLeft.png");
 	arrowRight_img = loadImage("Images/arrowRight.png");
-	// bg_music = loadSound("sounds/a.mp3");
-	level7_music = loadSound("sounds/Speedy Comet.mp3");
+	// bg_music = loadSound("Sounds/a.mp3");
+	level7_music = loadSound("Music/Speedy Comet.mp3");
 	// boss_sprite = loadAnimation("Sprites/phoenix/Animation_005/Picture1.png","Sprites/phoenix/Animation_005/Picture5.png");
 	for (var i = 1; i <= 5; i++) {
 		boss_sprite[i-1] = loadImage("Sprites/phoenix/Animation_005/Picture" + i + ".png");

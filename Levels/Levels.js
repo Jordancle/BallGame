@@ -34,6 +34,9 @@ function Levels() {
 
 	this.moveCameraOnBlock = function(block,cameraIndex,speed,distance) {
 		if (block.contact == true && this.cameraMoved[cameraIndex] != true) {
+			if (this.counter == 0) {
+				cameraPan_sfx.play();
+			}
 			camera.position.y += speed;
 			this.counter += speed;
 			if (this.counter <= distance) {

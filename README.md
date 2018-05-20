@@ -17,3 +17,15 @@ There are a variety of different colored blocks in this game, play to find out w
 ### Credits:
 Game created by Jordan Le<br />
 Background Image 6 by Angela Le<br />
+
+#### Music:
+Speedy Comet - Super Mario Galaxy
+
+#### Sound Effects
+Mario Brothers
+Megaman X
+Super Mario Bros.
+Super Mario Bros. 3
+Super Mario World
+Super Mario All Stars
+Super Metroid
