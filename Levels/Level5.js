@@ -1,8 +1,8 @@
-this.updateLevel5 = function() {
-    this.screenWrap = false;
-    this.upperBound = true;
+function updateLevel5 (levels) {
+    levels.screenWrap = false;
+    levels.upperBound = true;
     blocks.splice(0,blocks.length);		// Removes any previous blocks
-    this.blockIndex = 0;
+    levels.blockIndex = 0;
     blocks.push(new RegBlock(0,500,120,100));
     blocks.push(new RollBlock(0,300,220,50));
     blocks.push(new RegBlock(0,350,20,150));
@@ -14,7 +14,7 @@ this.updateLevel5 = function() {
     blocks.push(new RegBlock(650,0,20,250));
     blocks.push(new RegBlock(650,0,350,20));
     
-    blocks.push(new WinBlock(775,100,205,20));
+    blocks.push(new WinBlock(800,100,180,20));
     blocks.push(new RegBlock(700,500,200,100));
     blocks.push(new ReverseBlock(900,120,20,480));
     blocks.push(new RegBlock(920,120,80,480));
@@ -23,15 +23,15 @@ this.updateLevel5 = function() {
     
     
     
-    this.width = 1000;
-    this.height = 600;
-    this.startX = 200; // 40
-    this.startY = 400; // 400
-    this.startXVelocity = 20;
-    this.startYVelocity = 0;
-    camera.position.x = this.width/2;
-    camera.position.y = this.height/2;
-    createCanvas(this.width ,this.height);
+    levels.width = 1000;
+    levels.height = 600;
+    levels.startX = 200; // 40
+    levels.startY = 400; // 400
+    levels.startXVelocity = 20;
+    levels.startYVelocity = 0;
+    camera.position.x = levels.width/2;
+    camera.position.y = levels.height/2;
+    createCanvas(levels.width ,levels.height);
     image(level5_img, 0, 0);
 }
 
