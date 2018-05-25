@@ -37,6 +37,8 @@ function Ball() {
 	this.saveX = 0;
 	this.saveY = 0;
 
+	this.canJump = true;
+
 	this.start = function(levels) {
 		this.x = levels.startX;
 		this.y = levels.startY;
@@ -51,6 +53,8 @@ function Ball() {
 		this.lag = -1;
 		this.energy = false;
 		camera.zoom = 1;
+		this.canJump = true;
+		this.gravity = 1;
 	}
 	
 	this.death = function(levels) {
@@ -129,11 +133,13 @@ function Ball() {
 			if (this.x > width) {
 				this.x = 0;
 				this.rotating = false;
+				this.gravity = 1;
 				this.lag = -1;
 			} 
 			if (this.x < 0) {
 				this.x = width;
 				this.rotating = false;
+				this.gravity = 1;
 				this.lag = -1;
 			}
 		} else {
@@ -212,7 +218,7 @@ function Ball() {
 				this.lag = -1;
 				this.jumps--;
 			}
-		} else {
+		} else if (this.canJump == true) {
 			jump_sfx.play();
 			this.yVelocity = -20;
 			// this.bounce = 1

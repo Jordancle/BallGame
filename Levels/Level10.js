@@ -31,7 +31,7 @@ updateLevel10 = function(levels) {
     createCanvas(levels.width ,levels.height);
     background(0);
     level10_music_1.stop();
-    level10_music_1.play();
+    // level10_music_1.play();
 }
 
 level10 = function(levels) {
@@ -49,6 +49,7 @@ level10 = function(levels) {
     
     if (levels.needUpdate) {
         updateLevel10(levels);
+        levels.update();
         levels.needUpdate = false;
     }
     if(ball.needUpdate) {
@@ -67,6 +68,7 @@ level10 = function(levels) {
     // levels.boss.show();
     // animation(boss_sprite,0,0);
     
+    // levels.screenShift(0,5,600);
     // check for levels.cameraTrigger so that this if statement only happens once
     if (ball.y > levels.height/2 + ball.radius*2 + camera.position.y && levels.cameraTrigger[0] != true) {
         levels.cameraTrigger[0] = true;
@@ -86,7 +88,7 @@ level10 = function(levels) {
         ball.saveY = 0;
         ball.gravity = 1;
     }
-    levels.moveCamera(levels.cameraTrigger[0],0,5,400);
+    levels.moveCamera(levels.cameraTrigger[0],0,5,600);
    
     // check for levels.cameraTrigger so that this if statement only happens once
     if (ball.y > levels.height/2 + ball.radius*2 + camera.position.y && levels.cameraTrigger[1] != true && levels.cameraMoved[0] == true) {
@@ -100,14 +102,13 @@ level10 = function(levels) {
         ball.xVelocity = 0;
         ball.gravity = 0;
     } else if (levels.cameraTrigger[1] == true && levels.cameraMoved[1] == true && ball.saveX != 0 && ball.saveY != 0) {      // Restore Ball velocity state
-        //console.log(ball.saveY);
         ball.xVelocity = ball.saveX;
         ball.yVelocity = ball.saveY;
         ball.saveX = 0;
         ball.saveY = 0;
         ball.gravity = 1;
     }
-    levels.moveCamera(levels.cameraTrigger[1],1,5,400);
+    levels.moveCamera(levels.cameraTrigger[1],1,5,600);
 
     var typing = levels.words.slice(0,levels.counter);
     push();
