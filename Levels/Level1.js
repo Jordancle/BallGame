@@ -25,13 +25,11 @@
 // }
 
 function updateLevel1_1(levels) {
-	levels.screenWrap = true;
-	levels.upperBound = true;
-	blocks.splice(0, blocks.length);		// Removes any previous blocks
-	levels.blockIndex = 0;
+	
+	levels.update();
+
 	blocks.push(new RegBlock(0, 350, 100, 20));
 	blocks.push(new WinBlock(225, 350, 100, 20));
-
 
 	levels.width = 400;
 	levels.height = 600;
@@ -40,8 +38,6 @@ function updateLevel1_1(levels) {
 	levels.startXVelocity = 0;
 	levels.startYVelocity = 0;
 
-	camera.position.x = levels.width / 2;
-	camera.position.y = levels.height / 2;
 	createCanvas(levels.width, levels.height);
 	image(level1_img, 0, 0);
 
@@ -79,10 +75,8 @@ level1_1 = function (levels) {
 }
 
 updateLevel1_2 = function (levels) {
-	levels.screenWrap = true;
-	levels.upperBound = true;
-	blocks.splice(0, blocks.length);		// Removes any previous blocks
-	levels.blockIndex = 0;
+
+	levels.update();
 	blocks.push(new WinBlock(300, 300, 100, 20));
 	blocks.push(new RegBlock(0, 350, 100, 20));
 
@@ -92,8 +86,7 @@ updateLevel1_2 = function (levels) {
 	levels.startY = 320;
 	levels.startXVelocity = 0;
 	levels.startYVelocity = 0;
-	camera.position.x = levels.width / 2;
-	camera.position.y = levels.height / 2;
+	
 	createCanvas(levels.width, levels.height);
 	image(level1_img, 0, 0);
 

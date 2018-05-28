@@ -100,7 +100,11 @@ function Ball() {
 		if (this.rotating == true && this.lag == -1) {
 			this.lag = 10;
 		}
-		this.yVelocity += this.gravity;
+		
+		// terminal velocity
+		if (this.yVelocity < 40) {
+			this.yVelocity += this.gravity;
+		}
 		this.y += this.yVelocity;
 		this.x += this.xVelocity
 		
@@ -112,7 +116,7 @@ function Ball() {
 		if (this.y > levels.height && this.canFall ) {
 			this.death(levels);
 		}
-		if (this.y > levels.height/2 + ball.radius*2 + camera.position.y && !ball.rotating && this.canFall) {
+		if (this.y > levels.height/2 + ball.radius + camera.position.y && !ball.rotating && this.canFall) {
 			this.death(levels);
 		}
 		if (this.y > levels.height + camera.position.y && ball.rotating) {

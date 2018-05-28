@@ -100,6 +100,12 @@ function Levels() {
 		this.upperBound = true;
 		this.screenWrap = true;
 		this.cameraCounter = 0;		// Used to count through camera incrementions
+		blocks.splice(0);		// Removes any previous blocks
+		cameraBlocks.splice(0);		// Removes any previous blocks
+		ball.canFall = true;
+		camera.position.x = this.width / 2;
+		camera.position.y = this.height / 2;
+		this.blockIndex = 0;
 	}
 
 	this.screenShift = function (cameraIndex, speed, distance) {

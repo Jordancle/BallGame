@@ -16,11 +16,13 @@ var charge_sfx, shot_sfx;
 var timer = -5;
 var next_ok = false;
 var level_select_img, level1_img, level2_img, level3_img, level4_img, level5_img, leve6_img, level6_Angela, level7_img;
+var level10_img;
 var arrowLeft_img, arrowRight_img;
 var level10_music_1;
 var message = 0;
 var clickJump = true;
 var boss_sprite = [];
+var cameraBlocks = [];
 
 function preload() {
 	soundFormats('mp3');
@@ -44,6 +46,7 @@ function preload() {
 	level6_img = loadImage("Images/Level6.png");
 	level6_Angela = loadImage("Images/Level6_Angela.png");
 	level7_img = loadImage("Images/Level7.png");
+	level10_img = loadImage("Images/WindowStainedGlass0051.jpg");
 	arrowLeft_img = loadImage("Images/arrowLeft.png");
 	arrowRight_img = loadImage("Images/arrowRight.png");
 	// bg_music = loadSound("Sounds/a.mp3");
@@ -282,6 +285,7 @@ function keyPressed() {
 function mousePressed() {
 	console.log(mouseX + camera.position.x - levels.width/2);
 	console.log(mouseY + camera.position.y - levels.height/2);
+	console.log(ball.yVelocity);
 	// ball.x = mouseX;
 	// ball.y = mouseY;
 	// console.log(ball.yVelocity);

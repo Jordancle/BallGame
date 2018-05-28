@@ -120,6 +120,9 @@ level7 = function(levels) {
         // Speed up, y position incremented by 5/6 per frame
         if (levels.counter >= 1300 && frameCount%6 != 5 && ball.win == false && keyCode != 65) {
             camera.position.y += -1;
+            console.log("ha");
+        } else {
+            console.log("ho");
         }
         if (levels.counter == 1300) {
             rumble_sfx.play();
