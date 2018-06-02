@@ -1,19 +1,11 @@
 updateLevel10 = function (levels) {
     levels.update();
-    levels.screenWrap = true;
     levels.upperBound = false;
     ball.canFall = false;       // Used for moving camera downwards
-    levels.counter = 0;
+    
     // levels.words = "Quite unfortunate for you to end up here, \nisn't it?";
     levels.words = "\t\t\t\tTest";
-    // Reset Camera moved array
-    for (var i = 0; i < levels.cameraMoved.length; i++) {
-        levels.cameraMoved[i] = false;
-    }
-    for (var i = 0; i < levels.cameraTrigger.length; i++) {
-        levels.cameraTrigger[i] = false;
-    }
-    levels.blockIndex = 0;
+
 
     blocks.push(new RegBlock(0, 300, 200, 20));
     blocks.push(new RegBlock(500, 300, 200, 20));

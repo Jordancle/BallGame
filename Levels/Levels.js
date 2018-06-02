@@ -20,21 +20,21 @@ function Levels() {
 	this.boss;
 	this.cameraTrigger = [];	// Array used to trigger camera movements
 	this.cameraCounter = 0;		// Used to count through camera incrementions
-	this.updateTest = function() {
-		
-		blocks.splice(0,blocks.length);		// Removes any previous blocks
-		blocks.push(new RegBlock(0, 500, 400,100));
-		
+	this.updateTest = function () {
+
+		blocks.splice(0, blocks.length);		// Removes any previous blocks
+		blocks.push(new RegBlock(0, 500, 400, 100));
+
 		this.width = 400;
 		this.height = 600;
 		this.startX = 214;
-		this.startY = this.height/2;
-		createCanvas(this.width ,this.height);
+		this.startY = this.height / 2;
+		createCanvas(this.width, this.height);
 		background(200);
-		
+
 	}
 
-	this.moveCamera = function(trigger,cameraIndex,speed,distance) {
+	this.moveCamera = function (trigger, cameraIndex, speed, distance) {
 		if (trigger == true && this.cameraMoved[cameraIndex] != true) {
 			if (this.cameraCounter == 0) {
 				cameraPan_sfx.play();
@@ -49,42 +49,42 @@ function Levels() {
 			}
 		}
 	}
-	
-	this.winMessage = function(c,r,g,b) {
+
+	this.winMessage = function (c, r, g, b) {
 		if (timer > 0) {
 			timer--;
 		}
 		if (timer == 0) {
 			next_ok = true;
 		}
-		this.messageX = map(timer,40,0,(this.width/2) + camera.position.x - levels.width/2,(this.width/2) + camera.position.x - levels.width/2);
-		this.messageY = map(timer,40,0,-50 + camera.position.y - levels.height/2,(this.height/2) + camera.position.y - levels.height/2);
+		this.messageX = map(timer, 40, 0, (this.width / 2) + camera.position.x - levels.width / 2, (this.width / 2) + camera.position.x - levels.width / 2);
+		this.messageY = map(timer, 40, 0, -50 + camera.position.y - levels.height / 2, (this.height / 2) + camera.position.y - levels.height / 2);
 		if (ball.win == true) {
 			rectMode(RADIUS);
-			fill(r,g,b);
-			rect(this.messageX,this.messageY,this.winWidthRadius,this.winHeightRadius);
+			fill(r, g, b);
+			rect(this.messageX, this.messageY, this.winWidthRadius, this.winHeightRadius);
 			rectMode(CORNER);
 			textSize(45); // 45
 			textAlign(CENTER);
 			fill(c);
-			text("SUCCESS!",this.messageX,this.messageY-70);
+			text("SUCCESS!", this.messageX, this.messageY - 70);
 			if (next_ok == true) {
 				textSize(20);
-				text("Press SPACE to continue",this.messageX,this.messageY-30);
-				text("Press SHIFT\nto RESTART",this.messageX-70,this.messageY+20);
-				text("Press ENTER\nfor MENU",this.messageX+70,this.messageY+20);
+				text("Press SPACE to continue", this.messageX, this.messageY - 30);
+				text("Press SHIFT\nto RESTART", this.messageX - 70, this.messageY + 20);
+				text("Press ENTER\nfor MENU", this.messageX + 70, this.messageY + 20);
 				push();
 				noFill();
 				stroke(c);
-				rect((this.messageX)-135, levels.messageY, 135,50);
-				rect((this.messageX), levels.messageY, 135,50);
+				rect((this.messageX) - 135, levels.messageY, 135, 50);
+				rect((this.messageX), levels.messageY, 135, 50);
 				pop();
 				if (level < 100) {
-					
+
 					if (ball.deathCount[level] > 0) {
-						text("Falls: " + (ball.deathCount[level]) + "\nRank: 🗸",this.messageX,this.messageY+80);
+						text("Falls: " + (ball.deathCount[level]) + "\nRank: 🗸", this.messageX, this.messageY + 80);
 					} else {
-						text("Falls: " + (ball.deathCount[level]) + "\nRank: ★",this.messageX,this.messageY+80);
+						text("Falls: " + (ball.deathCount[level]) + "\nRank: ★", this.messageX, this.messageY + 80);
 						this.perfects[level] = true;
 					}
 					this.complete[level] = true;
@@ -92,20 +92,39 @@ function Levels() {
 				}
 			}
 			textAlign(RIGHT);
-			
+
 		}
-		
+
 	}
-	this.update = function () {
+	this.update = function (width, height, startX, startY, startXVelocity, startYVelocity) {
 		this.upperBound = true;
 		this.screenWrap = true;
 		this.cameraCounter = 0;		// Used to count through camera incrementions
+		ball.canFall = true;
 		blocks.splice(0);		// Removes any previous blocks
 		cameraBlocks.splice(0);		// Removes any previous blocks
-		ball.canFall = true;
+		this.blockIndex = 0;
+		this.blockIndex = 0;
+		this.counter = 0;
+		this.width = width;
+		this.height = height;
+		this.startX = startX;
+		this.startY = startY;
+		this.startXVelocity = startXVelocity;
+		this.startYVelocity = startYVelocity;
 		camera.position.x = this.width / 2;
 		camera.position.y = this.height / 2;
-		this.blockIndex = 0;
+		createCanvas(this.width, this.height);
+		stopMusic();
+		this.needUpdate = false;
+
+		// Reset Camera moved array
+		for (var i = 0; i < levels.cameraMoved.length; i++) {
+			levels.cameraMoved[i] = false;
+		}
+		for (var i = 0; i < levels.cameraTrigger.length; i++) {
+			levels.cameraTrigger[i] = false;
+		}
 	}
 
 	this.screenShift = function (cameraIndex, speed, distance) {
@@ -141,8 +160,8 @@ function Levels() {
 		}
 		levels.moveCamera(levels.cameraTrigger[cameraIndex], cameraIndex, speed, distance);
 	}
-}	
+}
 
-	
+
 
 
