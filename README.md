@@ -1,5 +1,5 @@
 # Bouncing-Ball-Game-BBG-
-My First Game using p5.js framework for Java Script
+My First Game using p5.js framework for Java Script. It is a 2D platform game that is controlled with only **one button!** I created this game to test my abilities to implement unique mechanics with this restriction in mind. I also hope that the "one button" control scheme would allow for inexperienced or disabled gamers to more easily enjoy playing.
 
 ### To play:
 Click on the link: https://jordancle.github.io/BallGame
