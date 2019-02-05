@@ -7,7 +7,7 @@ Click on the link: https://jordancle.github.io/BallGame
 ![](level5.gif)
 
 ### Controls:
-Press **SPACE** to jump!<br />
+Press **SPACE** or **click on screen** to jump!<br />
 Press **ENTER** to go to the Menu! You can click on a level in the Menu to play it!<br />
 Press **SHIFT** to reset the level!<br />
 
