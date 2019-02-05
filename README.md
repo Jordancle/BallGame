@@ -4,6 +4,8 @@ My First Game using p5.js framework for Java Script
 ### To play:
 Click on the link: https://jordancle.github.io/BallGame
 
+![](level5.gif)
+
 ### Controls:
 Press **SPACE** to jump!<br />
 Press **ENTER** to go to the Menu! You can click on a level in the Menu to play it!<br />
