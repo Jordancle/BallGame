@@ -11,11 +11,11 @@ level6 = function(levels) {
         blocks.push(new RollRightBlock(95, 580, 150, 20));
         blocks.push(new RegBlock(225, 225, 20, 215));
         blocks.push(new MoveBlock(245, 245, 225, 335, 255, 105, 180));
-        blocks.push(new DeathBlock(520, 150, 220, 20));
+        // blocks.push(new DeathBlock(520, 150, 220, 20));
         blocks.push(new RegBlock(500, 150, 20, 185));
         blocks.push(new RegBlock(550, 420, 450, 20));
         blocks.push(new MoveBlock(650, 800, 250, 250, 20, 170, 100));
-        blocks.push(new ReverseBlock(550 , 0, 190, 40));
+        blocks.push(new ReverseBlock(520 , 0, 220, 170));
         blocks.push(new WinBlock(740, 150, 130, 20));
         blocks.push(new RegBlock(980, 0, 200, 420));
         image(level6_Angela, 0, 0);
