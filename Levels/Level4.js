@@ -8,7 +8,7 @@ level4 = function (levels) {
         levels.screenWrap = false;
         blocks.push(new WinBlock(900, 150, 100, 20));
         blocks.push(new RegBlock(570, 0, 20, 400));
-        blocks.push(new FallBlock(560, 0, 10, 150));
+        blocks.push(new FallBlock(560, 0, 10, 200));
         blocks.push(new RegBlock(50, 500, 120, 100));
         blocks.push(new RegBlock(100, 0, 20, 300));
         blocks.push(new FallBlock(90, 150, 10, 170));

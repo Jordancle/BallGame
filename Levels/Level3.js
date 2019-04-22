@@ -10,7 +10,8 @@ level3 = function (levels) {
         levels.update(400, 600, 214, 400, 0, 0);
         blocks.push(new WinBlock(200, 50, 100, 20));
         blocks.push(new RegBlock(50, 175, 50, 50));
-        blocks.push(new RegBlock(250, 275, 30, 225));
+        blocks.push(new RegBlock(250, 305, 30, 195));
+        blocks.push(new RegBlock(250, 275, 90, 30));
         blocks.push(new RegBlock(150, 500, 130, 100));
         image(level3_img, 0, 0);
     }
